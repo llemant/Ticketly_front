@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { Buy100tokensComponent } from '../buy100tokens/buy100tokens.component';
+import { Buy10tokensComponent } from '../buy10tokens/buy10tokens.component';
+import { Buy200tokensComponent } from '../buy200tokens/buy200tokens.component';
 
 @Component({
   selector: 'app-achat-tokens',
@@ -13,9 +16,21 @@ export class AchatTokensComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // TODO : ADD A NEW COMPONENT FOR THE DIALOG 
-  openDialog(): void {
-    const dial = this.dialog.open(AchatTokensComponent, {
+
+  openDialog10(): void {
+    const dial = this.dialog.open(Buy10tokensComponent, {
+      width: '250px',
+    });
+  }
+
+  openDialog100(): void {
+    const dial = this.dialog.open(Buy100tokensComponent, {
+      width: '250px',
+    });
+  }
+
+  openDialog200(): void {
+    const dial = this.dialog.open(Buy200tokensComponent, {
       width: '250px',
     });
   }

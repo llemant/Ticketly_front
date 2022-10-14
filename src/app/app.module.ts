@@ -13,6 +13,9 @@ import { FormsModule } from '@angular/forms';
 import { AchatTokensComponent } from './achat-tokens/achat-tokens.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Buy10tokensComponent } from './buy10tokens/buy10tokens.component';
+import { Buy100tokensComponent } from './buy100tokens/buy100tokens.component';
+import { Buy200tokensComponent } from './buy200tokens/buy200tokens.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     DashboardComponent,
     ProfileComponent,
     ConnexionComponent,
-    AchatTokensComponent
+    AchatTokensComponent,
+    Buy10tokensComponent,
+    Buy100tokensComponent,
+    Buy200tokensComponent
   ],
   imports: [
     BrowserModule,

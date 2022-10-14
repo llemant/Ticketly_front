@@ -5,7 +5,7 @@
     <div class="card-body">
       <h5 class="card-title">10 Tokens</h5>
       <p class="card-text">10€</p>
-      <a href="#" class="btn btn-info">Acheter</a>
+      <button mat-raised-button (click)="openDialog10()">Acheter</button>
     </div>        
   </div>
 
@@ -14,7 +14,7 @@
     <div class="card-body">
         <h5 class="card-title">100 Tokens</h5>
         <p class="card-text">100€</p>
-        <a href="#" class="btn btn-info">Acheter</a>
+        <button mat-raised-button (click)="openDialog100()">Acheter</button>
     </div>
   </div>
 
@@ -23,17 +23,11 @@
     <div class="card-body">
         <h5 class="card-title">200 Tokens</h5>
         <p class="card-text">200€</p>
-        <a href="#" class="btn btn-info">Acheter</a>
+        <button mat-raised-button (click)="openDialog200()">Acheter</button>
     </div>
-  </div>
-
-  <div class="example-button-container">
-    <button mat-fab color="primary" (click)="openDialog()">
-      <mat-icon>add</mat-icon>
-    </button>
   </div>
 </div>
 </div><br>
 <div class="d-flex justify-content-center">
-<a href="#" class="btn btn-info text-center">Acheter une quantité personnalisée</a>
+  <button mat-raised-button (click)="openDialog10()">Acheter une quantité personnalisée</button>
 </div>
