@@ -8,7 +8,10 @@ import { AppComponent } from './app.component';
 import { AmisComponent } from './amis/amis.component';
 import { ProfileComponent } from './profile/profile.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ConnexionComponent } from './connexion/connexion.component';
+import { FormsModule } from '@angular/forms';
 import { AchatTokensComponent } from './achat-tokens/achat-tokens.component';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
@@ -17,11 +20,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AmisComponent,
     DashboardComponent,
     ProfileComponent,
+    ConnexionComponent,
     AchatTokensComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     MatButtonModule,
     MatIconModule,
