@@ -10,6 +10,7 @@ import { ConnexionComponent } from './connexion/connexion.component';
 import { FormsModule } from '@angular/forms';
 import { AchatTokensComponent } from './achat-tokens/achat-tokens.component';
 import { HttpClientModule } from '@angular/common/http';
+import { InscriptionComponent } from './inscription/inscription.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
     DashboardComponent,
     ProfileComponent,
     ConnexionComponent,
-    AchatTokensComponent
+    AchatTokensComponent,
+    InscriptionComponent
   ],
   imports: [
     BrowserModule,
