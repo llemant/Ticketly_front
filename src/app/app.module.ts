@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { AmisComponent } from './amis/amis.component';
 import { ProfileComponent } from './profile/profile.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AchatTokensComponent } from './achat-tokens/achat-tokens.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AmisComponent,
     DashboardComponent,
-    ProfileComponent
+    ProfileComponent,
+    AchatTokensComponent
   ],
   imports: [
     BrowserModule,
