@@ -8,6 +8,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { FormsModule } from '@angular/forms';
+import { AchatTokensComponent } from './achat-tokens/achat-tokens.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { FormsModule } from '@angular/forms';
     AmisComponent,
     DashboardComponent,
     ProfileComponent,
-    ConnexionComponent
+    ConnexionComponent,
+    AchatTokensComponent
   ],
   imports: [
     BrowserModule,
