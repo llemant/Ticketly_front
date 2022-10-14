@@ -6,16 +6,20 @@ import { AppComponent } from './app.component';
 import { AmisComponent } from './amis/amis.component';
 import { ProfileComponent } from './profile/profile.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ConnexionComponent } from './connexion/connexion.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     AmisComponent,
     DashboardComponent,
-    ProfileComponent
+    ProfileComponent,
+    ConnexionComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule
   ],
   providers: [],
