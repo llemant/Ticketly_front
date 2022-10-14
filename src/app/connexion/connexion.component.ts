@@ -15,17 +15,17 @@ export class ConnexionComponent implements OnInit {
 
   ngOnInit(): void {
     if(this.authService.isConnected()) {
-      this.route.navigateByUrl('home');
+      this.route.navigateByUrl('dashboard');
     }
-  }
+}
 
-  connexion(val: any) {
+connexion(val: any) {
     this.http.post('http://localhost:8287/login', val).subscribe({
       next: (data) => {
         this.user = data;
         if (this.user != null) {
           this.authService.setUserInSession(this.user);
-          this.route.navigateByUrl('home');
+          this.route.navigateByUrl('dashboard');
         } else {
           this.authService.msgErr = 'Bad credentials';
         }

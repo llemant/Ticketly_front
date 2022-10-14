@@ -1,2 +1,11 @@
 [NAVBAR] 
+
+<div *ngIf="authService.isConnected()">
+    <ul class="nav peach-gradient lighten-3 py-4 mb-4 font-weight-bold z-depth-1 w-100 nav-fill">
+        <li class="nav-item">
+            <a class="nav-link white-text" (click)="authService.disconnect()"> {{ authService.getUserSession().prenom }} {{ authService.getUserSession().nom }} &nbsp; &nbsp; <i class="fas fa-power-off"></i></a>
+        </li>
+    </ul>
+</div>
+
 <router-outlet></router-outlet>
