@@ -19,19 +19,19 @@ export class AchatTokensComponent implements OnInit {
 
   openDialog10(): void {
     const dial = this.dialog.open(Buy10tokensComponent, {
-      width: '250px',
+      width: '45%',
     });
   }
 
   openDialog100(): void {
     const dial = this.dialog.open(Buy100tokensComponent, {
-      width: '250px',
+      width: '45%',
     });
   }
 
   openDialog200(): void {
     const dial = this.dialog.open(Buy200tokensComponent, {
-      width: '250px',
+      width: '45%',
     });
   }
 
