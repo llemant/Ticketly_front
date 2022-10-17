@@ -18,6 +18,8 @@ import { Buy10tokensComponent } from './buy10tokens/buy10tokens.component';
 import { Buy100tokensComponent } from './buy100tokens/buy100tokens.component';
 import { Buy200tokensComponent } from './buy200tokens/buy200tokens.component';
 import { InscriptionOrganisateurComponent } from './inscription-organisateur/inscription-organisateur.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
