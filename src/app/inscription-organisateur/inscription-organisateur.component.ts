@@ -21,7 +21,6 @@ export class InscriptionOrganisateurComponent implements OnInit {
       next: (data) => {
         this.user = data;
         if (this.user != null) {
-          this.authService.setUserInSession(this.user);
           this.route.navigateByUrl('login');
         } else {
           this.authService.msgErr = 'Bad credentials';
