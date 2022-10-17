@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { BddService } from '../services/bdd.service';
 
 @Component({
   selector: 'app-inscription-organisateur',
@@ -25,13 +26,13 @@ export class InscriptionOrganisateurComponent implements OnInit {
   msgSiretIncorrect = "Le format du SIRET est incorrect : il doit contenir 14 chiffres";
 
 
-  constructor(private http: HttpClient, private route: Router, public authService: AuthService) { }
+  constructor(private http: HttpClient, private route: Router, public authService: AuthService, public bddService: BddService) { }
 
   ngOnInit(): void {
   }
 
   inscriptionOrganisateur(val: any) {
-    
+
     this.user = val;
 
     if (this.user.nom == "" || this.user.prenom == "" || this.user.login == "" || this.user.password == "" || this.user.tel == "" || this.user.email == "" || this.user.nomEntreprise == "" || this.user.siret == "") {
@@ -52,7 +53,7 @@ export class InscriptionOrganisateurComponent implements OnInit {
       }
 
       if (this.regexTel.test(this.user.tel) && this.regexMail.test(this.user.email) && this.regexPw.test(this.user.password) && this.regexSiret.test(this.user.siret)) {
-        this.http.post('http://localhost:8287/organisateur', val).subscribe({
+        this.http.post('http://localhost:' + this.bddService.bddPort + '/organisateur', val).subscribe({
           next: (data) => {
             this.authService.msgErr = "";
             this.authService.msgOK = "Inscription réussie : veuillez vous connecter";

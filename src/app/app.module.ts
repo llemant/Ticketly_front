@@ -24,6 +24,8 @@ import { MesticketsComponent } from './mestickets/mestickets.component';
 import { MarketplaceComponent } from './marketplace/marketplace.component';
 import { BoutiqueComponent } from './boutique/boutique.component';
 import { MessagerieComponent } from './messagerie/messagerie.component';
+import { LieuComponent } from './lieu/lieu.component';
+import { EvenementComponent } from './evenement/evenement.component';
 
 
 @NgModule({
@@ -43,7 +45,8 @@ import { MessagerieComponent } from './messagerie/messagerie.component';
     MesticketsComponent,
     MarketplaceComponent,
     BoutiqueComponent,
-    MessagerieComponent
+    MessagerieComponent,
+    LieuComponent
   ],
   imports: [
     BrowserModule,
