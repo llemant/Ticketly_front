@@ -3,6 +3,7 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
 import { Buy100tokensComponent } from '../buy100tokens/buy100tokens.component';
 import { Buy10tokensComponent } from '../buy10tokens/buy10tokens.component';
 import { Buy200tokensComponent } from '../buy200tokens/buy200tokens.component';
+import { BuycustomtokensComponent } from '../buycustomtokens/buycustomtokens.component';
 
 @Component({
   selector: 'app-achat-tokens',
@@ -35,4 +36,9 @@ export class AchatTokensComponent implements OnInit {
     });
   }
 
+  openDialogCustom(): void {
+    const dial = this.dialog.open(BuycustomtokensComponent, {
+      width: '45%',
+    });
+  }
 }

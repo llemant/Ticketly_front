@@ -1,6 +1,7 @@
 <div class="accordion" id="menuPaiement10">
   <!-- DEBUT MENU PAIEMENT CARTE BANCAIRE -->
-  <div class="card">
+  <div class="card text-dark">
+    BILIBILIBILIBILIBILIBILIBILI
     <div class="card-header" id="cartebancaire">
       <h2 class="mb-0">
         <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne"
@@ -18,7 +19,7 @@
           <div class='row'>
             <div class='col-md-2'></div>
             <div class='col-md-8'>
-              <form id="payment-form" #fPay10cb="ngForm" (ngSubmit)="pay10(fPay10cb.value)">
+              <form id="payment-form" #fPayCustomCb="ngForm" (ngSubmit)="payCustom(fPayCustomCb.value)">
                 <div style="margin:0;padding:0;display:inline">
                   <input name="utf8" type="hidden" value="✓" />
                 </div>
@@ -84,7 +85,7 @@
           <div class='row'>
             <div class='col-md-2'></div>
             <div class='col-md-8'>
-              <form id="payment-form" #fPay10pre="ngForm" (ngSubmit)="pay10(fPay10pre.value)">
+              <form id="payment-form" #fPayCustomPre="ngForm" (ngSubmit)="payCustom(fPayCustomPre.value)">
                 <div style="margin:0;padding:0;display:inline">
                   <input name="utf8" type="hidden" value="✓" />
                 </div>

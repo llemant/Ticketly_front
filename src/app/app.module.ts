@@ -19,6 +19,7 @@ import { Buy100tokensComponent } from './buy100tokens/buy100tokens.component';
 import { Buy200tokensComponent } from './buy200tokens/buy200tokens.component';
 import { InscriptionOrganisateurComponent } from './inscription-organisateur/inscription-organisateur.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BuycustomtokensComponent } from './buycustomtokens/buycustomtokens.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     Buy10tokensComponent,
     Buy100tokensComponent,
     Buy200tokensComponent,
-    InscriptionOrganisateurComponent
+    InscriptionOrganisateurComponent,
+    BuycustomtokensComponent
   ],
   imports: [
     BrowserModule,
