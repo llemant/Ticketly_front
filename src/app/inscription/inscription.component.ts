@@ -30,36 +30,34 @@ export class InscriptionComponent implements OnInit {
   }
 
   inscription(val: any) {
-    this.http.post('http://localhost:8287/user', val).subscribe({
-      next: (data) => {
-        this.user = data;
-        if (this.user != null) {
-          if (this.user.nom == "" || this.user.prenom == "" || this.user.login == "" || this.user.password == "" || this.user.tel == "" || this.user.email == "") {
-            this.authService.msgErr = this.msgAttributManquant;
-          } else {
-            if (!this.regexTel.test(this.user.tel)) {
-              this.authService.msgErr = this.msgTelIncorrect;
-            }
-            if (!this.regexMail.test(this.user.email)) {
-              this.authService.msgErr = this.msgEmailIncorrect;
-            }
-            if (!this.regexPw.test(this.user.password)) {
-              this.authService.msgErr = this.msgPSWIncorrect;
-            }
+    this.user = val;
 
+    if (this.user.nom == "" || this.user.prenom == "" || this.user.login == "" || this.user.password == "" || this.user.tel == "" || this.user.email == "") {
+      this.authService.msgErr = this.msgAttributManquant;
+    } else {
 
-            if (this.regexTel.test(this.user.tel) && this.regexMail.test(this.user.email) && this.regexPw.test(this.user.password)) {
-              this.authService.msgErr = ""
-              this.authService.msgOK = "Inscription réussie : veuillez vous connecter"
-              this.route.navigateByUrl('login');
-            }
-          }
-        } else {
-          this.authService.msgErr = this.msgAttributManquant;
-        }
-      },
-      error: (err) => { console.log(err) }
-    });
+      if (!this.regexTel.test(this.user.tel)) {
+        this.authService.msgErr = this.msgTelIncorrect;
+      }
+      if (!this.regexMail.test(this.user.email)) {
+        this.authService.msgErr = this.msgEmailIncorrect;
+      }
+      if (!this.regexPw.test(this.user.password)) {
+        this.authService.msgErr = this.msgPSWIncorrect;
+      }
+
+      if (this.regexTel.test(this.user.tel) && this.regexMail.test(this.user.email) && this.regexPw.test(this.user.password)) {
+        this.http.post('http://localhost:8287/user', val).subscribe({
+          next: (data) => {
+            this.authService.msgErr = "";
+            this.authService.msgOK = "Inscription réussie : veuillez vous connecter";
+            this.route.navigateByUrl('login');
+          },
+          error: (err) => { console.log(err) }
+        })
+
+      }
+    };
+
   }
-
 }
