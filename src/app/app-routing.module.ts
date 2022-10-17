@@ -20,12 +20,12 @@ const routes: Routes = [
   {path: 'inscription', component: InscriptionComponent},
   {path: 'evenement', component : EvenementComponent },
   {path: 'mestickets', component : MesticketsComponent},
-  {path: 'mestickets', component : MesticketsComponent},
   {path: 'mesamis', component : AmisComponent},
   {path: 'marketplace', component : MarketplaceComponent},
   {path: 'boutique', component : BoutiqueComponent},
   {path: 'messagerie', component : MessagerieComponent},
   {path: 'profile', component : ProfileComponent},
+  {path: 'inscriptionOrganisateur', component: InscriptionOrganisateurComponent}
 ];
 
 
