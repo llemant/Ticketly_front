@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
   msgErr: any;
+  msgOK: any;
 
   constructor(private route: Router) { }
 
