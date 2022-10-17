@@ -1,6 +1,4 @@
 .titre-texte {
-
-
     font-family: 'Commissioner';
     font-style: normal;
     font-weight: 600;
@@ -17,21 +15,26 @@
 .titre-box {
 
 
-    margin-left: auto;
-    margin-right: auto;
-    width: 371px;
+    /* margin-left: auto;
+    margin-right: auto; */
+    /* width: 371px; */
     height: 51px;
 
     background: #36484B;
     border-radius: 16px;
 }
+.center{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
 
 .image-placeholder {
-    
-    
     width: 371px;
     height: 209px;
     align-items: center;
     border-radius: 16px;
     justify-content: center;
+
 }

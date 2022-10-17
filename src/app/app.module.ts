@@ -19,6 +19,7 @@ import { Buy100tokensComponent } from './buy100tokens/buy100tokens.component';
 import { Buy200tokensComponent } from './buy200tokens/buy200tokens.component';
 import { InscriptionOrganisateurComponent } from './inscription-organisateur/inscription-organisateur.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BuycustomtokensComponent } from './buycustomtokens/buycustomtokens.component';
 import { MesticketsComponent } from './mestickets/mestickets.component';
 import { MarketplaceComponent } from './marketplace/marketplace.component';
 import { BoutiqueComponent } from './boutique/boutique.component';
@@ -39,6 +40,7 @@ import { LieuComponent } from './lieu/lieu.component';
     Buy100tokensComponent,
     Buy200tokensComponent,
     InscriptionOrganisateurComponent,
+    BuycustomtokensComponent,
     MesticketsComponent,
     MarketplaceComponent,
     BoutiqueComponent,
@@ -48,6 +50,7 @@ import { LieuComponent } from './lieu/lieu.component';
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
