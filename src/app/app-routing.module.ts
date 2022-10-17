@@ -26,6 +26,7 @@ const routes: Routes = [
   {path: 'boutique', component : BoutiqueComponent},
   {path: 'messagerie', component : MessagerieComponent},
   {path: 'profile', component : ProfileComponent},
+  {path: 'inscriptionOrganisateur', component: InscriptionOrganisateurComponent}
 ];
 
 
