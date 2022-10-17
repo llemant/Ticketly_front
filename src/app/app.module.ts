@@ -40,6 +40,7 @@ import { BuycustomtokensComponent } from './buycustomtokens/buycustomtokens.comp
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,

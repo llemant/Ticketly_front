@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 
 @Component({
@@ -9,6 +10,7 @@ import { AuthService } from '../services/auth.service';
 })
 export class BuycustomtokensComponent implements OnInit {
 
+  number = new FormControl('');
   constructor(private http: HttpClient, private authService: AuthService) { }
 
   ngOnInit(): void {
@@ -16,7 +18,8 @@ export class BuycustomtokensComponent implements OnInit {
 
   // TODO : Ajouter un message "vous avez maintenant X tokens"
   payCustom(val:any) {
-    this.http.patch('http://localhost:8287/token/add/10/' + this.authService.getUserSession().id , val).subscribe({
+
+    this.http.patch('http://localhost:8287/token/add/' + this.number.value + '/' + this.authService.getUserSession().id , val).subscribe({
 
     })
   }

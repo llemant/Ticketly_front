@@ -10,6 +10,8 @@ import { BuycustomtokensComponent } from '../buycustomtokens/buycustomtokens.com
   templateUrl: './achat-tokens.component.html',
   styleUrls: ['./achat-tokens.component.css']
 })
+
+
 export class AchatTokensComponent implements OnInit {
 
   constructor(private dialog: MatDialog) { }
