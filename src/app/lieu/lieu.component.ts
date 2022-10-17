@@ -4,11 +4,11 @@ import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../services/auth.service';
 
 @Component({
-  selector: 'app-evenement',
-  templateUrl: './evenement.component.html',
-  styleUrls: ['./evenement.component.css']
+  selector: 'app-lieu',
+  templateUrl: './lieu.component.html',
+  styleUrls: ['./lieu.component.css']
 })
-export class EvenementComponent implements OnInit {
+export class LieuComponent implements OnInit {
 
   constructor(private http: HttpClient, private route: Router, public authService: AuthService) { }
 

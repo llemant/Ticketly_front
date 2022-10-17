@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { Buy100tokensComponent } from '../buy100tokens/buy100tokens.component';
 import { Buy10tokensComponent } from '../buy10tokens/buy10tokens.component';
 import { Buy200tokensComponent } from '../buy200tokens/buy200tokens.component';
 import { BuycustomtokensComponent } from '../buycustomtokens/buycustomtokens.component';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-achat-tokens',
@@ -14,9 +16,12 @@ import { BuycustomtokensComponent } from '../buycustomtokens/buycustomtokens.com
 
 export class AchatTokensComponent implements OnInit {
 
-  constructor(private dialog: MatDialog) { }
+  constructor(private dialog: MatDialog, public authService: AuthService, private route: Router) { }
 
   ngOnInit(): void {
+    if(!this.authService.isConnected()) {
+      this.route.navigateByUrl('login');
+    }
   }
 
 
