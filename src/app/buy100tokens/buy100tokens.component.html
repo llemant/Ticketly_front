@@ -1,111 +1,112 @@
 <div class="accordion" id="menuPaiement100">
-    <!-- DEBUT MENU PAIEMENT CARTE BANCAIRE -->
-    <div class="card">
-      <div class="card-header" id="cartebancaire">
-        <h2 class="mb-0">
-          <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne"
-            aria-expanded="false" aria-controls="collapseOne">
-            Payer par carte bancaire
-          </button>
-        </h2>
-      </div>
-  
-      <div id="collapseOne" class="collapse" aria-labelledby="cartebancaire" data-parent="#menuPaiement100">
-        <div class="card-body text-dark text-center">
-          <h2>CARTE BANCAIRE</h2>
-          <!-- DEBUT FORMULAIRE CARTE BANCAIRE -->
-          <div class="container">
-            <div class='row'>
-              <div class='col-md-2'></div>
-              <div class='col-md-8'>
-                <form id="payment-form" #fPay100cb="ngForm" (ngSubmit)="pay100(fPay100cb.value)">
-                  <div style="margin:0;padding:0;display:inline">
-                    <input name="utf8" type="hidden" value="✓" />
+  <!-- DEBUT MENU PAIEMENT CARTE BANCAIRE -->
+  <div class="card">
+    <div class="card-header" id="cartebancaire">
+      <h2 class="mb-0">
+        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne"
+          aria-expanded="false" aria-controls="collapseOne">
+          Payer par carte bancaire
+        </button>
+      </h2>
+    </div>
+
+    <div id="collapseOne" class="collapse" aria-labelledby="cartebancaire" data-parent="#menuPaiement100">
+      <div class="card-body text-dark text-center">
+        <h2>CARTE BANCAIRE</h2>
+        <!-- DEBUT FORMULAIRE CARTE BANCAIRE -->
+        <div class="container">
+          <div class='row'>
+            <div class='col-md-2'></div>
+            <div class='col-md-8'>
+              <form id="payment-form" #fPay100cb="ngForm" (ngSubmit)="pay100(fPay100cb.value)">
+                <div class='form-row'>
+                  <div class='col-12 form-group'>
+                    <label class='control-label'>Nom du détenteur</label>
+                    <input name='nom' ngModel="" class='form-control' size='4' type='text'>
                   </div>
-                  <div class='form-row'>
-                    <div class='col-12 form-group required'>
-                      <label class='control-label'>Nom du détenteur</label>
-                      <input class='form-control' size='4' type='text'>
-                    </div>
+                </div>
+                <div class='form-row'>
+                  <div class='col-12 form-group'>
+                    <label class='control-label'>Numéro de carte</label>
+                    <input name = "numcarte" ngModel="" class='form-control' placeholder='À saisir sans espaces'
+                      size='20' type='text'>
                   </div>
-                  <div class='form-row'>
-                    <div class='col-12 form-group required'>
-                      <label class='control-label'>Numéro de carte</label>
-                      <input autocomplete='off' class='form-control card-number' placeholder='À saisir sans espaces'
-                        size='20' type='text'>
-                    </div>
+                </div>
+                <div class='form-row'>
+                  <div class='col-3 form-group'>
+                    <label class='control-label'>CVC</label>
+                    <input name ="cvc" ngModel="" class='form-control' placeholder='ex. 311' size='4' type='text'>
                   </div>
-                  <div class='form-row'>
-                    <div class='col-3 form-group cvc required'>
-                      <label class='control-label'>CVC</label>
-                      <input autocomplete='off' class='form-control card-cvc' placeholder='ex. 311' size='4' type='text'>
-                    </div>
-                    <div class='col-3 form-group expiration required'>
-                    </div>
-                    <div class='col-3 form-group expiration required'>
-                      <label class='control-label'>Expiration</label>
-                      <input class='form-control card-expiry-month' placeholder='MM' size='2' type='text'>
-                    </div>
-                    <div class='col-3 form-group expiration required'>
-                      <label class='control-label'> </label>
-                      <input class='form-control card-expiry-year' placeholder='YYYY' size='4' type='text'>
-                    </div>
+                  <div class='col-3 form-group'>
                   </div>
-                  <div class='form-row'>
-                    <div class='col-12 form-group'>
-                      <button class='form-control btn-primary submit-button' type='submit'>Payer »</button>
-                    </div>
+                  <div class='col-3 form-group'>
+                    <label class='control-label'>Expiration</label>
+                    <input name = 'moisexp' ngModel="" class='form-control' placeholder='MM' size='2' type='text'>
                   </div>
-                </form>
-              </div>
+                  <div class='col-3 form-group'>
+                    <label class='control-label'> &nbsp;</label>
+                    <input name='anexp' ngModel="" class='form-control' placeholder='YYYY' size='4' type='text'>
+                  </div>
+                </div>
+                <div class='form-row'>
+                  <div class='col-12 form-group'>
+                    <button class='form-control btn-primary submit-button' type='submit'>Payer »</button>
+                  </div>
+                  <p class="text-danger">{{ buytokenService.msgErrCB }}</p>
+                  <p class="text-success">{{ buytokenService.msgOKCB }}</p>
+                </div>
+              </form>
             </div>
           </div>
-          <!-- FIN FORMULAIRE CARTE BANCAIRE -->
         </div>
+        <!-- FIN FORMULAIRE CARTE BANCAIRE -->
       </div>
     </div>
-    <!-- FIN MENU PAIEMENT CARTE BANCAIRE -->
-  
-    <!-- DEBUT MENU CARTE PREPAYEE -->
-    <div class="card">
-      <div class="card-header" id="carteprepayee">
-        <h2 class="mb-0">
-          <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-            data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-            Payer avec une carte prépayée
-          </button>
-        </h2>
-      </div>
-      <div id="collapseTwo" class="collapse" aria-labelledby="carteprepayee" data-parent="#menuPaiement100">
-        <div class="card-body text-dark text-center">
-          <h2>CARTE PRÉPAYÉE</h2>
-          <!-- DEBUT FORMULAIRE CARTE PREPAYEE -->
-          <div class="container">
-            <div class='row'>
-              <div class='col-md-2'></div>
-              <div class='col-md-8'>
-                <form id="payment-form" #fPay100pre="ngForm" (ngSubmit)="pay100(fPay100pre.value)">
-                  <div style="margin:0;padding:0;display:inline">
-                    <input name="utf8" type="hidden" value="✓" />
-                  </div>
-                  <div class='form-row'>
-                    <div class='col-12 form-group required'>
-                      <label class='control-label'>Code de la carte prépayée</label>
-                      <input class='form-control' size='4' type='text'>
-                    </div>
-                  </div>
-                  <div class='form-row'>
-                    <div class='col-12 form-group'>
-                      <button class='form-control btn-primary submit-button' type='submit'>Payer »</button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-          <!-- FIN FORMULAIRE CARTE PREPAYEE -->
-        </div>
-      </div>
-    </div>
-    <!-- FIN MENU CARTE PREPAYEE -->
   </div>
+  <!-- FIN MENU PAIEMENT CARTE BANCAIRE -->
+
+  <!-- DEBUT MENU CARTE PREPAYEE -->
+  <div class="card">
+    <div class="card-header" id="carteprepayee">
+      <h2 class="mb-0">
+        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+          data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Payer avec une carte prépayée
+        </button>
+      </h2>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="carteprepayee" data-parent="#menuPaiement100">
+      <div class="card-body text-dark text-center">
+        <h2>CARTE PRÉPAYÉE</h2>
+        <!-- DEBUT FORMULAIRE CARTE PREPAYEE -->
+        <div class="container">
+          <div class='row'>
+            <div class='col-md-2'></div>
+            <div class='col-md-8'>
+              <form id="payment-form" #fPay100pre="ngForm" (ngSubmit)="pay100(fPay100pre.value)">
+                <div style="margin:0;padding:0;display:inline">
+                  <input name="utf8" type="hidden" value="✓" />
+                </div>
+                <div class='form-row'>
+                  <div class='col-12 form-group required'>
+                    <label class='control-label'>Code de la carte prépayée</label>
+                    <input name = "carteprepayee" ngModel="" class='form-control' size='4' type='text'>
+                  </div>
+                </div>
+                <div class='form-row'>
+                  <div class='col-12 form-group'>
+                    <button class='form-control btn-primary submit-button' type='submit'>Payer »</button>
+                  </div>
+                  <p class="text-danger">{{ buytokenService.msgErrPrepayee }}</p>
+                  <p class="text-success">{{ buytokenService.msgOKPrepayee }}</p>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!-- FIN FORMULAIRE CARTE PREPAYEE -->
+      </div>
+    </div>
+  </div>
+  <!-- FIN MENU CARTE PREPAYEE -->
+</div>
