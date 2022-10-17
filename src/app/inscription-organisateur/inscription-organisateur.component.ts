@@ -4,30 +4,26 @@ import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
 @Component({
-  selector: 'app-connexion',
-  templateUrl: './connexion.component.html',
-  styleUrls: ['./connexion.component.css']
+  selector: 'app-inscription-organisateur',
+  templateUrl: './inscription-organisateur.component.html',
+  styleUrls: ['./inscription-organisateur.component.css']
 })
-export class ConnexionComponent implements OnInit {
+export class InscriptionOrganisateurComponent implements OnInit {
   user: any;
   msg: any;
   constructor(private http: HttpClient, private route: Router, public authService: AuthService) { }
 
   ngOnInit(): void {
-    if(this.authService.isConnected()) {
-      this.route.navigateByUrl('dashboard');
-    }
-}
+  }
 
-connexion(val: any) {
-    this.http.post('http://localhost:8287/login', val).subscribe({
+  inscriptionOrganisateur(val: any) {
+    this.http.post('http://localhost:8287/organisateur', val).subscribe({
       next: (data) => {
         this.user = data;
         if (this.user != null) {
-          this.authService.setUserInSession(this.user);
-          this.route.navigateByUrl('dashboard');
+          this.route.navigateByUrl('login');
         } else {
-          this.authService.msgErr = 'Identifiant ou mot de passe invalide';
+          this.authService.msgErr = 'Bad credentials';
         }
       },
       error: (err) => { console.log(err) }

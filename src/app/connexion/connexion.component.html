@@ -11,10 +11,12 @@
                     <input name="password" ngModel="" type="password" class="form-control" placeholder="Password">
                 </div>
                 <button type="submit" class="btn btn-primary btn-sm btn-block">Connexion</button>
-                <button type="button" class="btn btn-link btn-sm btn-block" onclick="location.href = 'inscription'">Inscription</button>
+                <br>
+                <button type="button" class="btn btn-link btn-sm btn-block" onclick="location.href = 'inscription'">Inscription utilisateur</button>
+                <button type="button" class="btn btn-link btn-sm btn-block" onclick="location.href = 'inscriptionOrganisateur'">Inscription organisateur</button>
                 <br>
                 <p class="text-danger">{{ authService.msgErr }}</p>
-                <p class="text-success"></p>
+                <p class="text-success">{{ authService.msgOK }}</p>
             </div>
         </form>
     </div>

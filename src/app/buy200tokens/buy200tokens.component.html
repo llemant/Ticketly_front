@@ -18,7 +18,7 @@
             <div class='row'>
               <div class='col-md-2'></div>
               <div class='col-md-8'>
-                <form accept-charset="UTF-8" action="/" class="require-validation" id="payment-form">
+                <form id="payment-form" #fPay200cb="ngForm" (ngSubmit)="pay200(fPay200cb.value)">
                   <div style="margin:0;padding:0;display:inline">
                     <input name="utf8" type="hidden" value="✓" />
                   </div>
@@ -84,7 +84,7 @@
             <div class='row'>
               <div class='col-md-2'></div>
               <div class='col-md-8'>
-                <form accept-charset="UTF-8" action="/" class="require-validation" id="payment-form">
+                <form id="payment-form" #fPay200pre="ngForm" (ngSubmit)="pay200(fPay200pre.value)">
                   <div style="margin:0;padding:0;display:inline">
                     <input name="utf8" type="hidden" value="✓" />
                   </div>

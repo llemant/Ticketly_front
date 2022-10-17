@@ -1,9 +1,45 @@
-[NAVBAR] 
+<div>
+    <div>
+        <ul class="nav peach-gradient lighten-3 py-4 mb-4 font-weight-bold z-depth-1 w-100 nav-fill">
+            <li class="nav-item">
+                <a class="nav-link active white-text" routerLink="dashboard">Dashboard</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link white-text" routerLink="evenement">Evenements</a>
+            </li>
+            <li class="nav-item">
+
+                <a class="nav-link white-text" routerLink="mestickets">Mes tickets</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link white-text" routerLink="amis">Mes amis</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link white-text" routerLink="marketplace">Marketplace</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link white-text" routerLink="boutique">Boutique</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link white-text" routerLink="messagerie">Messagerie</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link white-text" routerLink="profile">Profil</a>
+            </li>
+
+        </ul>
+    </div>
+</div>
+
+<router-outlet></router-outlet>
+
+
 
 <div *ngIf="authService.isConnected()">
     <ul class="nav peach-gradient lighten-3 py-4 mb-4 font-weight-bold z-depth-1 w-100 nav-fill">
         <li class="nav-item">
-            <a class="nav-link white-text" (click)="authService.disconnect()"> {{ authService.getUserSession().prenom }} {{ authService.getUserSession().nom }} &nbsp; &nbsp; <i class="fas fa-power-off"></i></a>
+            <a class="nav-link white-text" (click)="authService.disconnect()"> {{ authService.getUserSession().prenom }}
+                {{ authService.getUserSession().nom }} &nbsp; &nbsp; <i class="fas fa-power-off"></i></a>
         </li>
     </ul>
 </div>
