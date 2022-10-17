@@ -1,8 +1,10 @@
+<p>inscription-organisateur works!</p>
+
 
 <div class="container">
     <p>inscription works!</p>
     <div style="margin: auto; width: 40%; text-align: center">
-        <form #fLogin="ngForm" (ngSubmit)="inscription(fLogin.value)">
+        <form #fLogin="ngForm" (ngSubmit)="inscriptionOrganisateur(fLogin.value)">
             <div class="card p-2 z-depth-2">
                 <div class="md-form">
                     <input name="nom" ngModel="" type="text" class="form-control" placeholder="Nom">
@@ -21,7 +23,13 @@
                 </div>
                 <div class="md-form">
                     <input name="email" ngModel="" type="text" class="form-control" placeholder="Adresse email">
-                </div>                
+                </div>      
+                <div class="md-form">
+                    <input name="nomEntreprise" ngModel="" type="text" class="form-control" placeholder="Nom de l'entreprise">
+                </div>  
+                <div class="md-form">
+                    <input name="siret" ngModel="" type="text" class="form-control" placeholder="Numéro SIRET de l'entreprise">
+                </div>            
                 <button type="submit" class="btn btn-primary btn-sm btn-block">S'inscrire</button>
                 <button type="button" class="btn btn-link btn-sm btn-block" onclick="location.href = 'inscriptionOrganisateur'">Inscription organisateur</button>
                 <br>
