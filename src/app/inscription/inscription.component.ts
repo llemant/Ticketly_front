@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { BddService } from '../services/bdd.service';
 
 @Component({
   selector: 'app-inscription',
@@ -22,9 +23,11 @@ export class InscriptionComponent implements OnInit {
   msgTelIncorrect = "Le format du numéro de téléphone est incorrect";
   msgEmailIncorrect = "Le format de l'email est incorrect";
   msgPSWIncorrect = "Le format du mot de passe est incorrect : il doit contenir au moins 8 caractères dont un chiffre, une majuscule, une minuscule et un caractère spécial";
+  msgLoginExists = "Cet identifiant n'est pas disponible";
+  msgEmailExists = "Cet email est déjà utilisé";
 
 
-  constructor(private http: HttpClient, private route: Router, public authService: AuthService) { }
+  constructor(private http: HttpClient, private route: Router, public authService: AuthService, public bddService: BddService) { }
 
   ngOnInit(): void {
   }
@@ -46,17 +49,26 @@ export class InscriptionComponent implements OnInit {
         this.authService.msgErr = this.msgPSWIncorrect;
       }
 
-      if (this.regexTel.test(this.user.tel) && this.regexMail.test(this.user.email) && this.regexPw.test(this.user.password)) {
-        this.http.post('http://localhost:8287/user', val).subscribe({
-          next: (data) => {
-            this.authService.msgErr = "";
-            this.authService.msgOK = "Inscription réussie : veuillez vous connecter";
-            this.route.navigateByUrl('login');
-          },
-          error: (err) => { console.log(err) }
-        })
 
+      
+
+      if(this.http.get('http://localhost:' + this.bddService.bddPort + '/user/login/' + this.user.login) != null){
+        this.authService.msgErr = this.msgLoginExists;
+      } else if (this.http.get('http://localhost:' + this.bddService.bddPort + '/user/email/' + this.user.email) != null){
+        this.authService.msgErr = this.msgEmailExists;
+      } else {
+        if (this.regexTel.test(this.user.tel) && this.regexMail.test(this.user.email) && this.regexPw.test(this.user.password)) {
+          this.http.post('http://localhost:' + this.bddService.bddPort + '/user', val).subscribe({
+            next: (data) => {
+              this.authService.msgErr = "";
+              this.authService.msgOK = "Inscription réussie : veuillez vous connecter";
+              this.route.navigateByUrl('login');
+            },
+            error: (err) => { console.log(err) }
+          })  
+        }
       }
+      
     };
 
   }
