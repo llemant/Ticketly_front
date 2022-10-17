@@ -20,6 +20,10 @@ import { Buy200tokensComponent } from './buy200tokens/buy200tokens.component';
 import { InscriptionOrganisateurComponent } from './inscription-organisateur/inscription-organisateur.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BuycustomtokensComponent } from './buycustomtokens/buycustomtokens.component';
+import { MesticketsComponent } from './mestickets/mestickets.component';
+import { MarketplaceComponent } from './marketplace/marketplace.component';
+import { BoutiqueComponent } from './boutique/boutique.component';
+import { MessagerieComponent } from './messagerie/messagerie.component';
 
 
 @NgModule({
@@ -35,7 +39,11 @@ import { BuycustomtokensComponent } from './buycustomtokens/buycustomtokens.comp
     Buy100tokensComponent,
     Buy200tokensComponent,
     InscriptionOrganisateurComponent,
-    BuycustomtokensComponent
+    BuycustomtokensComponent,
+    MesticketsComponent,
+    MarketplaceComponent,
+    BoutiqueComponent,
+    MessagerieComponent
   ],
   imports: [
     BrowserModule,
