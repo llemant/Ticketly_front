@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../services/auth.service';
+import { BddService } from '../services/bdd.service';
+import { CreatelieuService } from '../services/createlieu.service';
 
 @Component({
   selector: 'app-lieu',
@@ -9,10 +11,51 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./lieu.component.css']
 })
 export class LieuComponent implements OnInit {
+  lieu: any;
+  msg: any;
 
-  constructor(private http: HttpClient, private route: Router, public authService: AuthService) { }
+  msgAttributAbsent = "Un attribut est absent dans le formualire";
+  msgPaysIncorrect = "Le pays que vous avez saisi n'est pas correct";
+  msgVilleIncorrect = "La ville que vous avez n'est pas correcte";
+
+    // Regex pour gérer le nom des pays
+  regexPays = new RegExp("'#^([A-Za-z, ])*$#', $pays");
+ 
+  // Regex pour gérer le nom des villes
+  regexVille = new RegExp ("^[a-zA-Z\\u0080-\\u024F.]+((?:[ -.|'])[a-zA-Z\\u0080-\\u024F]+)*$");
+
+
+  constructor(private http: HttpClient, private route: Router, public authService: AuthService, public bddService: BddService, public createlieuService: CreatelieuService) { }
 
   ngOnInit(): void {
   }
 
+  lieuevent(val:any){
+    this.lieu = val;
+
+    if (this.lieu.pays == "" || this.lieu.ville == "" || this.lieu.adresse == "" || this.lieu.nom == "" || this.lieu.capacity) {
+      this.createlieuService.msgErr = this.msgAttributAbsent;
+    }else {
+
+    if (!this.regexPays.test(this.lieu.pays)) {
+      this.createlieuService.msgErr = this.msgPaysIncorrect;
+    }
+    if (!this.regexVille.test(this.lieu.ville)) {
+      this.createlieuService.msgErr = this.msgVilleIncorrect;
+    }
+    if (this.regexPays.test(this.lieu.pays) &&
+    this.regexVille.test(this.lieu.pays)
+    ) {
+      this.http.post('http://localhost:' + this.bddService.bddPort + '/lieu', val).subscribe({
+          next: (data) => {
+            this.createlieuService.msgErr = "";
+            this.createlieuService.msgOK = "Créaton de lieu d'événement réussie";
+            this.route.navigateByUrl('event');
+          },
+          error: (err) => { console.log(err) }
+        })
+
+  }
+  }
+}
 }
