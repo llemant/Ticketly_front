@@ -1,0 +1,38 @@
+
+<div class="container">
+    <p>Page de modification des informations du compte : merci d'entrer les nouvelles valeurs des différents attributs du compte</p>
+    <div style="margin: auto; width: 40%; text-align: center">
+        <form #fLogin="ngForm" (ngSubmit)="modificationOrganisateur(fLogin.value)">
+            <div class="card p-2 z-depth-2">
+                <div class="md-form">
+                    <input name="nom" ngModel="" type="text" class="form-control" placeholder="Nom">
+                </div>
+                <div class="md-form">
+                    <input name="prenom" ngModel="" type="text" class="form-control" placeholder="Prénom">
+                </div>
+                <div class="md-form">
+                    <input name="login" ngModel="" type="text" class="form-control" placeholder="Login">
+                </div>
+                <div class="md-form">
+                    <input name="password" ngModel="" type="password" class="form-control" placeholder="Password">
+                </div>
+                <div class="md-form">
+                    <input name="tel" ngModel="" type="text" class="form-control" placeholder="Numéro de téléphone">
+                </div>
+                <div class="md-form">
+                    <input name="email" ngModel="" type="text" class="form-control" placeholder="Adresse email">
+                </div>      
+                <div class="md-form">
+                    <input name="nomEntreprise" ngModel="" type="text" class="form-control" placeholder="Nom de l'entreprise">
+                </div>  
+                <div class="md-form">
+                    <input name="siret" ngModel="" type="text" class="form-control" placeholder="Numéro SIRET de l'entreprise">
+                </div>            
+                <button type="submit" class="btn btn-primary btn-sm btn-block">Modifier</button>
+                <br>
+                <p class="text-danger">{{ authService.msgErr }}</p>
+                <p class="text-success">{{ authService.msgOK }}</p>
+            </div>
+        </form>
+    </div>
+</div>
