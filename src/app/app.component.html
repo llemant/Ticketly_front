@@ -41,4 +41,8 @@
         </li>
     </ul>
 </div>
+<div  *ngIf="!authService.isConnected()">
+    <button type="button" class="btn btn-link btn-sm btn-block" onclick="location.href = 'login'">Page de connexion</button>
+
+</div>
 <router-outlet></router-outlet>
