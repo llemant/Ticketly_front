@@ -16,7 +16,7 @@
                 <li><a routerLink="marketplace">Marketplace</a>
                 <li><a routerLink="boutique">Boutique</a>
                 <li><a routerLink="messagerie">Messagerie</a>
-                <li><a rrouterLink="profile">Profil</a>
+                <li><a routerLink="profile">Profil</a>
 
             </ul>
         </nav>
@@ -60,13 +60,7 @@
 </div>
 -->
 <br><br><br><br><br><br>
-<div *ngIf="authService.isConnected()">
-    <ul class="nav peach-gradient lighten-3 py-4 mb-4 font-weight-bold z-depth-1 w-100 nav-fill">
-        <li class="nav-item">
-            <a class="nav-link white-text" (click)="authService.disconnect()"> {{ authService.getUserSession().prenom }} {{ authService.getUserSession().nom }} &nbsp; &nbsp; <i class="fas fa-power-off"></i></a>
-        </li>
-    </ul>
-</div>
+
 <div  *ngIf="!authService.isConnected()">
     <button type="button" class="btn btn-link btn-sm btn-block" onclick="location.href = 'login'">Page de connexion</button>
 
