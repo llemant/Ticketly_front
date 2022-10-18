@@ -1,18 +1,14 @@
-<p>profile works!</p>
-
-<div style="margin: auto; width: 100%; text-align: center;">
+<div style="margin: auto; width: 100%; text-align: center; justify-content: center;">
     <div  *ngIf="!authService.getUserSession().organisateur">
         <form action="">
             <button type="button" class="btn btn-link btn-sm btn-block" onclick="location.href = 'modifCompte'">Modifier
-                le compte USER
-                (pas encore dispo)</button>
+                le compte USER</button>
         </form>
     </div>
     <div *ngIf="authService.getUserSession().organisateur">
         <form action="">
             <button type="button" class="btn btn-link btn-sm btn-block" onclick="location.href = 'modifCompteOrga'">Modifier
-                le compte ORGANISATEUR
-                (pas encore dispo)</button>
+                le compte ORGANISATEUR</button>
         </form>
     </div>
     <div>
@@ -20,7 +16,7 @@
             <button type="submit" class="btn btn-link btn-sm btn-block">Supprimer le compte</button>
         </form>
     </div>
-    <button type="button" class="nav-link red-text" (click)="authService.disconnect()"> {{
+    <button type="button" class="btn red-text" (click)="authService.disconnect()"> {{
         authService.getUserSession().prenom }} {{
         authService.getUserSession().nom }} &nbsp; &nbsp; <i class="fas fa-power-off"></i></button>
 </div>

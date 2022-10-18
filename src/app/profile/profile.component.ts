@@ -14,6 +14,10 @@ export class ProfileComponent implements OnInit {
   constructor(public authService : AuthService, private http : HttpClient, private bddService : BddService, private route : Router) { }
 
   ngOnInit(): void {   
+    if(!this.authService.isConnected()){
+      this.route.navigateByUrl('login');
+      this.authService.msgErr = "Veuillez vous connecter";
+    }
   }
 
   suppressionCompte(){

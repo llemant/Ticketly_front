@@ -5,23 +5,28 @@
     <div style="margin: auto; width: 40%; text-align: center">
         <form #fLogin="ngForm" (ngSubmit)="modification(fLogin.value)">
             <div class="card p-2 z-depth-2">
-                <div class="md-form">
+                <div class="md-form">                    
                     <input name="nom" ngModel="" type="text" class="form-control" placeholder="Nom">
+                    <p style="font-size: 10pt; color: gray;">Actuellement : {{ authService.getUserSession().nom}}</p>
                 </div>
-                <div class="md-form">
+                <div class="md-form">                    
                     <input name="prenom" ngModel="" type="text" class="form-control" placeholder="Prénom">
+                    <p style="font-size: 10pt; color: gray;">Actuellement : {{ authService.getUserSession().prenom}}</p>
                 </div>
                 <div class="md-form">
                     <input name="login" ngModel="" type="text" class="form-control" placeholder="Login">
+                    <p style="font-size: 10pt; color: gray;">Actuellement : {{ authService.getUserSession().login}}</p>
                 </div>
                 <div class="md-form">
                     <input name="password" ngModel="" type="password" class="form-control" placeholder="Password">
                 </div>
                 <div class="md-form">
                     <input name="tel" ngModel="" type="text" class="form-control" placeholder="Numéro de téléphone">
+                    <p style="font-size: 10pt; color: gray;">Actuellement : {{ authService.getUserSession().tel}}</p>
                 </div>
-                <div class="md-form">
+                <div class="md-form">                    
                     <input name="email" ngModel="" type="text" class="form-control" placeholder="Adresse email">
+                    <p style="font-size: 10pt; color: gray;">Actuellement : {{ authService.getUserSession().email}}</p>
                 </div>                
                 <button type="submit" class="btn btn-primary btn-sm btn-block">Modifier</button>
                 <br>
