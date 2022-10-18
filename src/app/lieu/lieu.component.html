@@ -1,8 +1,9 @@
 <p>lieu works!</p>
+<p>Création lieu événement</p>
  <!--
 <div class="container">
     <div style="margin: auto; width: 40%; text-align: center">
-        <form #fLogin="ngForm" (ngSubmit)="login(fLogin.value)">
+        <form #fLieu="ngForm" (ngSubmit)="Lieu(fLieu.value)">
             <div class="card p-2 z-depth-2">
                 <div class="md-form">
                     <input name="pays" ngModel="" type="text" class="form-control" placeholder="Pays">
@@ -22,8 +23,8 @@
                 <button type="submit" class="btn btn-primary btn-sm btn-block">Créer Lieu</button>
                 <button type="button" class="btn btn-link btn-sm btn-block" onclick="location.href = 'lieu'">Lieu</button>
                 <br>
-                <p class="text-danger"></p>
-                <p class="text-success"></p>
+                <p class="text-danger">{{ createlieuService.msgErr }}</p>
+                <p class="text-success">{{ createlieuService.msgOK }}</p>
             </div>
         </form>
     </div>
