@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class BddService {
 
-  bddPort = 8287;
+  bddPort = '8287';
 
   constructor() { }
 }
