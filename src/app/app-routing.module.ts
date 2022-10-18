@@ -15,6 +15,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { LieuComponent } from './lieu/lieu.component';
 import { ModifCompteComponent } from './modif-compte/modif-compte.component';
 import { ModifCompteOrgaComponent } from './modif-compte-orga/modif-compte-orga.component';
+import { MesticketspassesComponent } from './mesticketspasses/mesticketspasses.component';
 
 const routes: Routes = [
   { path: 'buytokens', component: AchatTokensComponent },
@@ -31,7 +32,8 @@ const routes: Routes = [
   { path: 'inscriptionOrganisateur', component: InscriptionOrganisateurComponent },
   { path: 'lieu', component: LieuComponent },
   { path: 'modifCompte', component: ModifCompteComponent },
-  { path: 'modifCompteOrga', component: ModifCompteOrgaComponent }
+  { path: 'modifCompteOrga', component: ModifCompteOrgaComponent },
+  { path: 'mesticketspasses', component: MesticketspassesComponent }
 ];
 
 

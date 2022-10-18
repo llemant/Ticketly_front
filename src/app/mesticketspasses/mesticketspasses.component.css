@@ -1,29 +1,28 @@
-.center{
-    display: block;
-    margin-left: 75px;
-    margin-right: auto;
-    width: 50%;
+
+.center {
+  display: block;
+  margin-left: 75px;
+  margin-right: auto;
+  width: 50%;
 }
 
 .image-placeholder {
-    width: 371px;
-    height: 209px;
-    align-items: center;
-    border-radius: 5px;
-    justify-content: center;
-
+  width: 371px;
+  height: 209px;
+  align-items: center;
+  border-radius: 5px;
+  justify-content: center;
 }
 
 .image-placeholder2 {
-    width: 350x;
-    height: 135px;
-    align-items: center;
-    border-radius: 16px;
-    justify-content: center;
-
+  width: 350x;
+  height: 135px;
+  align-items: center;
+  border-radius: 16px;
+  justify-content: center;
 }
 
-/* Forme du lien*/
+/* Forme du lien */
 .pill-nav a {
   display: inline-block;
   color: black;
@@ -33,7 +32,6 @@
   border-radius: 5px;
   width: 280px;
   margin-left: 20px;
-
 }
 
 /* Changement de couleur souris */
@@ -44,8 +42,7 @@
 
 /* Couleur lien actif */
 .pill-nav a.active {
-  background-color: #36484B;
+  background-color: #36484b;
   color: white;
+  font-style: normal;
 }
-
-
