@@ -26,6 +26,8 @@ import { BoutiqueComponent } from './boutique/boutique.component';
 import { MessagerieComponent } from './messagerie/messagerie.component';
 import { LieuComponent } from './lieu/lieu.component';
 import { EvenementComponent } from './evenement/evenement.component';
+import { ModifCompteComponent } from './modif-compte/modif-compte.component';
+import { ModifCompteOrgaComponent } from './modif-compte-orga/modif-compte-orga.component';
 
 
 @NgModule({
@@ -46,7 +48,9 @@ import { EvenementComponent } from './evenement/evenement.component';
     MarketplaceComponent,
     BoutiqueComponent,
     MessagerieComponent,
-    LieuComponent
+    LieuComponent,
+    ModifCompteComponent,
+    ModifCompteOrgaComponent
   ],
   imports: [
     BrowserModule,
