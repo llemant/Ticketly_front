@@ -1,4 +1,29 @@
-<div class="rowty">
+<!-- Navbar -->
+<div class="navbar">
+    <div class="flex container-fluid">
+        <div class="logo">
+            <a routerLink="dashboard">
+                <img src="https://blog.goticketly.com/wp-content/uploads/2021/10/Ticketly_blog_logo.png" width="90" height="45">
+            </a>
+        <!-- <h1>Ticketly.</h1> -->
+        </div>
+        
+        <nav style="padding-top:15px ;">
+            <ul>
+                <li><a routerLink="evenement">Evenements</a></li>
+                <li><a routerLink="mestickets">Mes tickets</a></li>
+                <li><a routerLink="amis">Mes amis</a></li>
+                <li><a routerLink="marketplace">Marketplace</a>
+                <li><a routerLink="boutique">Boutique</a>
+                <li><a routerLink="messagerie">Messagerie</a>
+                <li><a rrouterLink="profile">Profil</a>
+
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<!-- <div class="rowty">
     <div class="columnty">
         <nav class="navbar fixed-top navbar-light bg-light">
             <div class="container-fluid">
@@ -40,5 +65,5 @@
             <a class="nav-link white-text" (click)="authService.disconnect()"> {{ authService.getUserSession().prenom }} {{ authService.getUserSession().nom }} &nbsp; &nbsp; <i class="fas fa-power-off"></i></a>
         </li>
     </ul>
-</div>
+</div> -->
 <router-outlet></router-outlet>
