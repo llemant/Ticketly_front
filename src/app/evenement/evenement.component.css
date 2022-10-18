@@ -14,28 +14,10 @@
 
 .titre-box {
 
-
-    /* margin-left: auto;
-    margin-right: auto; */
-    /* width: 371px; */
+    width: 371px;
     height: 51px;
 
     background: #36484B;
     border-radius: 16px;
-    margin-left:115px ;
-}
-.center{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-}
-
-.image-placeholder {
-    width: 371px;
-    height: 209px;
-    align-items: center;
-    border-radius: 16px;
-    justify-content: center;
 
 }
