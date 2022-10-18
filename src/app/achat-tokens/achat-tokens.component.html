@@ -1,33 +1,47 @@
+<h1 class="text-center">Boutique de tokens</h1>
+<div class="container">
+<p>Bienvenue dans la boutique de tokens. Les tokens sont la monnaie du site Ticketly, 
+  vous permettant d'acheter des billets à des événements. A l'achat de tokens vous seront également crédités des points de fidélité !</p></div>
 <div class="d-flex justify-content-center">
-<div class="card-deck text-center" style="width: 50%;">
-<div class="card">
-    <img src="https://support-leagueoflegends.riotgames.com/hc/article_attachments/5662819084307/Loot_Eclipse_2022_Capsule.png" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">10 Tokens</h5>
-      <p class="card-text">10€</p>
-      <button mat-raised-button (click)="openDialog10()">Acheter</button>
-    </div>        
-  </div>
+  <div class="card-deck text-center" style="width: 70%;">
+    <div class="card">
+      <img src="https://i.imgur.com/qbiLOUM.png" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">10 Tokens</h5>
+        <p class="card-text">10€</p>
+        <button mat-raised-button (click)="openDialog10()">Acheter</button>
+      </div>
+    </div>
 
-  <div class="card">
-    <img src="https://support-leagueoflegends.riotgames.com/hc/article_attachments/4409076154643/ArcaneCapsule.png" class="card-img-top" alt="...">
-    <div class="card-body">
+    <div class="card">
+      <img src="https://i.imgur.com/b3nriMB.png" class="card-img-top" alt="...">
+      <div class="card-body">
         <h5 class="card-title">100 Tokens</h5>
         <p class="card-text">100€</p>
         <button mat-raised-button (click)="openDialog100()">Acheter</button>
+      </div>
     </div>
-  </div>
 
-  <div class="card">
-    <img src="https://cdngarenanow-a.akamaihd.net/webth/cdn/lol/news/Articles-28-June-2022/image6.png" class="card-img-top" alt="...">
-    <div class="card-body">
+    <div class="card">
+      <img src="https://i.imgur.com/b622DX3.png" class="card-img-top" alt="...">
+      <div class="card-body">
         <h5 class="card-title">200 Tokens</h5>
         <p class="card-text">200€</p>
         <button mat-raised-button (click)="openDialog200()">Acheter</button>
+      </div>
     </div>
+
+    <div class="card text-center">
+      <img src="https://i.imgur.com/tXjoyN2.png" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Quantité personnalisée</h5>
+        <p class="card-text">1€ = 1 token</p>
+        <button mat-raised-button (click)="openDialogCustom()">Acheter</button>
+      </div>
+    </div>
+
+
   </div>
-</div>
 </div><br>
-<div class="d-flex justify-content-center">
-  <button mat-raised-button (click)="openDialogCustom()">Acheter une quantité personnalisée</button>
-</div>
+
+

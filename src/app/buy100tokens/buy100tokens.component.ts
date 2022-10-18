@@ -33,10 +33,10 @@ export class Buy100tokensComponent implements OnInit {
 
   pay100(val: any) {
     this.cb = val;
-    this.buytokenService.msgErrCB = '';
-    this.buytokenService.msgOKCB = '';
-    this.buytokenService.msgErrPrepayee = '';
-    this.buytokenService.msgOKPrepayee = '';
+    this.buytokenService.msgErrCB100 = '';
+    this.buytokenService.msgOKCB100 = '';
+    this.buytokenService.msgErrPrepayee100 = '';
+    this.buytokenService.msgOKPrepayee100 = '';
     
     console.log(this.cb.nom);
     console.log(this.cb.numcarte);
@@ -46,52 +46,49 @@ export class Buy100tokensComponent implements OnInit {
     console.log(this.cb.carteprepayee);
 
     if (this.cb.nom == "" || this.cb.numcarte == "" || this.cb.cvc == "" || this.cb.moisexp == "" || this.cb.anexp == "" || this.cb.prepayee == "") {
-      this.buytokenService.msgErrPrepayee = this.msgAttributManquant;      
-      this.buytokenService.msgErrCB = this.msgAttributManquant;
+      this.buytokenService.msgErrPrepayee100 = this.msgAttributManquant;      
+      this.buytokenService.msgErrCB100 = this.msgAttributManquant;
       
     } else {
       if (!this.regexNom.test(this.cb.nom)) {
-        this.buytokenService.msgErrCB = this.msgNomIncorrect;
+        this.buytokenService.msgErrCB100 = this.msgNomIncorrect;
       }
       if (!this.regexCarte.test(this.cb.numcarte)) {
-        this.buytokenService.msgErrCB = this.msgCarteIncorrecte;
+        this.buytokenService.msgErrCB100 = this.msgCarteIncorrecte;
       }
       if (!this.regexCVC.test(this.cb.cvc)) {
-        this.buytokenService.msgErrCB = this.msgCVCIncorrect;
+        this.buytokenService.msgErrCB100 = this.msgCVCIncorrect;
       }
       if (!this.regexMM.test(this.cb.moisexp)) {
-        this.buytokenService.msgErrCB = this.msgDateIncorrecte;
+        this.buytokenService.msgErrCB100 = this.msgDateIncorrecte;
       }
       if (!this.regexYYYY.test(this.cb.anexp)) {
-        this.buytokenService.msgErrCB = this.msgDateIncorrecte;
+        this.buytokenService.msgErrCB100 = this.msgDateIncorrecte;
       }
       if (!this.regexPrepayee.test(this.cb.carteprepayee)) {
-        this.buytokenService.msgErrPrepayee = this.msgPrepayeeIncorrecte;
+        this.buytokenService.msgErrPrepayee100 = this.msgPrepayeeIncorrecte;
       }
 
       if (this.cb.nom == "" || this.cb.numcarte == "" || this.cb.cvc == "" || this.cb.moisexp == "" || this.cb.anexp == "" && this.cb.prepayee != "" && !this.regexPrepayee.test(this.cb.carteprepayee)) {
-        this.buytokenService.msgErrPrepayee = this.msgPrepayeeIncorrecte;
+        this.buytokenService.msgErrPrepayee100 = this.msgPrepayeeIncorrecte;
       }
-
-      if (this.regexPrepayee.test(this.cb.carteprepayee)) {
-      this.http.patch('http://localhost:8287/token/add/100/' + this.authService.getUserSession().id, val).subscribe({
-        next: (data) => {
-          this.buytokenService.msgErrPrepayee = "";
-          this.buytokenService.msgOKPrepayee = "Merci pour votre achat !";
-        },
-      })
-
-      if (this.regexNom.test(this.cb.nom) && this.regexCarte.test(this.cb.numcarte)
+      
+      if ((this.regexNom.test(this.cb.nom) && this.regexCarte.test(this.cb.numcarte)
         && this.regexCVC.test(this.cb.cvc) && this.regexMM.test(this.cb.moisexp)
-        && this.regexYYYY.test(this.cb.anexp)) {
+        && this.regexYYYY.test(this.cb.anexp)) || (this.regexPrepayee.test(this.cb.carteprepayee))) {
         this.http.patch('http://localhost:8287/token/add/100/' + this.authService.getUserSession().id, val).subscribe({
           next: (data) => {
-            this.buytokenService.msgErrCB = "";
-            this.buytokenService.msgOKCB = "Merci pour votre achat !";
+            if (this.regexNom.test(this.cb.nom) && this.regexCarte.test(this.cb.numcarte)
+        && this.regexCVC.test(this.cb.cvc) && this.regexMM.test(this.cb.moisexp)
+        && this.regexYYYY.test(this.cb.anexp)) {
+            this.buytokenService.msgErrCB100 = "";
+            this.buytokenService.msgOKCB100 = "Merci pour votre achat !"; } 
+            if (this.regexPrepayee.test(this.cb.carteprepayee)) {
+            this.buytokenService.msgErrPrepayee100 = "";
+            this.buytokenService.msgOKPrepayee100 = "Merci pour votre achat !";
+          }
           },
         })
-
-      }
     }
   }
 }
