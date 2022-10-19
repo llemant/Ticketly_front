@@ -25,26 +25,6 @@ export class EvenementComponent implements OnInit {
     this.recupEvent();
   }
 
-  // evenement(val: any){
-
-  //   this.event = val;
-
-  //   if (this.event.titre == "" || this.event.place == "" || this.event.date == "" || this.event.heure == "" 
-  //   || this.event.genre == "" || this.event.prix == "" || this.event.photo == "" || this.event.lieu == ""  || this.event.organisateur == "") {
-  //     this.authService.msgErr = this.msgAttributAbsent;
-  //   } else {
-
-  //     this.http.post('http://localhost:' + this.bddService.bddPort + '/event', val).subscribe({
-  //       next: (data) => {
-  //         this.createeventService.msgErr = "";
-  //         this.createeventService.msgOK = "Inscription réussie : veuillez vous connecter";
-  //         this.route.navigateByUrl('event');
-  //       },
-  //       error: (err) => { console.log(err) }
-  //      })
-  //   }
-  // } 
-
   recupEvent() {
     this.http.get(this.host.myDevHost + 'events').subscribe({
       next : (data) => { this.events = data },
