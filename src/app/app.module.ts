@@ -29,6 +29,8 @@ import { EvenementComponent } from './evenement/evenement.component';
 import { ModifCompteComponent } from './modif-compte/modif-compte.component';
 import { ModifCompteOrgaComponent } from './modif-compte-orga/modif-compte-orga.component';
 import { MesticketspassesComponent } from './mesticketspasses/mesticketspasses.component';
+import { MesevenementsComponent } from './mesevenements/mesevenements.component';
+import { MesevenementspassesComponent } from './mesevenementspasses/mesevenementspasses.component';
 
 
 @NgModule({
@@ -52,7 +54,9 @@ import { MesticketspassesComponent } from './mesticketspasses/mesticketspasses.c
     LieuComponent,
     ModifCompteComponent,
     ModifCompteOrgaComponent,
-    MesticketspassesComponent
+    MesticketspassesComponent,
+    MesevenementsComponent,
+    MesevenementspassesComponent
   ],
   imports: [
     BrowserModule,

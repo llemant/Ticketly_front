@@ -1,0 +1,25 @@
+/* Forme du lien*/
+.pill-nav a {
+  display: inline-block;
+  color: black;
+  text-align: center;
+  padding: 11px;
+  font-size: 20px;
+  border-radius: 5px;
+  width: 280px;
+  margin-left: 20px;
+
+}
+
+/* Changement de couleur souris */
+.pill-nav a:hover {
+  background-color: rgb(236, 232, 232);
+  color: black;
+}
+
+/* Couleur lien actif */
+.pill-nav a.active {
+  background-color: #36484B;
+  color: white;
+}
+
