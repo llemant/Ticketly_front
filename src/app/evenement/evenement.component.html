@@ -1,162 +1,158 @@
-<link rel="stylesheet" href="evenement.component.css">
+<!-- <link rel="stylesheet" href="evenement.component.css"> -->
 
 
-<div class="" style="background-color: #C5DCE0B0 ; ">
-<div class="container ">
-    <br>
-    <div class="titre-box">
-      <div class="titre-texte">
-          Aujourd'hui
-      </div>
-  </div>
-  <br>
-    <div class="card-deck">
-        <div class="card">
-            <img class="card-img-top"
-                src="https://images.midilibre.fr/api/v1/images/view/626278a83188675ed45b26e4/large/image.jpg?v=2">
-            <div class="card-body">
-              <h5 class="card-title">Titre de l'évènement</h5>
-              <p class="card-text">Organisateur</p>
-              <p class="card-text" style="color:DodgerBlue">Date | Heure | Prix </p>
-            </div>
-            <div class="card-footer text-center">
-                <a href="#" class="btn btn-info">Je veux !</a>
-            </div>
-        </div>
-        <div class="card">
-            <img class="card-img-top"
-                src="https://images.midilibre.fr/api/v1/images/view/626278a83188675ed45b26e4/large/image.jpg?v=2">
-
-            <div class="card-body">
-              <h5 class="card-title">Titre de l'évènement</h5>
-              <p class="card-text">Organisateur</p>
-              <p class="card-text" style="color:DodgerBlue">Date | Heure | Prix </p>
-            </div>
-            <div class="card-footer text-center">
-                <a href="#" class="btn btn-info">Je veux !</a>
-            </div>
-        </div>
-        <div class="card">
-            <img class="card-img-top"
-                src="https://images.midilibre.fr/api/v1/images/view/626278a83188675ed45b26e4/large/image.jpg?v=2">
-
-            <div class="card-body">
-              <h5 class="card-title">Titre de l'évènement</h5>
-              <p class="card-text">Organisateur</p>
-              <p class="card-text" style="color:DodgerBlue">Date | Heure | Prix </p>
-            </div>
-            <div class="card-footer text-center">
-                <a href="#" class="btn btn-info">Je veux ! </a>
-            </div>
-        </div>
+<div class="col-sm-4" *ngFor="let e of events">
+    <div class="card p-3">
+        <strong class="text-info"> {{ e.artiste }} </strong>
+        <p> {{ e.titre }}</p>
     </div>
     <br>
 </div>
 
-<div class="container">
-  <div class="titre-box">
-    <div class="titre-texte">
-        Demain
+
+
+<div class="" style="background-color: #edf7fd ; ">
+    <div class="container">
+        <br>
+        <div class="">
+            <div class="titre-box">
+                <div class="titre-texte">
+                    Aujourd'hui
+                </div>
+            </div>
+        </div>
+
+
+
+        
+
+        <div class="">
+
+            <div class="row">
+                <div class="col-sm-4" style="padding-top:10px" *ngFor="let e of events">
+                    <div class="card h-100">
+                        <img class="card-img-top"
+                            src="https://images.midilibre.fr/api/v1/images/view/626278a83188675ed45b26e4/large/image.jpg?v=2">
+
+                        <div class="card-body">
+                            <h5 class="card-title"> {{ e.titre }} </h5>
+                            <p class="card-text"> {{ e.organisateur.prenom }} {{ e.organisateur.nom }} </p>
+                            <p class="card-text" style="color:DodgerBlue"> {{ e.date }} </p>
+                        </div>
+                        <div class="card-footer text-center">
+                            <a href="#" class="btn btn-info">Je veux ! </a>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+
+
+        </div>
+        <br>
     </div>
-</div>
-<br>
-  <div class="card-deck">
-      <div class="card">
-          <img class="card-img-top"
-              src="https://images.midilibre.fr/api/v1/images/view/626278a83188675ed45b26e4/large/image.jpg?v=2">
-          <div class="card-body">
-              <h5 class="card-title">Titre de l'évènement</h5>
-              <p class="card-text">Organisateur</p>
-              <p class="card-text" style="color:DodgerBlue">Date | Heure | Prix </p>
-          </div>
-          <div class="card-footer text-center">
-              <a href="#" class="btn btn-info">Je veux !</a>
-          </div>
-      </div>
-      <div class="card">
-          <img class="card-img-top"
-              src="https://images.midilibre.fr/api/v1/images/view/626278a83188675ed45b26e4/large/image.jpg?v=2">
 
-          <div class="card-body">
-            <h5 class="card-title">Titre de l'évènement</h5>
-            <p class="card-text">Organisateur</p>
-            <p class="card-text" style="color:DodgerBlue">Date | Heure | Prix </p>
-          </div>
-          <div class="card-footer text-center">
-              <a href="#" class="btn btn-info">Je veux !</a>
-          </div>
-      </div>
-      <div class="card">
-          <img class="card-img-top"
-              src="https://images.midilibre.fr/api/v1/images/view/626278a83188675ed45b26e4/large/image.jpg?v=2">
+    <div class="container">
+        <div class="titre-box">
+            <div class="titre-texte">
+                Demain
+            </div>
+        </div>
+        <br>
+        <div class="card-deck">
 
-          <div class="card-body">
-            <h5 class="card-title">Titre de l'évènement</h5>
-            <p class="card-text">Organisateur</p>
-            <p class="card-text" style="color:DodgerBlue">Date | Heure | Prix </p>
-          </div>
-          <div class="card-footer text-center">
-              <a href="#" class="btn btn-info">Je veux ! </a>
-          </div>
-      </div>
-  </div>
-  <br>
-</div>
+            <div class="card">
+                <img class="card-img-top"
+                    src="https://images.midilibre.fr/api/v1/images/view/626278a83188675ed45b26e4/large/image.jpg?v=2">
 
-<div class="container">
-  <div class="titre-box">
-    <div class="titre-texte">
-        J+2
+                <div class="card-body">
+                    <h5 class="card-title">Titre de l'évènement</h5>
+                    <p class="card-text">Organisateur</p>
+                    <p class="card-text" style="color:DodgerBlue">Date | Heure | Prix </p>
+                </div>
+                <div class="card-footer text-center">
+                    <a href="#" class="btn btn-info">Je veux ! </a>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top"
+                    src="https://images.midilibre.fr/api/v1/images/view/626278a83188675ed45b26e4/large/image.jpg?v=2">
+
+                <div class="card-body">
+                    <h5 class="card-title">Titre de l'évènement</h5>
+                    <p class="card-text">Organisateur</p>
+                    <p class="card-text" style="color:DodgerBlue">Date | Heure | Prix </p>
+                </div>
+                <div class="card-footer text-center">
+                    <a href="#" class="btn btn-info">Je veux ! </a>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top"
+                    src="https://images.midilibre.fr/api/v1/images/view/626278a83188675ed45b26e4/large/image.jpg?v=2">
+
+                <div class="card-body">
+                    <h5 class="card-title">Titre de l'évènement</h5>
+                    <p class="card-text">Organisateur</p>
+                    <p class="card-text" style="color:DodgerBlue">Date | Heure | Prix </p>
+                </div>
+                <div class="card-footer text-center">
+                    <a href="#" class="btn btn-info">Je veux ! </a>
+                </div>
+            </div>
+        </div>
+        <br>
     </div>
-</div>
-<br>
-  <div class="card-deck">
-      <div class="card">
-          <img class="card-img-top"
-              src="https://images.midilibre.fr/api/v1/images/view/626278a83188675ed45b26e4/large/image.jpg?v=2">
-          <div class="card-body">
-              <h5 class="card-title">Titre de l'évènement</h5>
-              <p class="card-text">Organisateur</p>
-              <p class="card-text" style="color:DodgerBlue">Date | Heure | Prix </p>
-          </div>
-          <div class="card-footer text-center">
-              <a href="#" class="btn btn-info">Je veux !</a>
-          </div>
-      </div>
-      <div class="card">
-          <img class="card-img-top"
-              src="https://images.midilibre.fr/api/v1/images/view/626278a83188675ed45b26e4/large/image.jpg?v=2">
 
-          <div class="card-body">
-            <h5 class="card-title">Titre de l'évènement</h5>
-            <p class="card-text">Organisateur</p>
-            <p class="card-text" style="color:DodgerBlue">Date | Heure | Prix </p>
-          </div>
-          <div class="card-footer text-center">
-              <a href="#" class="btn btn-info">Je veux !</a>
-          </div>
-      </div>
-      <div class="card">
-          <img class="card-img-top"
-              src="https://images.midilibre.fr/api/v1/images/view/626278a83188675ed45b26e4/large/image.jpg?v=2">
+    <div class="container">
+        <div class="titre-box">
+            <div class="titre-texte">
+                J+2
+            </div>
+        </div>
+        <br>
+        <div class="card-deck">
+            <div class="card">
+                <img class="card-img-top"
+                    src="https://images.midilibre.fr/api/v1/images/view/626278a83188675ed45b26e4/large/image.jpg?v=2">
+                <div class="card-body">
+                    <h5 class="card-title">Titre de l'évènement</h5>
+                    <p class="card-text">Organisateur</p>
+                    <p class="card-text" style="color:DodgerBlue">Date | Heure | Prix </p>
+                </div>
+                <div class="card-footer text-center">
+                    <a href="#" class="btn btn-info">Je veux !</a>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top"
+                    src="https://images.midilibre.fr/api/v1/images/view/626278a83188675ed45b26e4/large/image.jpg?v=2">
 
-          <div class="card-body">
-            <h5 class="card-title">Titre de l'évènement</h5>
-            <p class="card-text">Organisateur</p>
-            <p class="card-text" style="color:DodgerBlue">Date | Heure | Prix </p>
-          </div>
-          <div class="card-footer text-center">
-              <a href="#" class="btn btn-info">Je veux ! </a>
-          </div>
-      </div>
-  </div>
-</div>
-<br>
-<footer class="bg-light text-center text-lg-start">
-  <div class="text-center p-3" style="background-color: #b3c9ce63 ;">
-    © 2022 Copyright:
-    <a class="text-dark" href="https://mdbootstrap.com/">Team Dev 6</a>
-  </div>
-</footer>
+                <div class="card-body">
+                    <h5 class="card-title">Titre de l'évènement</h5>
+                    <p class="card-text">Organisateur</p>
+                    <p class="card-text" style="color:DodgerBlue">Date | Heure | Prix </p>
+                </div>
+                <div class="card-footer text-center">
+                    <a href="#" class="btn btn-info">Je veux !</a>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top"
+                    src="https://images.midilibre.fr/api/v1/images/view/626278a83188675ed45b26e4/large/image.jpg?v=2">
+
+                <div class="card-body">
+                    <h5 class="card-title">Titre de l'évènement</h5>
+                    <p class="card-text">Organisateur</p>
+                    <p class="card-text" style="color:DodgerBlue">Date | Heure | Prix </p>
+                </div>
+                <div class="card-footer text-center">
+                    <a href="#" class="btn btn-info">Je veux ! </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+
 
 
