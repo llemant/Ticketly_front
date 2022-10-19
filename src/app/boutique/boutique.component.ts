@@ -29,23 +29,28 @@ export class BoutiqueComponent implements OnInit {
     console.log('ok paiement');
   }
 
-  obtenir(id: any, prix: any) {
-    this.paiement(prix);
-    this.achat(id);
+  obtenir(avt: any) {
+    let achat = {
+      "user": this.authService.getUserSession(), "avantage": avt,
+      "quantite": this.quantity.value
+    }
+    console.log('achat : ' , achat);
   }
 
   achat(val: any) {
     val.user.id = this.authService.getUserSession().id;
     val.avantage.id = val;
     val.quantite = this.quantity.value;
+
+
     console.log(val);
     this.http.post(this.host.myDevHost + 'achat-bonus', val).subscribe();
   }
 
   recupAvantages() {
     this.http.get(this.host.myDevHost + 'avantages').subscribe({
-      next : (data) => { this.avantages = data },
-      error : (err) => { console.log(err) }
+      next: (data) => { this.avantages = data },
+      error: (err) => { console.log(err) }
     });
   }
 }
