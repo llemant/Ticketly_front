@@ -35,7 +35,7 @@ export class EvenementComponent implements OnInit {
       this.http.post('http://localhost:' + this.bddService.bddPort + '/event', val).subscribe({
         next: (data) => {
           this.createeventService.msgErr = "";
-          this.createeventService.msgOK = "Inscription réussie : veuillez vous connecter";
+          this.createeventService.msgOK = "Création d'événement réussie";
           this.route.navigateByUrl('event');
         },
         error: (err) => { console.log(err) }

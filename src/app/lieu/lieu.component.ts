@@ -44,7 +44,7 @@ export class LieuComponent implements OnInit {
       this.createlieuService.msgErr = this.msgVilleIncorrect;
     }
     if (this.regexPays.test(this.lieu.pays) &&
-    this.regexVille.test(this.lieu.pays)
+    this.regexVille.test(this.lieu.ville)
     ) {
       this.http.post('http://localhost:' + this.bddService.bddPort + '/lieu', val).subscribe({
           next: (data) => {

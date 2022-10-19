@@ -16,6 +16,7 @@ import { LieuComponent } from './lieu/lieu.component';
 import { ModifCompteComponent } from './modif-compte/modif-compte.component';
 import { ModifCompteOrgaComponent } from './modif-compte-orga/modif-compte-orga.component';
 import { MesticketspassesComponent } from './mesticketspasses/mesticketspasses.component';
+import { CreationEventComponent } from './creation-event/creation-event.component';
 
 const routes: Routes = [
   { path: 'buytokens', component: AchatTokensComponent },
@@ -33,7 +34,8 @@ const routes: Routes = [
   { path: 'lieu', component: LieuComponent },
   { path: 'modifCompte', component: ModifCompteComponent },
   { path: 'modifCompteOrga', component: ModifCompteOrgaComponent },
-  { path: 'mesticketspasses', component: MesticketspassesComponent }
+  { path: 'mesticketspasses', component: MesticketspassesComponent },
+  { path: 'creationEvent', component: CreationEventComponent }
 ];
 
 
