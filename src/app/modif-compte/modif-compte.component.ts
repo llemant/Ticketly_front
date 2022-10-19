@@ -15,6 +15,7 @@ export class ModifCompteComponent implements OnInit {
   user: any;
   msg: any;
 
+
   regexTel = new RegExp('(0|\\+33|0033)[1-9][0-9]{8}?$');
   regexMail = new RegExp('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$');
   regexPw = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[\.!@#$%^&*])(?=.{8,})");
@@ -26,32 +27,11 @@ export class ModifCompteComponent implements OnInit {
   constructor(private http: HttpClient, private route: Router, public authService: AuthService, public bddService: BddService) { }
 
   ngOnInit(): void {
+    this.connectedAccount = this.authService.getUserSession();
   }
 
-  modification(val: any) {
-
-    this.connectedAccount = this.authService.getUserSession();
-
-    this.user = val;
-
-    if (this.user.nom != "") {
-      this.connectedAccount.nom = this.user.nom;
-    }
-    if (this.user.prenom != "") {
-      this.connectedAccount.prenom = this.user.prenom;
-    }
-    if (this.user.login != "") {
-      this.connectedAccount.login = this.user.login;
-    }
-    if (this.user.password != "") {
-      this.connectedAccount.password = this.user.password;
-    }
-    if (this.user.tel != "") {
-      this.connectedAccount.tel = this.user.tel;
-    }
-    if (this.user.email != "") {
-      this.connectedAccount.email = this.user.email;
-    }
+  modification() {
+    console.log('user en cours de modif ' , this.connectedAccount);
 
     if (!this.regexTel.test(this.connectedAccount.tel)) {
       this.authService.msgErr = this.msgTelIncorrect;
