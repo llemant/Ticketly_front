@@ -6,11 +6,11 @@
         <form #fLogin="ngForm" (ngSubmit)="modification(fLogin.value)">
             <div class="card p-2 z-depth-2">
                 <div class="md-form">                    
-                    <input name="nom" ngModel="" type="text" class="form-control" placeholder="Nom">
-                    <p style="font-size: 10pt; color: gray;">Actuellement : {{ authService.getUserSession().nom}}</p>
+                    <input name="nom" [(ngModel)]="connectedAccount.nom" type="text" class="form-control" placeholder="Nom">
+                    <p style="font-size: 10pt; color: gray;"></p>
                 </div>
                 <div class="md-form">                    
-                    <input name="prenom" ngModel="" type="text" class="form-control" placeholder="Prénom">
+                    <input name="prenom" [(ngModel)]="connectedAccount.prenom" type="text" class="form-control" placeholder="Prénom">
                     <p style="font-size: 10pt; color: gray;">Actuellement : {{ authService.getUserSession().prenom}}</p>
                 </div>
                 <div class="md-form">

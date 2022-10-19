@@ -15,6 +15,7 @@ export class ModifCompteComponent implements OnInit {
   user: any;
   msg: any;
 
+
   regexTel = new RegExp('(0|\\+33|0033)[1-9][0-9]{8}?$');
   regexMail = new RegExp('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$');
   regexPw = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[\.!@#$%^&*])(?=.{8,})");
@@ -26,9 +27,11 @@ export class ModifCompteComponent implements OnInit {
   constructor(private http: HttpClient, private route: Router, public authService: AuthService, public bddService: BddService) { }
 
   ngOnInit(): void {
+    this.connectedAccount = this.authService.getUserSession();
   }
 
   modification(val: any) {
+    console.log('user en cours de modif ' , this.connectedAccount);
 
     this.connectedAccount = this.authService.getUserSession();
 
