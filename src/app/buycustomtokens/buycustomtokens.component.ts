@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 import { BuyTokenService } from '../services/buytoken.service';
+import { HostService } from '../services/host.service';
 
 @Component({
   selector: 'app-buycustomtokens',
@@ -28,7 +29,7 @@ export class BuycustomtokensComponent implements OnInit {
 
   number = new FormControl();
 
-  constructor(private http: HttpClient, public authService: AuthService, public buytokenService: BuyTokenService) { }
+  constructor(private http: HttpClient, public authService: AuthService, public buytokenService: BuyTokenService, public host: HostService) { }
 
   ngOnInit(): void {
   }
@@ -79,7 +80,7 @@ export class BuycustomtokensComponent implements OnInit {
       if ((this.regexNom.test(this.cb.nom) && this.regexCarte.test(this.cb.numcarte)
         && this.regexCVC.test(this.cb.cvc) && this.regexMM.test(this.cb.moisexp)
         && this.regexYYYY.test(this.cb.anexp)) || (this.regexPrepayee.test(this.cb.carteprepayee))) {
-          this.http.patch('http://localhost:8287/token/add/' + this.number.value + '/' + this.authService.getUserSession().id , val).subscribe({
+          this.http.patch(this.host.myDevHost +'token/add/' + + this.number.value + '/' + this.authService.getUserSession().id , val).subscribe({
           next: (data) => {
             if (this.regexNom.test(this.cb.nom) && this.regexCarte.test(this.cb.numcarte)
         && this.regexCVC.test(this.cb.cvc) && this.regexMM.test(this.cb.moisexp)
