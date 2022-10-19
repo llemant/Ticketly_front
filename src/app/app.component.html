@@ -1,5 +1,5 @@
 <!-- Navbar -->
-<div class="navbar">
+<div class="navbar fixed-top">
     <div class="flex container-fluid">
         <div class="logo">
             <a routerLink="dashboard">
@@ -23,6 +23,7 @@
         </nav>
     </div>
 </div>
+<br><br><br>
 
 <div *ngIf="!authService.isConnected()">
     <button type="button" class="btn btn-link btn-sm btn-block" onclick="location.href = 'login'">Page de
