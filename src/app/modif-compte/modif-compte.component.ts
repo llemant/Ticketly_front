@@ -30,31 +30,8 @@ export class ModifCompteComponent implements OnInit {
     this.connectedAccount = this.authService.getUserSession();
   }
 
-  modification(val: any) {
+  modification() {
     console.log('user en cours de modif ' , this.connectedAccount);
-
-    this.connectedAccount = this.authService.getUserSession();
-
-    this.user = val;
-
-    // if (this.user.nom != "") {
-    //   this.connectedAccount.nom = this.user.nom;
-    // }
-    // if (this.user.prenom != "") {
-    //   this.connectedAccount.prenom = this.user.prenom;
-    // }
-    // if (this.user.login != "") {
-    //   this.connectedAccount.login = this.user.login;
-    // }
-    // if (this.user.password != "") {
-    //   this.connectedAccount.password = this.user.password;
-    // }
-    // if (this.user.tel != "") {
-    //   this.connectedAccount.tel = this.user.tel;
-    // }
-    // if (this.user.email != "") {
-    //   this.connectedAccount.email = this.user.email;
-    // }
 
     if (!this.regexTel.test(this.connectedAccount.tel)) {
       this.authService.msgErr = this.msgTelIncorrect;
