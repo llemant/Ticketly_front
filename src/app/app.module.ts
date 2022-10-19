@@ -29,6 +29,7 @@ import { EvenementComponent } from './evenement/evenement.component';
 import { ModifCompteComponent } from './modif-compte/modif-compte.component';
 import { ModifCompteOrgaComponent } from './modif-compte-orga/modif-compte-orga.component';
 import { MesticketspassesComponent } from './mesticketspasses/mesticketspasses.component';
+import { CreationEventComponent } from './creation-event/creation-event.component';
 import { MesevenementsComponent } from './mesevenements/mesevenements.component';
 import { MesevenementspassesComponent } from './mesevenementspasses/mesevenementspasses.component';
 
@@ -55,8 +56,10 @@ import { MesevenementspassesComponent } from './mesevenementspasses/mesevenement
     ModifCompteComponent,
     ModifCompteOrgaComponent,
     MesticketspassesComponent,
+    CreationEventComponent,
     MesevenementsComponent,
-    MesevenementspassesComponent
+    MesevenementspassesComponent,
+    EvenementComponent
   ],
   imports: [
     BrowserModule,

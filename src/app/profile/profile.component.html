@@ -1,4 +1,9 @@
 <div style="margin: auto; width: 100%; text-align: center; justify-content: center;">
+    <div>
+        <form action="">
+            <button type="button" class="btn btn-link btn-sm btn-block" onclick="location.href = 'creationEvent'">Créer un événement</button>
+        </form>
+    </div>
     <div  *ngIf="!authService.getUserSession().organisateur">
         <form action="">
             <button type="button" class="btn btn-link btn-sm btn-block" onclick="location.href = 'modifCompte'">Modifier
