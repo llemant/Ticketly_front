@@ -56,7 +56,8 @@ import { MesevenementspassesComponent } from './mesevenementspasses/mesevenement
     ModifCompteOrgaComponent,
     MesticketspassesComponent,
     MesevenementsComponent,
-    MesevenementspassesComponent
+    MesevenementspassesComponent,
+    EvenementComponent
   ],
   imports: [
     BrowserModule,
