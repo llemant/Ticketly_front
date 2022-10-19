@@ -11,37 +11,24 @@ import { HostService } from '../services/host.service';
   styleUrls: ['./evenement.component.css']
 })
 export class EvenementComponent implements OnInit {
-  event: any;
+  // event: any;
   msg: any;
   events : any;
+  eventsAujd : any;
+  eventsAvant :any;
+  eventsApres :any;
+
+
   msgAttributAbsent = "Un attribut est absent dans le formualire";
 
 
   constructor(private http: HttpClient, private route: Router, public authService: AuthService, public createeventService: CreateeventService, private host: HostService) { }
 
   ngOnInit(): void {
-    this.recupEvent();
+    this.recupEventAujd();
+    this.recupEventApres();
+    this.recupEventAvant();
   }
-
-  // evenement(val: any){
-
-  //   this.event = val;
-
-  //   if (this.event.titre == "" || this.event.place == "" || this.event.date == "" || this.event.heure == "" 
-  //   || this.event.genre == "" || this.event.prix == "" || this.event.photo == "" || this.event.lieu == ""  || this.event.organisateur == "") {
-  //     this.authService.msgErr = this.msgAttributAbsent;
-  //   } else {
-
-  //     this.http.post('http://localhost:' + this.bddService.bddPort + '/event', val).subscribe({
-  //       next: (data) => {
-  //         this.createeventService.msgErr = "";
-  //         this.createeventService.msgOK = "Inscription réussie : veuillez vous connecter";
-  //         this.route.navigateByUrl('event');
-  //       },
-  //       error: (err) => { console.log(err) }
-  //      })
-  //   }
-  // } 
 
   recupEvent() {
     this.http.get(this.host.myDevHost + 'events').subscribe({
@@ -49,4 +36,26 @@ export class EvenementComponent implements OnInit {
       error : (err) => { console.log(err) }
     });
   }
+
+  recupEventAujd() {
+    this.http.get(this.host.myDevHost + 'event/today').subscribe({
+      next : (data) => { this.eventsAujd = data; console.log(this.eventsAujd) },
+      error : (err) => { console.log(err) }
+    });
+  }
+
+  recupEventAvant() {
+    this.http.get(this.host.myDevHost + 'event/before').subscribe({
+      next : (data) => { this.eventsAvant = data },
+      error : (err) => { console.log(err) }
+    });
+  }
+
+  recupEventApres() {
+    this.http.get(this.host.myDevHost + 'event/after').subscribe({
+      next : (data) => { this.eventsApres = data },
+      error : (err) => { console.log(err) }
+    });
+  }
+
 }
