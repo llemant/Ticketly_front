@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
-import { BddService } from '../services/bdd.service';
+import { HostService } from '../services/host.service';
 
 @Component({
   selector: 'app-inscription',
@@ -27,26 +27,10 @@ export class InscriptionComponent implements OnInit {
   msgLoginExists = "Cet identifiant n'est pas disponible";
   msgEmailExists = "Cet email est déjà utilisé";
 
-  // la vérification de l'unicité des login et email est en commentaire car non fonctionnelle, on y reviendra si on a le temps
-  constructor(private http: HttpClient, private route: Router, public authService: AuthService, public bddService: BddService) { }
+  constructor(private http: HttpClient, private route: Router, public authService: AuthService, private host: HostService) { }
 
   ngOnInit(): void {
   }
-
-  /*
-  LoginUnique(){
-    this.http.get('http://localhost:' + this.bddService.bddPort + '/user/login/' + this.user.login).subscribe({
-        next: (data) => {this.existingLogin = data},
-        error: (err) => {console.log(err);}
-      })
-  }
-  EmailUnique(){
-    this.http.get('http://localhost:' + this.bddService.bddPort + '/user/email/' + this.user.email).subscribe({
-        next: (data) => {this.existingEmail = data},
-        error: (err) => { console.log(err);}
-      })
-  }
-  */
 
   inscription(val: any) {
     this.user = val;
@@ -65,26 +49,12 @@ export class InscriptionComponent implements OnInit {
         this.authService.msgErr = this.msgPSWIncorrect;
       }
 
-      /*
-      if (this.LoginUnique() != null) {
-        this.authService.msgErr = this.msgLoginExists;
-      }
-      
-      if (this.EmailUnique() != null) {
-        this.authService.msgErr = this.msgEmailExists;
-      }
-      */
-
       if (this.regexTel.test(this.user.tel) &&
         this.regexMail.test(this.user.email) &&
         this.regexPw.test(this.user.password)
-        /*
-        &&
-        this.LoginUnique() == null &&
-        this.EmailUnique() == null
-        */
+        
       ) {
-        this.http.post('http://localhost:' + this.bddService.bddPort + '/user', val).subscribe({
+        this.http.post(this.host.myDevHost + 'user', val).subscribe({
           next: (data) => {
             this.authService.msgErr = "";
             this.authService.msgOK = "Inscription réussie : veuillez vous connecter";

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { HostService } from '../services/host.service';
 
 @Component({
   selector: 'app-connexion',
@@ -11,7 +12,7 @@ import { AuthService } from '../services/auth.service';
 export class ConnexionComponent implements OnInit {
   user: any;
   msg: any;
-  constructor(private http: HttpClient, private route: Router, public authService: AuthService) { }
+  constructor(private http: HttpClient, private route: Router, public authService: AuthService, private host: HostService) { }
 
   ngOnInit(): void {
     if(this.authService.isConnected()) {
@@ -20,7 +21,7 @@ export class ConnexionComponent implements OnInit {
 }
 
 connexion(val: any) {
-    this.http.post('http://localhost:8287/login', val).subscribe({
+    this.http.post(this.host.myDevHost + 'login', val).subscribe({
       next: (data) => {
         this.user = data;
         if (this.user != null) {
