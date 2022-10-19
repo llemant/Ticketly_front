@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { BuyTokenService } from '../services/buytoken.service';
+import { HostService } from '../services/host.service';
 
 @Component({
   selector: 'app-buy100tokens',
@@ -26,7 +27,7 @@ export class Buy100tokensComponent implements OnInit {
   msgPrepayeeIncorrecte = "Le numéro de carte prépayée est incorrect";
 
 
-  constructor(private http: HttpClient, public authService: AuthService, public buytokenService: BuyTokenService) { }
+  constructor(private http: HttpClient, public authService: AuthService, public buytokenService: BuyTokenService, private host: HostService) { }
 
   ngOnInit(): void {
   }
@@ -76,7 +77,7 @@ export class Buy100tokensComponent implements OnInit {
       if ((this.regexNom.test(this.cb.nom) && this.regexCarte.test(this.cb.numcarte)
         && this.regexCVC.test(this.cb.cvc) && this.regexMM.test(this.cb.moisexp)
         && this.regexYYYY.test(this.cb.anexp)) || (this.regexPrepayee.test(this.cb.carteprepayee))) {
-        this.http.patch('http://localhost:8287/token/add/100/' + this.authService.getUserSession().id, val).subscribe({
+          this.http.patch(this.host.myDevHost +'token/add/100/' + this.authService.getUserSession().id, val).subscribe({
           next: (data) => {
             if (this.regexNom.test(this.cb.nom) && this.regexCarte.test(this.cb.numcarte)
         && this.regexCVC.test(this.cb.cvc) && this.regexMM.test(this.cb.moisexp)

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
-import { BddService } from '../services/bdd.service';
+import { HostService } from '../services/host.service';
 
 @Component({
   selector: 'app-profile',
@@ -11,7 +11,7 @@ import { BddService } from '../services/bdd.service';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor(public authService : AuthService, private http : HttpClient, private bddService : BddService, private route : Router) { }
+  constructor(public authService : AuthService, private http : HttpClient, private host: HostService, private route : Router) { }
 
   ngOnInit(): void {   
     if(!this.authService.isConnected()){
@@ -21,7 +21,7 @@ export class ProfileComponent implements OnInit {
   }
 
   suppressionCompte(){
-    this.http.delete('http://localhost:' + this.bddService.bddPort + '/account/' + this.authService.getUserSession().login).subscribe({
+    this.http.delete(this.host.myDevHost + 'account/' + this.authService.getUserSession().login).subscribe({
           next: (data) => {
             this.authService.setUserInSession(null);            
             this.authService.msgErr = "";

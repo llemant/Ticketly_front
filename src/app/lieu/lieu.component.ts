@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../services/auth.service';
-import { BddService } from '../services/bdd.service';
 import { CreatelieuService } from '../services/createlieu.service';
+import { HostService } from '../services/host.service';
 
 @Component({
   selector: 'app-lieu',
@@ -25,7 +25,7 @@ export class LieuComponent implements OnInit {
   regexVille = new RegExp ("^[a-zA-Z\\u0080-\\u024F.]+((?:[ -.|'])[a-zA-Z\\u0080-\\u024F]+)*$");
 
 
-  constructor(private http: HttpClient, private route: Router, public authService: AuthService, public bddService: BddService, public createlieuService: CreatelieuService) { }
+  constructor(private http: HttpClient, private route: Router, public authService: AuthService, private host: HostService, public createlieuService: CreatelieuService) { }
 
   ngOnInit(): void {
   }
@@ -44,9 +44,9 @@ export class LieuComponent implements OnInit {
       this.createlieuService.msgErr = this.msgVilleIncorrect;
     }
     if (this.regexPays.test(this.lieu.pays) &&
-    this.regexVille.test(this.lieu.pays)
+    this.regexVille.test(this.lieu.ville)
     ) {
-      this.http.post('http://localhost:' + this.bddService.bddPort + '/lieu', val).subscribe({
+      this.http.post(this.host.myDevHost + 'lieu', val).subscribe({
           next: (data) => {
             this.createlieuService.msgErr = "";
             this.createlieuService.msgOK = "Créaton de lieu d'événement réussie";

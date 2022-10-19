@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../services/auth.service';
 import { CreateeventService } from '../services/createevent.service';
-import { BddService } from '../services/bdd.service';
 import { HostService } from '../services/host.service';
 
 @Component({
@@ -23,8 +22,7 @@ export class EvenementComponent implements OnInit {
   msgAttributAbsent = "Un attribut est absent dans le formualire";
 
 
-  constructor(private http: HttpClient, private route: Router, public authService: AuthService, public createeventService: CreateeventService,
-    public bddService: BddService, private host: HostService) { }
+  constructor(private http: HttpClient, private route: Router, public authService: AuthService, public createeventService: CreateeventService, private host: HostService) { }
 
   ngOnInit(): void {
     this.recupEventAujd();
