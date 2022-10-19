@@ -1,9 +1,22 @@
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<p>profile works!</p>
+<div style="margin: auto; width: 100%; text-align: center; justify-content: center;">
+    <div  *ngIf="!authService.getUserSession().organisateur">
+        <form action="">
+            <button type="button" class="btn btn-link btn-sm btn-block" onclick="location.href = 'modifCompte'">Modifier
+                le compte USER</button>
+        </form>
+    </div>
+    <div *ngIf="authService.getUserSession().organisateur">
+        <form action="">
+            <button type="button" class="btn btn-link btn-sm btn-block" onclick="location.href = 'modifCompteOrga'">Modifier
+                le compte ORGANISATEUR</button>
+        </form>
+    </div>
+    <div>
+        <form (ngSubmit)="suppressionCompte()">
+            <button type="submit" class="btn btn-link btn-sm btn-block">Supprimer le compte</button>
+        </form>
+    </div>
+    <button type="button" class="btn red-text" (click)="authService.disconnect()"> {{
+        authService.getUserSession().prenom }} {{
+        authService.getUserSession().nom }} &nbsp; &nbsp; <i class="fas fa-power-off"></i></button>
+</div>

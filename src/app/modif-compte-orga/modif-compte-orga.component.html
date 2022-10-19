@@ -1,38 +1,44 @@
 
 <div class="container">
+    <p>Page de modification des informations du compte : merci d'entrer les nouvelles valeurs des différents attributs du compte</p>
     <div style="margin: auto; width: 40%; text-align: center">
-        <form #fLogin="ngForm" (ngSubmit)="inscriptionOrganisateur(fLogin.value)">
+        <form #fLogin="ngForm" (ngSubmit)="modificationOrganisateur(fLogin.value)">
             <div class="card p-2 z-depth-2">
                 <div class="md-form">
                     <input name="nom" ngModel="" type="text" class="form-control" placeholder="Nom">
+                    <p style="font-size: 10pt; color: gray;">Actuellement : {{ authService.getUserSession().nom}}</p>
                 </div>
                 <div class="md-form">
                     <input name="prenom" ngModel="" type="text" class="form-control" placeholder="Prénom">
+                    <p style="font-size: 10pt; color: gray;">Actuellement : {{ authService.getUserSession().prenom}}</p>
                 </div>
                 <div class="md-form">
                     <input name="login" ngModel="" type="text" class="form-control" placeholder="Login">
+                    <p style="font-size: 10pt; color: gray;">Actuellement : {{ authService.getUserSession().login}}</p>
                 </div>
                 <div class="md-form">
                     <input name="password" ngModel="" type="password" class="form-control" placeholder="Password">
                 </div>
                 <div class="md-form">
                     <input name="tel" ngModel="" type="text" class="form-control" placeholder="Numéro de téléphone">
+                    <p style="font-size: 10pt; color: gray;">Actuellement : {{ authService.getUserSession().tel}}</p>
                 </div>
                 <div class="md-form">
                     <input name="email" ngModel="" type="text" class="form-control" placeholder="Adresse email">
+                    <p style="font-size: 10pt; color: gray;">Actuellement : {{ authService.getUserSession().email}}</p>
                 </div>      
                 <div class="md-form">
                     <input name="nomEntreprise" ngModel="" type="text" class="form-control" placeholder="Nom de l'entreprise">
+                    <p style="font-size: 10pt; color: gray;">Actuellement : {{ authService.getUserSession().nomEntreprise}}</p>
                 </div>  
                 <div class="md-form">
                     <input name="siret" ngModel="" type="text" class="form-control" placeholder="Numéro SIRET de l'entreprise">
+                    <p style="font-size: 10pt; color: gray;">Actuellement : {{ authService.getUserSession().siret}}</p>
                 </div>            
-                <button type="submit" class="btn btn-primary btn-sm btn-block">S'inscrire</button>
-                <button type="button" class="btn btn-link btn-sm btn-block" onclick="location.href = 'inscription'">Inscription utilisateur</button>
-                <button type="button" class="btn btn-link btn-sm btn-block" onclick="location.href = 'login'">Page de connexion</button>
+                <button type="submit" class="btn btn-primary btn-sm btn-block">Modifier</button>
                 <br>
                 <p class="text-danger">{{ authService.msgErr }}</p>
-                <p class="text-success"></p>
+                <p class="text-success">{{ authService.msgOK }}</p>
             </div>
         </form>
     </div>
