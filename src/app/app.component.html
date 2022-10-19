@@ -3,11 +3,12 @@
     <div class="flex container-fluid">
         <div class="logo">
             <a routerLink="dashboard">
-                <img src="https://blog.goticketly.com/wp-content/uploads/2021/10/Ticketly_blog_logo.png" width="90" height="45">
+                <img src="https://blog.goticketly.com/wp-content/uploads/2021/10/Ticketly_blog_logo.png" width="90"
+                    height="45">
             </a>
-        <!-- <h1>Ticketly.</h1> -->
+            <!-- <h1>Ticketly.</h1> -->
         </div>
-        
+
         <nav style="padding-top:15px ;">
             <ul>
                 <li><a routerLink="evenement">Evenements</a></li>
@@ -23,8 +24,14 @@
     </div>
 </div>
 
-<div  *ngIf="!authService.isConnected()">
-    <button type="button" class="btn btn-link btn-sm btn-block" onclick="location.href = 'login'">Page de connexion</button>
+<div *ngIf="!authService.isConnected()">
+    <button type="button" class="btn btn-link btn-sm btn-block" onclick="location.href = 'login'">Page de
+        connexion</button>
 
 </div>
 <router-outlet></router-outlet>
+<footer class="bg-light text-center text-lg-start">
+    <div class="text-center p-3" style="background-color: #b3c9ce63 ;">
+        © 2022 Copyright:Team Dev 6
+    </div>
+</footer>
