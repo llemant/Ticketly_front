@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { BddService } from '../services/bdd.service';
 import { CreateeventService } from '../services/createevent.service';
+import { HostService } from '../services/host.service';
 
 @Component({
   selector: 'app-creation-event',
@@ -12,7 +13,8 @@ import { CreateeventService } from '../services/createevent.service';
 })
 export class CreationEventComponent implements OnInit {
 
-  constructor(public creationEvent : CreateeventService, public authService: AuthService, private http: HttpClient, private route: Router, private bddService: BddService) { }
+  constructor(public creationEvent : CreateeventService, public authService: AuthService, private http: HttpClient, private route: Router,
+     private bddService: BddService, private host: HostService) { }
 
   ngOnInit(): void {}
 
@@ -20,7 +22,7 @@ export class CreationEventComponent implements OnInit {
     val.organisateur = this.authService.getUserSession();
 
 
-   this.http.post('http://localhost:' + this.bddService.bddPort + '/event', val).subscribe({
+   this.http.post(this.host.myDevHost + 'event', val).subscribe({
     next: (data) => {
       this.route.navigateByUrl('evenement');
       console.log('it worked, go check BDD');
