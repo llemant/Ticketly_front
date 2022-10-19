@@ -14,7 +14,7 @@ export class EvenementComponent implements OnInit {
   // event: any;
   msg: any;
   events : any;
-  eventsAujd :any;
+  eventsAujd : any;
   eventsAvant :any;
   eventsApres :any;
 
@@ -26,6 +26,8 @@ export class EvenementComponent implements OnInit {
 
   ngOnInit(): void {
     this.recupEventAujd();
+    this.recupEventApres();
+    this.recupEventAvant();
   }
 
   recupEvent() {
@@ -36,21 +38,21 @@ export class EvenementComponent implements OnInit {
   }
 
   recupEventAujd() {
-    this.http.get(this.host.myDevHost + 'events').subscribe({
-      next : (data) => { this.eventsAujd = data },
+    this.http.get(this.host.myDevHost + 'event/today').subscribe({
+      next : (data) => { this.eventsAujd = data; console.log(this.eventsAujd) },
       error : (err) => { console.log(err) }
     });
   }
 
   recupEventAvant() {
-    this.http.get(this.host.myDevHost + 'events').subscribe({
+    this.http.get(this.host.myDevHost + 'event/before').subscribe({
       next : (data) => { this.eventsAvant = data },
       error : (err) => { console.log(err) }
     });
   }
 
   recupEventApres() {
-    this.http.get(this.host.myDevHost + 'events').subscribe({
+    this.http.get(this.host.myDevHost + 'event/after').subscribe({
       next : (data) => { this.eventsApres = data },
       error : (err) => { console.log(err) }
     });
