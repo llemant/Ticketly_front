@@ -1,57 +1,27 @@
 <h1 class="text-center">Boutique</h1>
 <div class="container text-center">Vous avez accumulé des points de fidélité ? Génial ! Vous pouvez ici
     les échanger contre des avantages exclusifs lors de vos événements. <br>
-Vous souhaitiez acheter des tokens? Rendez-vous <a href="/buytokens">ici</a> ! <br>
-Tous les avantages coûtent 100 points de fidélité. </div> <br>
+    Vous souhaitiez acheter des tokens? Rendez-vous <a href="/buytokens">ici</a> ! <br> </div> <br>
 
-<div class="container">
-    <h2>Les avantages disponibles en ce moment :</h2>
-    <div class="card-deck">
+    <div class="flex-container text-center">
+<div class="d-flex justify-content-center">
+    <div *ngFor="let a of avantages" class="col-2">
         <div class="card">
             <img class="card-img-top"
                 src="https://i.picsum.photos/id/60/314/200.jpg?hmac=NZBpOs3xK_iBNnD-jU1hBC17kKfkKMJrqbr44sgCA9Y"
                 alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias aliquid neque
-                    saepe praesentium omnis. Ducimus ex sed totam cupiditate aspernatur facere cum distinctio culpa
-                    voluptate, sapiente aliquam ipsum optio! Consectetur?</p>
-            </div>
-            <div class="card-footer text-center">
-                <h4>100 points</h4>
-                <button (click)="functionObtenir()" class="btn btn-info">Obtenir</button>
-            </div>
-        </div>
-        <div class="card">
-            <img class="card-img-top"
-                src="https://i.picsum.photos/id/547/314/200.jpg?hmac=xcil438OjlL4l9wC0EBXTy50WlFOQ5FrWNX3ObMt4Xw"
-                alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi aspernatur
-                    perferendis recusandae sapiente fuga voluptatum harum, dolorem nesciunt saepe inventore similique
-                    provident, iure ad eum excepturi, eveniet maiores libero officia.</p>
-            </div>
-            <div class="card-footer text-center">
-                <h4>100 points</h4>
-                <button (click)="functionObtenir()" class="btn btn-info">Obtenir</button>
-            </div>
-        </div>
-        <div class="card">
-            <img class="card-img-top"
-                src="https://i.picsum.photos/id/149/314/200.jpg?hmac=T1ZD7QzoKgA_vmwugE7Couajv6cKVezR9fnSBZ1KWq4"
-                alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam nulla tempora
-                    obcaecati at consequuntur beatae quas saepe omnis, et voluptates nam repellendus minus eligendi
-                    aliquid dolores dolor magnam non explicabo.</p>
-            </div>
-            <div class="card-footer text-center">
-                <h4>100 points</h4>
-                <button (click)="functionObtenir()" class="btn btn-info">Obtenir</button>
+                <h6 class="card-title">{{ a.avantage }}</h6>   
+                <h5>{{ a.prix }} points</h5>
+                <button (click)="paiement(a.prix)" class="btn btn-outline-info">Obtenir</button>
             </div>
         </div>
     </div>
-    <br>
 </div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
