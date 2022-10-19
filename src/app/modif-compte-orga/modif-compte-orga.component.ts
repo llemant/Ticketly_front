@@ -26,38 +26,12 @@ export class ModifCompteOrgaComponent implements OnInit {
   constructor(private http: HttpClient, private route: Router, public authService: AuthService, public bddService: BddService) { }
 
   ngOnInit(): void {
+    this.connectedAccount = this.authService.getUserSession();
   }
 
-  modificationOrganisateur(val: any) {
+  modificationOrganisateur() {
 
     this.connectedAccount = this.authService.getUserSession();
-
-    this.user = val;
-
-    if (this.user.nom != "") {
-      this.connectedAccount.nom = this.user.nom;
-    }
-    if (this.user.prenom != "") {
-      this.connectedAccount.prenom = this.user.prenom;
-    }
-    if (this.user.login != "") {
-      this.connectedAccount.login = this.user.login;
-    }
-    if (this.user.password != "") {
-      this.connectedAccount.password = this.user.password;
-    }
-    if (this.user.tel != "") {
-      this.connectedAccount.tel = this.user.tel;
-    }
-    if (this.user.email != "") {
-      this.connectedAccount.email = this.user.email;
-    }
-    if (this.user.nomEntreprise != "") {
-      this.connectedAccount.nomEntreprise = this.user.nomEntreprise;
-    }
-    if (this.user.siret != "") {
-      this.connectedAccount.siret = this.user.siret;
-    }
 
     if (!this.regexTel.test(this.connectedAccount.tel)) {
       this.authService.msgErr = this.msgTelIncorrect;
