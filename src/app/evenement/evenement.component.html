@@ -3,8 +3,7 @@
 
 <div class="" style="background-color: #FFFFFF ; padding-top: 25px; padding-bottom: 95px;">
     <div class="container">
-        <div class="row">
-            <div class="col-sm-4"></div>
+        <div class="row justify-content-center">
             <div class="col-sm-4">
                 <div class="">
                     <div class="titre-box">
@@ -16,13 +15,12 @@
                     <p class="text-danger">{{ authService.msgErr }}</p>
                 </div>
             </div>
-            <div class="col-sm-4"></div>
         </div>
     </div>
 
     <div class="container" *ngIf="eventsAujd != 0">
         <div class="">
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="col-sm-4" style="padding-top:35px" *ngFor="let e of eventsAujd">
                     <form #fInscription="ngForm" (ngSubmit)="inscription(e)">
                         <div class="card h-100">
@@ -53,7 +51,7 @@
     </div>
 
     <div class="container" style="padding-top:35px ;">
-        <div class="row">
+        <div class="row justify-content-center">
             <div class="col-sm-4"></div>
             <div class="col-sm-4">
                 <div class="">
@@ -71,7 +69,7 @@
     </div>
     <div class="container" *ngIf="eventsApres != 0">
         <div class="">
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="col-sm-4" style="padding-top:35px" *ngFor="let e of eventsApres">
                     <form #fInscription="ngForm" (ngSubmit)="inscription(e)">
                         <div class="card h-100">
