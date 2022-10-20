@@ -63,7 +63,7 @@ export class CreationEventComponent implements OnInit {
           this.authService.setUserInSession(event.organisateur)
           console.log(event)
           this.creationEvent.msgErr = "";
-          this.creationEvent.msgOK = "Création de l'événement réussie !";
+          this.creationEvent.msgOK = "";
           this.route.navigateByUrl('profile');
         },
         error: (err) => { console.log(err) }
