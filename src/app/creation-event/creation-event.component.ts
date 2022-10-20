@@ -19,25 +19,15 @@ export class CreationEventComponent implements OnInit {
   creerEvent(val: any){
     val.organisateur = this.authService.getUserSession();
 
-
-    if (this.event.titre == "" || this.event.nbPlace == "" || this.event.date == "" || this.event.heure == "" ||this.event.genre== "" || this.event.prix== "" || 
-    this.event.photo== "" ||this.event.lieu== ""){
-      this.creationEvent.msgErr = this.msgAttributAbsent;
-    }else {
-
-
-
    this.http.post(this.host.myDevHost + 'event', val).subscribe({
     next: (data) => {
-<<<<<<< HEAD
+
       this.route.navigateByUrl('evenement');
       console.log('Création de votre événement réussie !');
-=======
       this.route.navigateByUrl('profile');
->>>>>>> a2eaf44590c0b6a7c2a912e0b197f2bada1de578
     },
     error: (err) => { console.log(err) }
    })
   }
   }
-}
+
