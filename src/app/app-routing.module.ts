@@ -19,6 +19,8 @@ import { MesticketspassesComponent } from './mesticketspasses/mesticketspasses.c
 import { CreationEventComponent } from './creation-event/creation-event.component';
 import { MesevenementsComponent } from './mesevenements/mesevenements.component';
 import { MesevenementspassesComponent } from './mesevenementspasses/mesevenementspasses.component';
+import { MesDemandeAmisComponent } from './amis/mes-demande-amis/mes-demande-amis.component';
+import { MesAmisComponent } from './amis/mes-amis/mes-amis.component';
 
 const routes: Routes = [
   { path: 'buytokens', component: AchatTokensComponent },
@@ -27,7 +29,11 @@ const routes: Routes = [
   { path: 'inscription', component: InscriptionComponent },
   { path: 'evenement', component: EvenementComponent },
   { path: 'mestickets', component: MesticketsComponent },
-  { path: 'mesamis', component: AmisComponent },
+  {
+    path: 'amis', component: AmisComponent, children: [
+      { path: 'mes-demande-amis', component: MesDemandeAmisComponent },
+      { path: 'mes-amis', component: MesAmisComponent }]
+  },
   { path: 'marketplace', component: MarketplaceComponent },
   { path: 'boutique', component: BoutiqueComponent },
   { path: 'messagerie', component: MessagerieComponent },
@@ -39,7 +45,8 @@ const routes: Routes = [
   { path: 'mesticketspasses', component: MesticketspassesComponent },
   { path: 'creationEvent', component: CreationEventComponent },
   { path: 'mesevenements', component: MesevenementsComponent },
-  { path: 'mesevenementspasses', component: MesevenementspassesComponent}
+  { path: 'mesevenementspasses', component: MesevenementspassesComponent },
+
 
 ];
 
