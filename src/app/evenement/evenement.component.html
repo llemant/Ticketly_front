@@ -1,7 +1,7 @@
 <!-- <link rel="stylesheet" href="evenement.component.css"> -->
 
 
-<div class="" style="background-color: #FFFFFF ; padding-top: 25px; ">
+<div class="" style="background-color: #FFFFFF ; padding-top: 25px; padding-bottom: 95px;">
     <div class="container">
         <div class="row">
             <div class="col-sm-4"></div>
@@ -18,7 +18,7 @@
         </div>
     </div>
     
-    <div class="container" *ngIf="eventsAujd != null">
+    <div class="container" *ngIf="eventsAujd != 0"> 
         <div class="">
             <div class="row">
                 <div class="col-sm-4" style="padding-top:35px" *ngFor="let e of eventsAujd">
@@ -29,7 +29,7 @@
                         <div class="card-body">
                             <h5 class="card-title"> {{ e.titre }} </h5>
                             <p class="card-text"> {{ e.organisateur.prenom }} {{ e.organisateur.nom }} </p>
-                            <p class="card-text" style="color:DodgerBlue"> {{ e.date }} | {{ e.lieu }} | {{ e.prix }}€</p>
+                            <p class="card-text" style="color:DodgerBlue"> {{ e.date }} | {{ e.lieu }} | {{ e.prix }} Token</p>
                         </div>
                         <div class="card-footer text-center">
                             <a href="#" class="btn btn-info">Je veux ! </a>
@@ -40,7 +40,7 @@
             </div>
         </div>
     </div>
-    <div class="text-center" style="padding-top:35px;" *ngIf="eventsAujd.length == 0">
+    <div class="text-center" style="padding-top:35px;" *ngIf="eventsAujd == 0">
         <h3 class="container" style="background-color:black ; color: white;">Pas d'events ??? Mais on dort en ce moment ou quoi ?</h3>
     </div>
 
@@ -59,7 +59,7 @@
             <div class="col-sm-4"></div>
         </div>
     </div>
-    <div class="container" *ngIf="eventsApres != null">
+    <div class="container" *ngIf="eventsApres != 0">
         <div class="">
             <div class="row">
                 <div class="col-sm-4" style="padding-top:35px" *ngFor="let e of eventsApres">
@@ -70,7 +70,7 @@
                         <div class="card-body">
                             <h5 class="card-title"> {{ e.titre }} </h5>
                             <p class="card-text"> {{ e.organisateur.prenom }} {{ e.organisateur.nom }} </p>
-                            <p class="card-text" style="color:DodgerBlue"> {{ e.date }} | {{ e.lieu }} | {{ e.prix }}€</p>
+                            <p class="card-text" style="color:DodgerBlue"> {{ e.date }} | {{ e.lieu }} | {{ e.prix }} Token</p>
                         </div>
                         <div class="card-footer text-center">
                             <a href="#" class="btn btn-info">Je veux ! </a>
@@ -81,7 +81,7 @@
             </div>
         </div>
     </div>
-    <div class="text-center" style="padding-top:35px;" *ngIf="eventsApres.length == 0">
+    <div class="text-center" style="padding-top:35px;" *ngIf="eventsApres == 0">
         <h3 class="container" style="background-color:black ; color: white;">Désolé, nous n'avons plus d'événements pour les semaines à venir...</h3>
     </div>
 
@@ -100,32 +100,33 @@
             <div class="col-sm-4"></div>
         </div>
     </div>
-    <div class="container" *ngIf="eventsAvant != null">
+    <div class="container" *ngIf="eventsAvant != 0">
         <div class="">
             <div class="row">
-                <div class="col-sm-4" style="padding-top:35px" *ngFor="let e of eventsAvant">
-                    <div class="card h-100">
+                <div class="col-sm-4" style="padding-top:35px;" *ngFor="let e of eventsAvant">
+                    <div class="hachure">
+                    <div class="card h-100 hachure">
                         <img class="card-img-top"
                             src={{e.image}}>
 
                         <div class="card-body">
                             <h5 class="card-title"> {{ e.titre }} </h5>
                             <p class="card-text"> {{ e.organisateur.prenom }} {{ e.organisateur.nom }} </p>
-                            <p class="card-text" style="color:DodgerBlue"> {{ e.date }} | {{ e.lieu }} | {{ e.prix }}€</p>
+                            <p class="card-text" style="color:DodgerBlue"> {{ e.date }} | {{ e.lieu }} | {{ e.prix }} Token</p>
                         </div>
                         <div class="card-footer text-center">
                             <a href="#" class="btn btn-info">Je veux ! </a>
                         </div>
                     </div>
+                </div>
                     <br>
                 </div>
             </div>
         </div>
     </div>
-    <div class="text-center" style="padding-top:35px; padding-bottom: 90px;" *ngIf="eventsAvant.length == 0">
-        <h3 class="container" style="background-color:black ; color: white;">Désolé, nous n'avons plus d'événements pour les semaines à venir...</h3>
+    <div class="text-center" style="padding-top:35px; padding-bottom: 90px;" *ngIf="eventsAvant == 0">
+        <h3 class="container" style="background-color:black ; color: white;">Il n'y a pas encore eu d'évènements passés !</h3>
     </div>
-
 </div>
 
 
