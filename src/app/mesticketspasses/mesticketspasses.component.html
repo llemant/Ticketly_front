@@ -5,8 +5,8 @@
     <div class="" style="background-color: #FFFFFF ">
       <div class="container" style="padding-top: 25px">
         <nav class="pill-nav text-center">
-          <a href="mestickets">A venir</a>
-          <a class="active" href="mesticketspasses">Passés</a>
+          <a routerLink="/mestickets">A venir</a>
+          <a class="active" routerLink="/mesticketspasses">Passés</a>
         </nav>
         <br>
         <div class="container" *ngIf="eventsInscriptionPast != 0"> 
@@ -35,7 +35,7 @@
           </div>
 </div>
           <div class="text-center" style="padding-top:35px;" *ngIf="eventsInscriptionPast == 0">
-            <h3 class="container" style="background-color:black ; color: white;"> Tu n'as pas d'événement en ce mometn, n'hésite pas à aller dans événement pour t'inscrire à de nouveaux 😘 </h3>
+            <h3 class="container" style="background-color:black ; color: white;"> Tu n'as pas d'événement en ce moment, n'hésite pas à aller dans événement pour t'inscrire à de nouveaux 😘 </h3>
         </div>
 
       </div>

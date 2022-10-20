@@ -1,22 +1,51 @@
-
-<div class="container">
-    <div style="margin: auto; width: 40%; text-align: center">
-        <form #fLogin="ngForm" (ngSubmit)="connexion(fLogin.value)">
-            <div class="card p-2 z-depth-2">
-                <div class="md-form">
-                    <input name="login" ngModel="" type="text" class="form-control" placeholder="Login">
+<section class="h-100 gradient-form">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-xl-10">
+          <div class="card rounded-3 text-black">
+            <div class="row g-0">
+              <div class="col-lg-6">
+                <div class="card-body p-md-5 mx-md-4">
+  
+                  <div class="text-center">
+                    <div class="h1" style="color: steelblue; font-family: 'Secular One', sans-serif; " >TICKETLY.</div>
+                  </div>
+  
+                  <form #fLogin="ngForm" (ngSubmit)="connexion(fLogin.value)">
+                    <p>Connecte-toi !</p>
+  
+                    <div class="form-outline mb-4">
+                      <input name="login" ngModel="" type="text" class="form-control" placeholder="Login">
+                    </div>
+  
+                    <div class="form-outline mb-4">
+                      <input name="password" ngModel="" type="password" class="form-control" placeholder="Password">
+                    </div>
+                    <p class="text-danger">{{ authService.msgErr }}</p>
+                    <p class="text-success">{{ authService.msgOK }}</p>
+  
+                    <div class="text-center">
+                        <button type="submit" class="btn winter-neva-gradient">Connexion</button>
+                      <p class="mb-0 me-2">Pas encore de compte sur Ticketly?</p> 
+                      <button type="button" class="btn winter-neva-gradient" routerLink = '/inscription'>Créer un compte utilisateur</button>
+                      <button type="button" class="btn winter-neva-gradient" routerLink = '/inscriptionOrganisateur'>Créer un compte organisateur</button>
+                    </div>
+  
+                  </form>
+  
                 </div>
-                <div class="md-form">
-                    <input name="password" ngModel="" type="password" class="form-control" placeholder="Password">
+              </div>
+              <div class="col-lg-6 d-flex align-items-center winter-neva-gradient">
+                <div class="text-dark px-3 py-4 p-md-5 mx-md-4">
+                  <h4 class="mb-4">Bienvenue sur le projet des Solutec-Dev6-2022 !</h4>
+                  <p class="small mb-0"> Amateur de bonne musique ? Fan de tennis ? Envie de faire la fête ? Sur Ticketly, nous vous garantissons que vous trouverez quelque chose qui vous plaira.<br>
+                    Si vous êtes un organisateur, vous pouvez inscrire vos événements sur Ticketly pour qu'ils obtiennent la visibilité qu'ils méritent. 
+            </p>
                 </div>
-                <button type="submit" class="btn btn-primary btn-sm btn-block">Connexion</button>
-                <br>
-                <button type="button" class="btn btn-link btn-sm btn-block" routerLink = '/inscription'>Inscription utilisateur</button>
-                <button type="button" class="btn btn-link btn-sm btn-block" routerLink = '/inscriptionOrganisateur'>Inscription organisateur</button>
-                <br>
-                <p class="text-danger">{{ authService.msgErr }}</p>
-                <p class="text-success">{{ authService.msgOK }}</p>
+              </div>
             </div>
-        </form>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
+  </section>

@@ -1,43 +1,95 @@
-<div class="container text-center">
-    <br>
-    <h1>Bienvenue sur votre profil, {{authService.getUserSession().prenom }} !</h1>
-    <br>
-</div>
-<div style="margin: auto; width: 100%; text-align: center; justify-content: center;">
-    <div>
-        <p>Nom : {{ authService.getUserSession().nom}}</p>
-        <p>Prénom : {{ authService.getUserSession().prenom}}</p>
-        <p>Login : {{ authService.getUserSession().nom}}</p>
-        <p>Numéro de téléphone : {{ authService.getUserSession().tel}}</p>
-        <p>Adresse email : {{ authService.getUserSession().email}}</p>
-        <p>Nombre de tokens : {{ authService.getUserSession().nbToken}}</p>
-        <p>Nombre de points de fidélité : {{ authService.getUserSession().nbPoint}}</p>
-        <div *ngIf="authService.getUserSession().organisateur">
-            <p>Nombre de tokens organisateurs : {{ authService.getUserSession().nbTokenEvent }}</p>
+
+
+
+<section class="h-100 gradient-form">
+
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-xl-10">
+            <h1>Profil</h1>
+          <div class="card rounded-3 x">
+            <div class="row g-0">
+                <div class="col-lg-4 d-flex align-items-center blue-gradient text-white text-center">
+                    <div class="px-3 py-4 p-md-5 mx-md-4">
+                      <h4 class="mb-4">Hello, {{authService.getUserSession().prenom }} </h4>
+                      <p class="mb-0"> Bienvenue sur ton profil !</p>
+                    <button mat-icon-button routerLink="/modifCompte" *ngIf="!authService.getUserSession().organisateur" title="Modifier ton profil">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button mat-icon-button routerLink="/modifCompte" *ngIf="authService.getUserSession().organisateur" title="Modifier ton profil">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <form (ngSubmit)="suppressionCompte()">
+                    <button mat-icon-button type="submit" title="Supprimer ton compte">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                    </form>
+                    <button mat-icon-button (click)="authService.disconnect()" title="Déconnexion">
+                        <mat-icon>power_settings_new</mat-icon>
+                    </button>
+                  </div>
+                  </div>
+                  
+              <div class="col-lg-8">
+                <div class="card-body p-md-5 mx-md-4">
+                    <div class="row">
+                        <div class="col-md-12">
+                        <h4 class="mb-4">Informations du profil : </h4>
+                    </div>
+                        <div class="col-md-6" style="font-weight: bold;">
+                            Nom :
+                        </div>
+                        <div class="col-md-6">
+                            {{ authService.getUserSession().nom}}
+                        </div>
+                        <div class="col-md-6" style="font-weight: bold;">
+                            Prénom :
+                        </div>
+                        <div class="col-md-6">
+                            {{ authService.getUserSession().prenom}}
+                        </div>
+                        <div class="col-md-6" style="font-weight: bold;">
+                            Login :
+                        </div>
+                        <div class="col-md-6">
+                            {{ authService.getUserSession().login}}
+                        </div>
+                        <div class="col-md-6" style="font-weight: bold;">
+                            Numéro de téléphone :
+                        </div>
+                        <div class="col-md-6">
+                            {{ authService.getUserSession().tel}}
+                        </div>
+                        <div class="col-md-6" style="font-weight: bold;">
+                            Adresse email :
+                        </div>
+                        <div class="col-md-6">
+                            {{ authService.getUserSession().email}}
+                        </div>
+                        <div class="col-md-6" style="font-weight: bold;">
+                            Nombre de tokens :
+                        </div>
+                        <div class="col-md-6">
+                            {{ authService.getUserSession().nbToken}}
+                        </div>
+                        <div class="col-md-6" style="font-weight: bold;">
+                            Nombre de points de fidélité :
+                        </div>
+                        <div class="col-md-6">
+                            {{ authService.getUserSession().nbPoint}}
+                        </div>    
+                        <div class="col-md-6" style="font-weight: bold;" *ngIf="authService.getUserSession().organisateur">
+                            Nombre de tokens organisateur :
+                        </div>
+                        <div class="col-md-6" *ngIf="authService.getUserSession().organisateur"> 
+                            {{ authService.getUserSession().nbTokenEvent}}
+                        </div>    
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-
+      </div>
     </div>
-
-
-
-    <div *ngIf="!authService.getUserSession().organisateur">
-        <form action="">
-            <button type="button" class="btn" routerLink='/modifCompte'>Modifier
-                votre compte</button>
-        </form>
-    </div>
-    <div *ngIf="authService.getUserSession().organisateur">
-        <form action="">
-            <button type="button" class="btn" routerLink='/modifCompteOrga'>Modifier
-                votre compte organisateur</button>
-        </form>
-    </div>
-    <div>
-        <form (ngSubmit)="suppressionCompte()">
-            <button type="submit" class="btn">Supprimer votre compte</button>
-        </form>
-    </div>
-    <button type="button" class="btn red-text" (click)="authService.disconnect()"> {{
-        authService.getUserSession().prenom }} {{
-        authService.getUserSession().nom }} &nbsp; &nbsp; <i class="fas fa-power-off"></i></button>
-</div>
+  </section>
