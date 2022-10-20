@@ -12,36 +12,44 @@
                             Aujourd'hui
                         </div>
                     </div>
+                    <p class="text-success">{{ authService.msgOK }}</p>
+                    <p class="text-danger">{{ authService.msgErr }}</p>
                 </div>
             </div>
             <div class="col-sm-4"></div>
         </div>
     </div>
-    
-    <div class="container" *ngIf="eventsAujd != 0"> 
+
+    <div class="container" *ngIf="eventsAujd != 0">
         <div class="">
             <div class="row">
                 <div class="col-sm-4" style="padding-top:35px" *ngFor="let e of eventsAujd">
-                    <div class="card h-100">
-                        <img class="card-img-top"
-                            src={{e.image}}>
+                    <form #fInscription="ngForm" (ngSubmit)="inscription(e)">
+                        <div class="card h-100">
+                            <img class="card-img-top" src={{e.image}}>
 
-                        <div class="card-body">
-                            <h5 class="card-title"> {{ e.titre }} </h5>
-                            <p class="card-text"> Organisé par {{ e.organisateur.prenom }} {{ e.organisateur.nom }} </p>
-                            <p class="card-text" style="color:DodgerBlue"> {{ e.date }} | {{ e.lieu }} | {{ e.prix }} Token</p>
+                            <div class="card-body">
+                                <h5 class="card-title"> {{ e.titre }} </h5>
+                                <p class="card-text"> Organisé par {{ e.organisateur.prenom }} {{ e.organisateur.nom }}
+                                </p>
+                                <p class="card-text" style="color:DodgerBlue"> {{ e.date }} | {{ e.lieu }} | Prix : {{ e.prix
+                                    }} Token</p>
+                            </div>
+                            <div class="card-footer text-center">
+                                <input class='form-control' type='number' [formControl]="quantity"
+                                    placeholder="Quantité souhaitée">
+                                <button type="submit" class="btn btn-info">Je veux ! </button>
+                            </div>
                         </div>
-                        <div class="card-footer text-center">
-                            <a href="#" class="btn btn-info">Je veux ! </a>
-                        </div>
-                    </div>
+                    </form>
                     <br>
                 </div>
             </div>
         </div>
     </div>
     <div class="text-center" style="padding-top:35px;" *ngIf="eventsAujd == 0">
-        <h3 class="container" style="background-color:black ; color: white;">Pas d'events ??? Mais on dort en ce moment ou quoi ?</h3>
+        <h3 class="container" style="background-color:black ; color: white;">Pas d'events ??? Mais on dort en ce moment
+            ou quoi ?</h3>
     </div>
 
     <div class="container" style="padding-top:35px ;">
@@ -54,6 +62,8 @@
                             Futurs événements
                         </div>
                     </div>
+                    <p class="text-success">{{ authService.msgOK }}</p>
+                    <p class="text-danger">{{ authService.msgErr }}</p>
                 </div>
             </div>
             <div class="col-sm-4"></div>
@@ -63,26 +73,33 @@
         <div class="">
             <div class="row">
                 <div class="col-sm-4" style="padding-top:35px" *ngFor="let e of eventsApres">
-                    <div class="card h-100">
-                        <img class="card-img-top"
-                            src={{e.image}}>
+                    <form #fInscription="ngForm" (ngSubmit)="inscription(e)">
+                        <div class="card h-100">
+                            <img class="card-img-top" src={{e.image}}>
 
-                        <div class="card-body">
-                            <h5 class="card-title"> {{ e.titre }} </h5>
-                            <p class="card-text"> Organisé par {{ e.organisateur.prenom }} {{ e.organisateur.nom }} </p>
-                            <p class="card-text" style="color:DodgerBlue"> {{ e.date }} | {{ e.lieu }} | {{ e.prix }} Token</p>
+                            <div class="card-body">
+                                <h5 class="card-title"> {{ e.titre }} </h5>
+                                <p class="card-text"> Organisé par {{ e.organisateur.prenom }} {{ e.organisateur.nom }}
+                                </p>
+                                <p class="card-text" style="color:DodgerBlue"> {{ e.date }} | {{ e.lieu }} | Prix : {{ e.prix
+                                    }}
+                                    Token</p>
+                            </div>
+                            <div class="card-footer text-center">
+                                <input class='form-control' type='number' [formControl]="quantity"
+                                    placeholder="Quantité souhaitée">
+                                <button type="submit" class="btn btn-info">Je veux ! </button>
+                            </div>
                         </div>
-                        <div class="card-footer text-center">
-                            <a href="#" class="btn btn-info">Je veux ! </a>
-                        </div>
-                    </div>
+                    </form>
                     <br>
                 </div>
             </div>
         </div>
     </div>
     <div class="text-center" style="padding-top:35px;" *ngIf="eventsApres == 0">
-        <h3 class="container" style="background-color:black ; color: white;">Désolé, nous n'avons plus d'événements pour les semaines à venir...</h3>
+        <h3 class="container" style="background-color:black ; color: white;">Désolé, nous n'avons plus d'événements pour
+            les semaines à venir...</h3>
     </div>
 
     <div class="container" style="padding-top:35px ;">
@@ -105,29 +122,28 @@
             <div class="row">
                 <div class="col-sm-4" style="padding-top:35px;" *ngFor="let e of eventsAvant">
                     <div class="hachure">
-                    <div class="card h-100 hachure">
-                        <img class="card-img-top"
-                            src={{e.image}}>
+                        <div class="card h-100 hachure">
+                            <img class="card-img-top" src={{e.image}}>
 
-                        <div class="card-body">
-                            <h5 class="card-title"> {{ e.titre }} </h5>
-                            <p class="card-text"> Organisé par {{ e.organisateur.prenom }} {{ e.organisateur.nom }} </p>
-                            <p class="card-text" style="color:DodgerBlue"> {{ e.date }} | {{ e.lieu }} | {{ e.prix }} Token</p>
-                        </div>
-                        <div class="card-footer text-center">
-                            <a href="#" class=""> Terminé </a>
+                            <div class="card-body">
+                                <h5 class="card-title"> {{ e.titre }} </h5>
+                                <p class="card-text"> Organisé par {{ e.organisateur.prenom }} {{ e.organisateur.nom }}
+                                </p>
+                                <p class="card-text" style="color:DodgerBlue"> {{ e.date }} | {{ e.lieu }} | {{ e.prix
+                                    }} Token</p>
+                            </div>
+                            <div class="card-footer text-center">
+                                <button [disabled]="" class="btn"> Terminé </button>
+                            </div>
                         </div>
                     </div>
-                </div>
                     <br>
                 </div>
             </div>
         </div>
     </div>
     <div class="text-center" style="padding-top:35px; padding-bottom: 90px;" *ngIf="eventsAvant == 0">
-        <h3 class="container" style="background-color:black ; color: white;">Il n'y a pas encore eu d'évènements passés !</h3>
+        <h3 class="container" style="background-color:black ; color: white;">Il n'y a pas encore eu d'évènements passés
+            !</h3>
     </div>
 </div>
-
-
-
