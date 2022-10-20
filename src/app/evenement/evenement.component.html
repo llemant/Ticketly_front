@@ -26,7 +26,7 @@
                 <div class="col-sm-4" style="padding-top:35px" *ngFor="let e of eventsAujd">
                     <form #fInscription="ngForm" (ngSubmit)="inscription(e)">
                         <div class="card h-100">
-                            <img class="card-img-top" src={{e.image}}>
+                            <img class="card-img-top" height="220px" wight="40px" src={{e.image}}>
 
                             <div class="card-body">
                                 <h5 class="card-title"> {{ e.titre }} </h5>
@@ -75,7 +75,7 @@
                 <div class="col-sm-4" style="padding-top:35px" *ngFor="let e of eventsApres">
                     <form #fInscription="ngForm" (ngSubmit)="inscription(e)">
                         <div class="card h-100">
-                            <img class="card-img-top" src={{e.image}}>
+                            <img class="card-img-top" height="220px" wight="40px" src={{e.image}}>
 
                             <div class="card-body">
                                 <h5 class="card-title"> {{ e.titre }} </h5>
@@ -123,7 +123,7 @@
                 <div class="col-sm-4" style="padding-top:35px;" *ngFor="let e of eventsAvant">
                     <div class="hachure">
                         <div class="card h-100 hachure">
-                            <img class="card-img-top" src={{e.image}}>
+                            <img class="card-img-top" height="220px" wight="40px" src={{e.image}}>
 
                             <div class="card-body">
                                 <h5 class="card-title"> {{ e.titre }} </h5>
