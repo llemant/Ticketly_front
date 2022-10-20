@@ -15,10 +15,13 @@
                           <a class="nav-link" routerLink="mestickets" style="color: #002240;" *ngIf="!authService.getUserSession().organisateur">Mes tickets</a>
                         </li>
                         <li class="nav-item" *ngIf="authService.isConnected()">
+                          <a class="nav-link" routerLink="mesevenements" style="color: #002240;" *ngIf="authService.getUserSession().organisateur">Mes événements</a>
+                        </li>
+                        <li class="nav-item" *ngIf="authService.isConnected()">
                           <a class="nav-link" routerLink="amis" style="color: #002240;"*ngIf="!authService.getUserSession().organisateur">Amis</a>
                         </li>
                         <li class="nav-item" *ngIf="authService.isConnected()">
-                            <a class="nav-link" routerLink="boutique" style="color: #002240; ">Boutique</a>
+                            <a class="nav-link" routerLink="boutique" style="color: #002240; " *ngIf="!authService.getUserSession().organisateur">Boutique</a>
                         </li>
                         <li class="nav-item" *ngIf="authService.isConnected()">
                             <a class="nav-link" routerLink="buytokens" style="color: #002240; ">Acheter des Tokens</a>
@@ -41,9 +44,9 @@
 
 <router-outlet></router-outlet>
 
-<br>
-<footer class="bg-light text-center text-lg-start sticky-bottom">
-    <div class="text-center p-3" style="background-color: #dfe8eb ;">
+<br><br>
+<footer class="bg-light text-center text-lg-start fixed-bottom">
+    <div class="text-center p-3" style="background-color: #dfe8eb;">
         © 2022 Copyright : Team Dev 6
     </div>
 </footer>

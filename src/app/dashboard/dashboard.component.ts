@@ -14,9 +14,13 @@ export class DashboardComponent implements OnInit {
   constructor(private http: HttpClient, private route: Router, private AuthService : AuthService, private host: HostService) { }
 
 eventsInscriptionAujd : any;
+nbToken : any = this.AuthService.getUserSession().nbToken;
+nbPoint : any = this.AuthService.getUserSession().nbPoint;
+
 
   ngOnInit(): void {
     this.recupEventInscriptionAujd();
+
   }
 
   recupEventInscriptionAujd() {
@@ -25,4 +29,5 @@ eventsInscriptionAujd : any;
       error : (err) => { console.log(err) }
     });
   }
+
 }

@@ -5,19 +5,30 @@
 </div>
 <div style="margin: auto; width: 100%; text-align: center; justify-content: center;">
     <div>
-        <form action="">
-            <button type="button" class="btn" routerLink = '/creationEvent'>Créer un événement</button>
-        </form>
+        <p>Nom : {{ authService.getUserSession().nom}}</p>
+        <p>Prénom : {{ authService.getUserSession().prenom}}</p>
+        <p>Login : {{ authService.getUserSession().nom}}</p>
+        <p>Numéro de téléphone : {{ authService.getUserSession().tel}}</p>
+        <p>Adresse email : {{ authService.getUserSession().email}}</p>
+        <p>Nombre de tokens : {{ authService.getUserSession().nbToken}}</p>
+        <p>Nombre de points de fidélité : {{ authService.getUserSession().nbPoint}}</p>
+        <div *ngIf="authService.getUserSession().organisateur">
+            <p>Nombre de tokens organisateurs : {{ authService.getUserSession().nbTokenEvent }}</p>
+        </div>
+
     </div>
-    <div  *ngIf="!authService.getUserSession().organisateur">
+
+
+
+    <div *ngIf="!authService.getUserSession().organisateur">
         <form action="">
-            <button type="button" class="btn" routerLink = '/modifCompte'>Modifier
+            <button type="button" class="btn" routerLink='/modifCompte'>Modifier
                 votre compte</button>
         </form>
     </div>
     <div *ngIf="authService.getUserSession().organisateur">
         <form action="">
-            <button type="button" class="btn" routerLink = '/modifCompteOrga'>Modifier
+            <button type="button" class="btn" routerLink='/modifCompteOrga'>Modifier
                 votre compte organisateur</button>
         </form>
     </div>
