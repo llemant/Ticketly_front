@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../services/auth.service';
 import { CreateeventService } from '../services/createevent.service';
 import { HostService } from '../services/host.service';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-evenement',
@@ -17,14 +18,23 @@ export class EvenementComponent implements OnInit {
   eventsAujd : any;
   eventsAvant :any;
   eventsApres :any;
+  user: any;
+  oldtoken: any;
+  newtoken: any;
+  total: any;
+  tokenOrga: any;
+  lInscription: any;
+  
 
+  quantity = new FormControl();
 
-  msgAttributAbsent = "Un attribut est absent dans le formualire";
+  msgSoldeInsuffisant = "Votre solde de token est insuffisant pour réaliser cet achat";
 
 
   constructor(private http: HttpClient, private route: Router, public authService: AuthService, public createeventService: CreateeventService, private host: HostService) { }
 
   ngOnInit(): void {
+    this.authService.msgOK = '';
     this.recupEventAujd();
     this.recupEventApres();
     this.recupEventAvant();
@@ -56,6 +66,41 @@ export class EvenementComponent implements OnInit {
       next : (data) => { this.eventsApres = data },
       error : (err) => { console.log(err) }
     });
+  }
+
+  inscription(val: any){
+
+    this.authService.msgOK = "";
+    
+    //recuperation de la session
+    this.user = this.authService.getUserSession();
+    // Récupération des tokens avant achat
+    this.oldtoken = this.user.nbToken;
+    // Calcul du cout total des places
+    this.total = this.quantity.value * val.prix;
+
+    if (this.total > this.user.nbToken){
+      this.authService.msgErr = this.msgSoldeInsuffisant;
+    } else {
+      console.log("cout ok");
+      let ticket = {acheteur: this.user, event: val, ticketQuantity: this.quantity.value }
+      
+      console.log('voir ' , ticket);
+
+      this.http.post(this.host.myDevHost + 'inscription', ticket).subscribe({
+        next: (data) => { 
+          this.lInscription = data;
+          console.log('success');
+          this.authService.msgOK = "Merci pour votre achat";
+          this.authService.setUserInSession(this.lInscription.acheteur);
+          // this.ngOnInit();
+        },
+        error: (err) => { console.log(err)}
+      })
+    }
+
+    
+
   }
 
 }
