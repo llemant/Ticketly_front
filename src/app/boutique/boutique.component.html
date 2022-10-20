@@ -7,13 +7,12 @@
     <div class="d-flex justify-content-center">
         <div *ngFor="let a of avantages" class="col-2">
             <div class="card">
-                <img class="card-img-top"
-                    src="https://i.picsum.photos/id/60/314/200.jpg?hmac=NZBpOs3xK_iBNnD-jU1hBC17kKfkKMJrqbr44sgCA9Y"
-                    alt="Card image cap">
+                <img class="card-img-top text-center"
+                            src={{a.image}}>
                 <div class="card-body">
                     <h6 class="card-title">{{ a.avantage }}</h6>
                     <h5>{{ a.prix }} points</h5>
-                    <input class='form-control' type='text' [formControl]="quantity" placeholder="Quantité souhaitéee">
+                    <input class='form-control' type='number' [formControl]="quantity" placeholder="Quantité souhaitéee">
                     <button (click)="achat(a)" class="btn btn-outline-info">Obtenir</button>
                 </div>
             </div>
