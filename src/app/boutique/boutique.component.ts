@@ -46,7 +46,7 @@ export class BoutiqueComponent implements OnInit {
       this.boutiqueService.MsgBoutiqueErr = 'Vous n\'avez pas assez de points de fidélité pour acheter cela !'
       this.boutiqueService.MsgBoutiqueOK = ''
     } else {
-      if (!this.regexQuantity.test(this.quantity.value)) {
+      if (!this.regexQuantity.test(this.quantity.value) || this.quantity.value < 0) {
         this.boutiqueService.MsgBoutiqueErr = 'Veuillez entrer une quantité valide.'
         this.boutiqueService.MsgBoutiqueOK = ''
       } else {

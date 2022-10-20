@@ -35,7 +35,7 @@ export class LieuComponent implements OnInit {
 
     if (this.lieu.pays == "" || this.lieu.ville == "" || this.lieu.adresse == "" || this.lieu.nom == "" || this.lieu.capacity) {
       this.createlieuService.msgErr = this.msgAttributAbsent;
-    }else {
+    } else {
 
     if (!this.regexPays.test(this.lieu.pays)) {
       this.createlieuService.msgErr = this.msgPaysIncorrect;
