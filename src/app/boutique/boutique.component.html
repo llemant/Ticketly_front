@@ -13,7 +13,8 @@
             <div class="card-body">
                 <h6 class="card-title">{{ a.avantage }}</h6>   
                 <h5>{{ a.prix }} points</h5>
-                <button (click)="paiement(a.prix)" class="btn btn-outline-info">Obtenir</button>
+                <input class='form-control' type='text' [formControl]="quantity" placeholder="Quantité souhaitéee">
+                <button (click)="achat(a)" class="btn btn-outline-info">Obtenir</button>
             </div>
         </div>
     </div>
