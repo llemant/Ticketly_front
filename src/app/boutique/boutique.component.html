@@ -1,23 +1,23 @@
 <h1 class="text-center">Boutique</h1>
-<div class="container text-center">Vous avez accumulé des points de fidélité ? Génial ! Vous pouvez ici
+<div class="container text-center">Tu as accumulé des points de fidélité ? Génial ! Tu peux ici
     les échanger contre des avantages exclusifs lors de vos événements. <br>
-    Vous souhaitiez acheter des tokens? Rendez-vous <a href="/buytokens">ici</a> ! <br> </div> <br>
+    Tu souhaitais acheter des tokens? Rendez-vous <a href="/buytokens">ici</a> ! <br> </div> <br>
 
 <div class="flex-container text-center">
     <div class="d-flex justify-content-center">
         <div *ngFor="let a of avantages" class="col-2">
-            <div class="card">
+            <div class="card testimonial-card">
                 <img class="card-img-top text-center"
-                            src={{a.image}}>
+                    src={{a.image}}>
                 <div class="card-body">
                     <h6 class="card-title">{{ a.avantage }}</h6>
                     <h5>{{ a.prix }} points</h5>
-                    <input class='form-control' type='number' [formControl]="quantity" placeholder="Quantité souhaitéee">
-                    <button (click)="achat(a)" class="btn btn-outline-info">Obtenir</button>
+                    <input class='form-control' type='number' [formControl]="quantity" placeholder="Quantité souhaitée">
+                    <button (click)="achat(a)" class="btn rounded-pill deep-blue-gradient">Obtenir</button>
                 </div>
             </div>
         </div>
-    </div>
+</div>
     <br>
     <br>
     <p class="text-danger">{{ boutiqueService.MsgBoutiqueErr }}</p>

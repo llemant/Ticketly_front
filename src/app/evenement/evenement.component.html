@@ -1,15 +1,10 @@
-<!-- <link rel="stylesheet" href="evenement.component.css"> -->
-
-
 <div class="" style="background-color: #FFFFFF ; padding-top: 25px; padding-bottom: 95px;">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-sm-4">
                 <div class="">
-                    <div class="titre-box">
-                        <div class="titre-texte">
+                        <div class="titre-texte rounded-pill winter-neva-gradient p-2 text-dark font-weight-bold">
                             Aujourd'hui
-                        </div>
                     </div>
                     <p class="text-success">{{ authService.msgOK }}</p>
                     <p class="text-danger">{{ authService.msgErr }}</p>
@@ -36,7 +31,7 @@
                             <div class="card-footer text-center">
                                 <input class='form-control' type='number' [formControl]="quantity"
                                     placeholder="Quantité souhaitée">
-                                <button type="submit" class="btn btn-info">Je veux ! </button>
+                                <button type="submit" class="btn rounded-pill winter-neva-gradient text-dark font-weight-bold">Je veux ! </button>
                             </div>
                         </div>
                     </form>
@@ -55,10 +50,8 @@
             <div class="col-sm-4"></div>
             <div class="col-sm-4">
                 <div class="">
-                    <div class="titre-box">
-                        <div class="titre-texte">
+                    <div class="titre-texte rounded-pill winter-neva-gradient p-2 text-dark font-weight-bold">
                             Futurs événements
-                        </div>
                     </div>
                     <p class="text-success">{{ authService.msgOK }}</p>
                     <p class="text-danger">{{ authService.msgErr }}</p>
@@ -86,7 +79,7 @@
                             <div class="card-footer text-center">
                                 <input class='form-control' type='number' [formControl]="quantity"
                                     placeholder="Quantité souhaitée">
-                                <button type="submit" class="btn btn-info">Je veux ! </button>
+                                <button type="submit" class="btn rounded-pill winter-neva-gradient text-dark font-weight-bold">Je veux ! </button>
                             </div>
                         </div>
                     </form>
@@ -96,7 +89,7 @@
         </div>
     </div>
     <div class="text-center" style="padding-top:35px;" *ngIf="eventsApres == 0">
-        <h3 class="container" style="background-color:black ; color: white;">Désolé, nous n'avons plus d'événements pour
+        <h3 class="container" style="background-color:black ; color: white;">Désolés, nous n'avons plus d'événements pour
             les semaines à venir...</h3>
     </div>
 
@@ -105,10 +98,8 @@
             <div class="col-sm-4"></div>
             <div class="col-sm-4">
                 <div class="">
-                    <div class="titre-box">
-                        <div class="titre-texte">
+                    <div class="titre-texte rounded-pill winter-neva-gradient p-2 text-dark font-weight-bold">
                             Evénements passés
-                        </div>
                     </div>
                 </div>
             </div>
