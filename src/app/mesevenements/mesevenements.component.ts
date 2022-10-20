@@ -14,13 +14,21 @@ export class MesevenementsComponent implements OnInit {
 
   ngOnInit(): void {
     this.recupEventOrganisateurs();
+    this.recupEventOrganisateursPast();
   }
-  eventsOrgansiateurs : any;
+  eventsOrganisateurs : any;
+  eventsOrganisateursPast : any;
 
   recupEventOrganisateurs() {
     this.http.get(this.host.myDevHost + 'eventorga/'+ this.AuthService.getUserSession().id).subscribe({
-      /* next : (data) => { this.eventsOrgansiateurs = data }, */
-      next : (data) => { this.eventsOrgansiateurs = data },
+      next : (data) => { this.eventsOrganisateurs = data },
+      error : (err) => { console.log(err) }
+    });
+  }
+
+  recupEventOrganisateursPast() {
+    this.http.get(this.host.myDevHost + 'eventorga/past/'+ this.AuthService.getUserSession().id).subscribe({
+      next : (data) => { this.eventsOrganisateursPast = data },
       error : (err) => { console.log(err) }
     });
   }

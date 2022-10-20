@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="mesevenements.component.css" />
 
-<div class="" style="background-color: #edf7fd ; ">
+<div class="" style="background-color: #FFFFFF ; ">
     <div class="container">
     <div class="text-center" style="padding-top: 25px">
         <div>
@@ -13,10 +13,10 @@
         <a class="active" routerLink="/mesevenements">A venir</a>
         <a routerLink="/mesevenementspasses">Passés</a>
       </nav>
-      <div class="" *ngIf="eventsOrgansiateurs != 0"> 
+      <div class="" *ngIf="eventsOrganisateurs != 0"> 
         <div class="">
             <div class="row">
-                <div class="col-sm-4" style="padding-top:35px" *ngFor="let e of eventsOrgansiateurs">
+                <div class="col-sm-4" style="padding-top:35px" *ngFor="let e of eventsOrganisateurs">
                     <div class="card h-100">
                         <img class="card-img-top"
                             src={{e.image}}>
@@ -35,7 +35,7 @@
             </div>
         </div>
     </div>
-    <div class="text-center" style="padding-top:35px;" *ngIf="eventsOrgansiateurs == 0">
+    <div class="text-center" style="padding-top:35px;" *ngIf="eventsOrganisateurs == 0">
         <h3 class="container" style="background-color:black ; color: white;"> Tu n'as pas d'événement en ce moment, n'hésite pas à aller dans événement pour t'inscrire à de nouveaux 😘 </h3>
     </div>
     </div>
