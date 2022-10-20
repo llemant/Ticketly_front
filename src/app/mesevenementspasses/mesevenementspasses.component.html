@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="mesevenementspasses.component.css" />
 
-<div class="" style="background-color: #edf7fd ; ">
+<div class="" style="background-color: #FFFFFF ; ">
   <div class="container">
     <div class="text-center" style="padding-top: 25px">
       <div>
@@ -13,90 +13,32 @@
         <a routerLink="/mesevenements">A venir</a>
         <a class="active" routerLink="/mesevenementspasses">Passés</a>
       </nav>
-      <br>
-      <div class="card-deck">
-        <div class="card">
-          <img class="card-img-top"
-            src="https://images.midilibre.fr/api/v1/images/view/626278a83188675ed45b26e4/large/image.jpg?v=2">
-          <div class="card-body">
-            <h5 class="card-title">Titre de l'évènement</h5>
-            <p class="card-text">Organisateur</p>
-            <p class="card-text" style="color:DodgerBlue">Date | Heure | Prix </p>
-          </div>
-          <div class="card-footer text-center">
-            <p>Terminé</p>
-          </div>
-        </div>
-        <div class="card">
-          <img class="card-img-top"
-            src="https://images.midilibre.fr/api/v1/images/view/626278a83188675ed45b26e4/large/image.jpg?v=2">
+      <div class="" *ngIf="eventsOrganisateursPast != 0"> 
+        <div class="">
+            <div class="row">
+                <div class="col-sm-4" style="padding-top:35px;" *ngFor="let e of eventsOrganisateursPast">
+                  <div class="hachure">
+                    <div class="card h-100 hachure ">
+                      <img class="card-img-top"
+                          src={{e.image}}>
 
-          <div class="card-body">
-            <h5 class="card-title">Titre de l'évènement</h5>
-            <p class="card-text">Organisateur</p>
-            <p class="card-text" style="color:DodgerBlue">Date | Heure | Prix </p>
-          </div>
-          <div class="card-footer text-center">
-            <p>Terminé</p>
-          </div>
+                      <div class="card-body text-center">
+                          <h5 class="card-title"> {{ e.titre }} </h5>
+                          <p class="card-text"> Organisé par {{ e.organisateur.prenom }} {{ e.organisateur.nom }} </p>
+                          <p class="card-text" style="color:DodgerBlue"> {{ e.date }} | {{ e.lieu }} | {{ e.prix }} Token</p>
+                      </div>
+                      <div class="card-footer text-center">
+                          <a href="#" class="btn btn-info">Détail de l'événement</a>
+                      </div>
+                  </div>
+                  </div>  
+                  
+                    <br>
+                </div>
+            </div>
         </div>
-        <div class="card">
-          <img class="card-img-top"
-            src="https://images.midilibre.fr/api/v1/images/view/626278a83188675ed45b26e4/large/image.jpg?v=2">
-
-          <div class="card-body">
-            <h5 class="card-title">Titre de l'évènement</h5>
-            <p class="card-text">Organisateur</p>
-            <p class="card-text" style="color:DodgerBlue">Date | Heure | Prix </p>
-          </div>
-          <div class="card-footer text-center">
-            <p>Terminé</p>
-          </div>
-        </div>
-      </div>
-      <br>
-    </div>
-
-
-    <br>
-    <div class="card-deck">
-      <div class="card">
-        <img class="card-img-top"
-          src="https://images.midilibre.fr/api/v1/images/view/626278a83188675ed45b26e4/large/image.jpg?v=2">
-        <div class="card-body">
-          <h5 class="card-title">Titre de l'évènement</h5>
-          <p class="card-text">Organisateur</p>
-          <p class="card-text" style="color:DodgerBlue">Date | Heure | Prix </p>
-        </div>
-        <div class="card-footer text-center">
-          <p>Terminé</p>
-        </div>
-      </div>
-      <div class="card">
-        <img class="card-img-top"
-          src="https://images.midilibre.fr/api/v1/images/view/626278a83188675ed45b26e4/large/image.jpg?v=2">
-
-        <div class="card-body">
-          <h5 class="card-title">Titre de l'évènement</h5>
-          <p class="card-text">Organisateur</p>
-          <p class="card-text" style="color:DodgerBlue">Date | Heure | Prix </p>
-        </div>
-        <div class="card-footer text-center">
-          <p>Terminé</p>
-        </div>
-      </div>
-      <div class="card">
-        <img class="card-img-top"
-          src="https://images.midilibre.fr/api/v1/images/view/626278a83188675ed45b26e4/large/image.jpg?v=2">
-
-        <div class="card-body">
-          <h5 class="card-title">Titre de l'évènement</h5>
-          <p class="card-text">Organisateur</p>
-          <p class="card-text" style="color:DodgerBlue">Date | Heure | Prix </p>
-        </div>
-        <div class="card-footer text-center">
-          <p>Terminé</p>
-        </div>
+        <div class="text-center" style="padding-top:35px;" *ngIf="eventsOrganisateursPast == 0">
+          <h3 class="container" style="background-color:black ; color: white;"> Tu n'as pas d'événement en ce moment, n'hésite pas à aller dans événement pour t'inscrire à de nouveaux 😘 </h3>
       </div>
     </div>
     <br>
