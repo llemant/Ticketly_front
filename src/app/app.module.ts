@@ -59,7 +59,8 @@ import { MesevenementspassesComponent } from './mesevenementspasses/mesevenement
     CreationEventComponent,
     MesevenementsComponent,
     MesevenementspassesComponent,
-    EvenementComponent
+    EvenementComponent,
+
   ],
   imports: [
     BrowserModule,

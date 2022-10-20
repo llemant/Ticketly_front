@@ -14,6 +14,7 @@ export class CreationEventComponent implements OnInit {
   msg: any;
 
 
+
   regexGenre = new RegExp("^[a-zA-Z]");
   regexPrix = new RegExp("^[0-9]*[1-9][0-9]*$");
   regexPhoto = new RegExp("^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$");
@@ -34,9 +35,6 @@ export class CreationEventComponent implements OnInit {
 
   creerEvent(event: any) {
     event.organisateur = this.authService.getUserSession();
-    
-    
-    console.log(event);
 
     if (!this.regexGenre.test(event.genre)) {
       this.creationEvent.msgErr = this.msgGenreIncorrect;
@@ -57,19 +55,15 @@ export class CreationEventComponent implements OnInit {
 
       this.http.post(this.host.myDevHost + 'event', event).subscribe({
         next: (data) => {
-          console.log("wze")
+          console.log(event)
           this.creationEvent.msgErr = "";
           this.creationEvent.msgOK = "Création de l'événement réussie !";
           this.route.navigateByUrl('profile');
         },
         error: (err) => { console.log(err) }
       })
-    } else {
-      console.log("condition non remplies")
-      console.log("genre" + this.regexGenre.test(event.genre))
-      console.log("prix" + this.regexPrix.test(event.prix))
-      console.log("photo" + this.regexPhoto.test(event.photo))
-    }
+
 
   }
+}
 }
