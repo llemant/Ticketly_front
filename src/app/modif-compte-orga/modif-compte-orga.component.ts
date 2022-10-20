@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
-import { BddService } from '../services/bdd.service';
+import { HostService } from '../services/host.service';
 
 @Component({
   selector: 'app-modif-compte-orga',
@@ -23,7 +23,7 @@ export class ModifCompteOrgaComponent implements OnInit {
   msgEmailIncorrect = "Le format de l'email est incorrect";
   msgPSWIncorrect = "Le format du mot de passe est incorrect : il doit contenir au moins 8 caractères dont un chiffre, une majuscule, une minuscule et un caractère spécial";
 
-  constructor(private http: HttpClient, private route: Router, public authService: AuthService, public bddService: BddService) { }
+  constructor(private http: HttpClient, private route: Router, public authService: AuthService, private host: HostService) { }
 
   ngOnInit(): void {
     this.connectedAccount = this.authService.getUserSession();
@@ -46,7 +46,7 @@ export class ModifCompteOrgaComponent implements OnInit {
     if (this.regexTel.test(this.connectedAccount.tel) &&
       this.regexMail.test(this.connectedAccount.email) &&
       this.regexPw.test(this.connectedAccount.password)) {
-      this.http.put('http://localhost:' + this.bddService.bddPort + '/modif/orga/' + this.authService.getUserSession().login, this.connectedAccount).subscribe({
+      this.http.put(this.host.myDevHost + 'modif/orga/' + this.authService.getUserSession().login, this.connectedAccount).subscribe({
         next: (data) => {
           this.authService.msgErr = "";
           this.authService.msgOK = "Modification réussie";

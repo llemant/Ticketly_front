@@ -1,5 +1,5 @@
 .titre-texte {
-  font-style: normal;
+  font-style: sans-serif;
 
   font-size: 20px;
   line-height: 29px;
@@ -12,7 +12,7 @@
 }
 
 .titre-box {
-  width: 371px;
+  width: 350px;
   height: 51px;
 
   background: #36484b;
