@@ -19,12 +19,15 @@ export class CreationEventComponent implements OnInit {
   creerEvent(val: any){
     val.organisateur = this.authService.getUserSession();
 
-
    this.http.post(this.host.myDevHost + 'event', val).subscribe({
     next: (data) => {
+
+      this.route.navigateByUrl('evenement');
+      console.log('Création de votre événement réussie !');
       this.route.navigateByUrl('profile');
     },
     error: (err) => { console.log(err) }
    })
   }
-}
+  }
+

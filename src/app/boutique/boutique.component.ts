@@ -13,7 +13,9 @@ import { HostService } from '../services/host.service';
 export class BoutiqueComponent implements OnInit {
   avantage: any;
   avantages: any;
+  user: any;
   val: any;
+  total: any;
   quantity = new FormControl();
 
   constructor(private http: HttpClient, public authService: AuthService, public host: HostService) {
@@ -23,30 +25,23 @@ export class BoutiqueComponent implements OnInit {
     this.recupAvantages();
   }
 
-  paiement(prix: any) {
-    this.http.patch(this.host.myDevHost + 'points/pay/' + prix + '/' + this.authService.getUserSession().id, '').subscribe();
-    console.log(this.quantity.value);
+  // Fonction déclenchée au clic
+  achat(avt: any) {
+    this.user = this.authService.getUserSession();
+    this.total = this.quantity.value * avt.prix;
+    this.http.patch(this.host.myDevHost + 'points/pay/' + this.total + '/' + this.authService.getUserSession().id, '').subscribe();
     console.log('ok paiement');
-  }
-
-  obtenir(avt: any) {
     let achat = {
-      "user": this.authService.getUserSession(), "avantage": avt,
+      "user": this.authService.getUserSession(), 
+      "avantage": avt,
       "quantite": this.quantity.value
     }
-    console.log('achat : ' , achat);
+    console.log('achat : ' , achat);  
+    console.log("total contient " + this.total);
+    this.http.post(this.host.myDevHost + 'achat-bonus', achat).subscribe();
   }
 
-  achat(val: any) {
-    val.user.id = this.authService.getUserSession().id;
-    val.avantage.id = val;
-    val.quantite = this.quantity.value;
-
-
-    console.log(val);
-    this.http.post(this.host.myDevHost + 'achat-bonus', val).subscribe();
-  }
-
+  // Récupération de tous les avantages 
   recupAvantages() {
     this.http.get(this.host.myDevHost + 'avantages').subscribe({
       next: (data) => { this.avantages = data },
