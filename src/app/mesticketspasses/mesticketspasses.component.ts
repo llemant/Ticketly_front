@@ -18,7 +18,10 @@ eventsInscriptionPast : any;
 
   recupEventInscriptionPast() {
     this.http.get(this.host.myDevHost + 'inscriptions/past/'+ this.AuthService.getUserSession().id).subscribe({
-      next : (data) => { this.eventsInscriptionPast = data },
+      next : (data) => { 
+        console.log(data);
+        this.eventsInscriptionPast = data 
+        console.log(this.eventsInscriptionPast)},
       error : (err) => { console.log(err) }
     });
   }
