@@ -6,18 +6,18 @@
 <div style="margin: auto; width: 100%; text-align: center; justify-content: center;">
     <div>
         <form action="">
-            <button type="button" class="btn" onclick="location.href = 'creationEvent'">Créer un événement</button>
+            <button type="button" class="btn" routerLink = '/creationEvent'>Créer un événement</button>
         </form>
     </div>
     <div  *ngIf="!authService.getUserSession().organisateur">
         <form action="">
-            <button type="button" class="btn" onclick="location.href = 'modifCompte'">Modifier
+            <button type="button" class="btn" routerLink = '/modifCompte'>Modifier
                 votre compte</button>
         </form>
     </div>
     <div *ngIf="authService.getUserSession().organisateur">
         <form action="">
-            <button type="button" class="btn" onclick="location.href = 'modifCompteOrga'">Modifier
+            <button type="button" class="btn" routerLink = '/modifCompteOrga'>Modifier
                 votre compte organisateur</button>
         </form>
     </div>
