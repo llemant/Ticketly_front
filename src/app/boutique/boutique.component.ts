@@ -51,7 +51,7 @@ export class BoutiqueComponent implements OnInit {
         this.boutiqueService.MsgBoutiqueOK = ''
       } else {
         this.http.patch(this.host.myDevHost + 'points/pay/' + this.total + '/' + this.authService.getUserSession().id, '').subscribe({
-          next: (data) => { this.authService.setUserInSession(data) }
+          next: (data) => { this.authService.setUserInSession(data)}
         })
         // Recuperation du body pour l'API achat-bonus
         let achat = {

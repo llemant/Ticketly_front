@@ -11,31 +11,31 @@
                         Mes réservations
                     </div>
                 </div>
-                <div class="container" *ngIf="eventsInscription != 0"> 
-                    <div class="">
-                        <div class="row">
-                            <div class="col-sm-4" style="padding-top:35px" *ngFor="let e of eventsInscription">
-                                <div class="card h-100">
-                                    <img class="card-img-top"
-                                        src={{e.event.image}}>
-            
-                                    <div class="card-body">
-                                        <h5 class="card-title"> {{ e.event.titre }} </h5>
-                                        <p class="card-text"> Organisé par {{ e.event.organisateur.prenom }} {{ e.event.organisateur.nom }} </p>
-                                        <p class="card-text" style="color:DodgerBlue"> {{ e.event.date }} | {{ e.event.lieu }} | {{ e.event.prix }} Token</p>
+                    <div class="container" *ngIf="eventsInscriptionAujd != 0"> 
+                        <div class="">
+                            <div class="row">
+                                <div class="col-sm-4" style="padding-top:35px" *ngFor="let e of eventsInscriptionAujd">
+                                    <div class="card h-100">
+                                        <img class="card-img-top"
+                                            src={{e.event.image}}>
+                
+                                        <div class="card-body">
+                                            <h5 class="card-title"> {{ e.event.titre }} </h5>
+                                            <p class="card-text"> Organisé par {{ e.event.organisateur.prenom }} {{ e.event.organisateur.nom }} </p>
+                                            <p class="card-text" style="color:DodgerBlue"> {{ e.event.date }} | {{ e.event.lieu }} | {{ e.event.prix }} Token</p>
+                                        </div>
+                                        <div class="card-footer text-center">
+                                            <a href="#" class="btn btn-info">Détail de l'événement</a>
+                                        </div>
                                     </div>
-                                    <div class="card-footer text-center">
-                                        <a href="#" class="btn btn-info">Je veux ! </a>
-                                    </div>
+                                    <br>
                                 </div>
-                                <br>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="text-center" style="padding-top:35px;" *ngIf="eventsInscription == 0">
-                    <h3 class="container" style="background-color:black ; color: white;">Pas d'events ??? Mais on dort en ce moment ou quoi ?</h3>
-                </div>
+                    <div class="text-center" style="padding-top:35px;" *ngIf="eventsInscriptionAujd == 0">
+                        <h3 class="container" style="background-color:black ; color: white;"> Tu n'as pas d'événement en ce mometn, n'hésite pas à aller dans événement pour t'inscrire à de nouveaux 😘 </h3>
+                    </div>
                 <br>
                 <div class="row">
                     <div class="col">
@@ -45,22 +45,29 @@
                             </div>
                         </div>
                         <br>
-
-                        <div class="row">
-                            <img class="col" src="https://cdn-icons-png.flaticon.com/512/2165/2165574.png" width="60px"
-                                height="100px" alt="">
-                            <div class="col">
-                                On possède X token !!!!
-                            </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <img class="col" src="https://cdn-icons-png.flaticon.com/512/2165/2165574.png" width="60px"
-                                height="100px" alt="">
-                            <div class="col">
-                                On possède X points de fidélité !!!!
-                            </div>
-                        </div>
+<div class="row">
+    <div class="col">
+        <div class="row">
+            <img class="col" src="https://cdn-icons-png.flaticon.com/512/2165/2165574.png" width="60px"
+                height="100px" alt="">
+            <div class="col">
+                <br>
+                <h2>{{nbToken}} TOKEN</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="row">
+            <img class="col" style="top:-50px;"src="https://www.freeiconspng.com/thumbs/medal-icon/medal-icon-13.png" width="60px"
+                height="200px" alt="">
+            <div class="col">
+                <br>
+                <h2>{{nbPoint}} POINTS</h2>
+        </div>
+    </div>
+    
+</div>
+                        
                     </div>
                     <div class="col">
                         <div class="titre-box">

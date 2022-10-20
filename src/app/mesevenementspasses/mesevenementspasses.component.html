@@ -2,10 +2,16 @@
 
 <div class="" style="background-color: #edf7fd ; ">
   <div class="container">
-    <div class="" style="padding-top: 25px">
+    <div class="text-center" style="padding-top: 25px">
+      <div>
+        <form action="">
+            <button type="button" class="btn text-center" routerLink = '/creationEvent'>Créer un événement</button>
+        </form>
+    </div>
+    <br>
       <nav class="pill-nav text-center">
-        <a href="mesevenements">A venir</a>
-        <a class="active" href="mesevenementspasses">Passés</a>
+        <a routerLink="/mesevenements">A venir</a>
+        <a class="active" routerLink="/mesevenementspasses">Passés</a>
       </nav>
       <br>
       <div class="card-deck">

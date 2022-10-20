@@ -22,8 +22,8 @@
                     <input name="email" ngModel="" type="text" class="form-control" placeholder="Adresse email">
                 </div>                
                 <button type="submit" class="btn btn-primary btn-sm btn-block">S'inscrire</button>
-                <button type="button" class="btn btn-link btn-sm btn-block" onclick="location.href = 'inscriptionOrganisateur'">Inscription organisateur</button>
-                <button type="button" class="btn btn-link btn-sm btn-block" onclick="location.href = 'login'">Page de connexion</button>
+                <button type="button" class="btn btn-link btn-sm btn-block" routerLink = '/inscriptionOrganisateur'>Inscription organisateur</button>
+                <button type="button" class="btn btn-link btn-sm btn-block" routerLink = '/login'>Page de connexion</button>
                 <br>
                 <p class="text-danger">{{ authService.msgErr }}</p>
                 <p class="text-success"></p>
