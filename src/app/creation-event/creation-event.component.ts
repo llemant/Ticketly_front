@@ -26,7 +26,6 @@ export class CreationEventComponent implements OnInit {
 
 
 
-
   constructor(public creationEvent: CreateeventService, public authService: AuthService, private http: HttpClient, private route: Router, private host: HostService) { }
 
   ngOnInit(): void { }
@@ -52,9 +51,16 @@ export class CreationEventComponent implements OnInit {
       this.regexPrix.test(event.prix) &&
       this.regexPhoto.test(event.photo)
     ) {
+      if(this.authService.getUserSession().nbToken < 200) {
+        this.creationEvent.msgErr = "Merci d'acheter des tokens pour créer votre événement, la création d'un événement vous coutera 200 tokens" 
+      } else {
+
+      
 
       this.http.post(this.host.myDevHost + 'event', event).subscribe({
         next: (data) => {
+          event = data;
+          this.authService.setUserInSession(event.organisateur)
           console.log(event)
           this.creationEvent.msgErr = "";
           this.creationEvent.msgOK = "Création de l'événement réussie !";
@@ -62,7 +68,7 @@ export class CreationEventComponent implements OnInit {
         },
         error: (err) => { console.log(err) }
       })
-
+    }
 
   }
 }
