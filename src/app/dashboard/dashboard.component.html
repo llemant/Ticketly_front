@@ -25,7 +25,7 @@
                                             <p class="card-text" style="color:DodgerBlue"> {{ e.event.date }} | {{ e.event.lieu }} | {{ e.event.prix }} Token</p>
                                         </div>
                                         <div class="card-footer text-center">
-                                            <a href="#" class="btn btn-info">Je veux ! </a>
+                                            <a href="#" class="btn btn-info">Détail de l'événement</a>
                                         </div>
                                     </div>
                                     <br>
@@ -45,22 +45,29 @@
                             </div>
                         </div>
                         <br>
-
-                        <div class="row">
-                            <img class="col" src="https://cdn-icons-png.flaticon.com/512/2165/2165574.png" width="60px"
-                                height="100px" alt="">
-                            <div class="col">
-                                On possède X token !!!!
-                            </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <img class="col" src="https://cdn-icons-png.flaticon.com/512/2165/2165574.png" width="60px"
-                                height="100px" alt="">
-                            <div class="col">
-                                On possède X points de fidélité !!!!
-                            </div>
-                        </div>
+<div class="row">
+    <div class="col">
+        <div class="row">
+            <img class="col" src="https://cdn-icons-png.flaticon.com/512/2165/2165574.png" width="60px"
+                height="100px" alt="">
+            <div class="col">
+                <br>
+                <h2>{{nbToken}} TOKEN</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="row">
+            <img class="col" style="top:-50px;"src="https://www.freeiconspng.com/thumbs/medal-icon/medal-icon-13.png" width="60px"
+                height="200px" alt="">
+            <div class="col">
+                <br>
+                <h2>{{nbPoint}} POINTS</h2>
+        </div>
+    </div>
+    
+</div>
+                        
                     </div>
                     <div class="col">
                         <div class="titre-box">
