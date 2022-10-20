@@ -1,24 +1,29 @@
+<div class="container text-center">
+    <br>
+    <h1>Bienvenue sur votre profil, {{authService.getUserSession().prenom }} !</h1>
+    <br>
+</div>
 <div style="margin: auto; width: 100%; text-align: center; justify-content: center;">
     <div>
         <form action="">
-            <button type="button" class="btn btn-link btn-sm btn-block" onclick="location.href = 'creationEvent'">Créer un événement</button>
+            <button type="button" class="btn" routerLink = '/creationEvent'>Créer un événement</button>
         </form>
     </div>
     <div  *ngIf="!authService.getUserSession().organisateur">
         <form action="">
-            <button type="button" class="btn btn-link btn-sm btn-block" onclick="location.href = 'modifCompte'">Modifier
-                le compte USER</button>
+            <button type="button" class="btn" routerLink = '/modifCompte'>Modifier
+                votre compte</button>
         </form>
     </div>
     <div *ngIf="authService.getUserSession().organisateur">
         <form action="">
-            <button type="button" class="btn btn-link btn-sm btn-block" onclick="location.href = 'modifCompteOrga'">Modifier
-                le compte ORGANISATEUR</button>
+            <button type="button" class="btn" routerLink = '/modifCompteOrga'>Modifier
+                votre compte organisateur</button>
         </form>
     </div>
     <div>
         <form (ngSubmit)="suppressionCompte()">
-            <button type="submit" class="btn btn-link btn-sm btn-block">Supprimer le compte</button>
+            <button type="submit" class="btn">Supprimer votre compte</button>
         </form>
     </div>
     <button type="button" class="btn red-text" (click)="authService.disconnect()"> {{
