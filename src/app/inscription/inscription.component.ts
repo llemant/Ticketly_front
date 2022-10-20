@@ -66,4 +66,3 @@ export class InscriptionComponent implements OnInit {
     }
   };
 }
-// histoire de

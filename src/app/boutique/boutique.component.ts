@@ -1,8 +1,10 @@
 import { validateHorizontalPosition } from '@angular/cdk/overlay';
+import { NgIf } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, Host, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
+import { BoutiqueService } from '../services/boutique.service';
 import { HostService } from '../services/host.service';
 
 @Component({
@@ -16,9 +18,11 @@ export class BoutiqueComponent implements OnInit {
   user: any;
   val: any;
   total: any;
+  oldpoints: any;
   quantity = new FormControl();
+  regexQuantity = new RegExp('[0-9]+');
 
-  constructor(private http: HttpClient, public authService: AuthService, public host: HostService) {
+  constructor(private http: HttpClient, public authService: AuthService, public host: HostService, public boutiqueService: BoutiqueService) {
   }
 
   ngOnInit(): void {
@@ -27,18 +31,42 @@ export class BoutiqueComponent implements OnInit {
 
   // Fonction déclenchée au clic
   achat(avt: any) {
-    this.user = this.authService.getUserSession();
+    this.user = this.authService.getUserSession(); // Recuperation user
+    console.log(this.user);
+    // Recuperation total a payer
     this.total = this.quantity.value * avt.prix;
-    this.http.patch(this.host.myDevHost + 'points/pay/' + this.total + '/' + this.authService.getUserSession().id, '').subscribe();
-    console.log('ok paiement');
-    let achat = {
-      "user": this.authService.getUserSession(), 
-      "avantage": avt,
-      "quantite": this.quantity.value
+
+
+    // Récupération points avant achat
+    this.oldpoints = this.user.nbPoint;
+    console.log(this.oldpoints);
+
+    // Paiement 
+    if (this.oldpoints < this.total) {
+      this.boutiqueService.MsgBoutiqueErr = 'Vous n\'avez pas assez de points de fidélité pour acheter cela !'
+      this.boutiqueService.MsgBoutiqueOK = ''
+    } else {
+      if (!this.regexQuantity.test(this.quantity.value)) {
+        this.boutiqueService.MsgBoutiqueErr = 'Veuillez entrer une quantité valide.'
+        this.boutiqueService.MsgBoutiqueOK = ''
+      } else {
+        this.http.patch(this.host.myDevHost + 'points/pay/' + this.total + '/' + this.authService.getUserSession().id, '').subscribe({
+          next: (data) => { this.authService.setUserInSession(data) }
+        })
+        // Recuperation du body pour l'API achat-bonus
+        let achat = {
+          "user": this.authService.getUserSession(),
+          "avantage": avt,
+          "quantite": this.quantity.value
+        }
+        this.http.post(this.host.myDevHost + 'achat-bonus', achat).subscribe({
+          next: (data) => { console.log('ok') },
+          error: (err) => { console.log(err) }
+        });
+        this.boutiqueService.MsgBoutiqueErr = ''
+        this.boutiqueService.MsgBoutiqueOK = 'Votre avantage a été pris en compte ! Vous avez maintenant ' + this.authService.getUserSession().nbPoint + ' points de fidélité.';
+      };
     }
-    console.log('achat : ' , achat);  
-    console.log("total contient " + this.total);
-    this.http.post(this.host.myDevHost + 'achat-bonus', achat).subscribe();
   }
 
   // Récupération de tous les avantages 
@@ -48,4 +76,5 @@ export class BoutiqueComponent implements OnInit {
       error: (err) => { console.log(err) }
     });
   }
+
 }
