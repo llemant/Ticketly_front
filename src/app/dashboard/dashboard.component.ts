@@ -21,7 +21,7 @@ eventsInscription : any;
 
   recupEventInscription() {
     this.http.get(this.host.myDevHost + 'inscriptions/today/'+ this.AuthService.getUserSession().id).subscribe({
-      next : (data) => { console.log(data) },
+      next : (data) => { console.log(data)},
       error : (err) => { console.log(err) }
     });
   }
