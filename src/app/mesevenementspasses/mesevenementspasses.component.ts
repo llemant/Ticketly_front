@@ -21,7 +21,7 @@ export class MesevenementspassesComponent implements OnInit {
   recupEventOrganisateursPast() {
     this.http.get(this.host.myDevHost + 'eventorga/past/'+ this.AuthService.getUserSession().id).subscribe({
       next : (data) => { this.eventsOrganisateursPast = data },
-      error : (err) => { console.log(err) }
+
     });
   }
 }

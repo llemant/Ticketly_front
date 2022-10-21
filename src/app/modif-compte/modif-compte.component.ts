@@ -31,7 +31,7 @@ export class ModifCompteComponent implements OnInit {
   }
 
   modification() {
-    console.log('user en cours de modif ' , this.connectedAccount);
+
 
     if (!this.regexTel.test(this.connectedAccount.tel)) {
       this.authService.msgErr = this.msgTelIncorrect;
@@ -52,7 +52,7 @@ export class ModifCompteComponent implements OnInit {
           this.authService.msgErr = "";
           this.authService.msgOK = "Modification réussie";
         },
-        error: (err) => { console.log(err) }
+
       })
     }
 

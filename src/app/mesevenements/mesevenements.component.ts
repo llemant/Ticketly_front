@@ -22,14 +22,14 @@ export class MesevenementsComponent implements OnInit {
   recupEventOrganisateurs() {
     this.http.get(this.host.myDevHost + 'eventorga/'+ this.AuthService.getUserSession().id).subscribe({
       next : (data) => { this.eventsOrganisateurs = data },
-      error : (err) => { console.log(err) }
+
     });
   }
 
   recupEventOrganisateursPast() {
     this.http.get(this.host.myDevHost + 'eventorga/past/'+ this.AuthService.getUserSession().id).subscribe({
       next : (data) => { this.eventsOrganisateursPast = data },
-      error : (err) => { console.log(err) }
+
     });
   }
 

@@ -60,7 +60,7 @@ export class InscriptionComponent implements OnInit {
             this.authService.msgOK = "Inscription réussie : veuillez vous connecter";
             this.route.navigateByUrl('login');
           },
-          error: (err) => { console.log(err) }
+
         })
       }
     }
