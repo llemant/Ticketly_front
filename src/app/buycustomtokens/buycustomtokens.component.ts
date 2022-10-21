@@ -12,6 +12,7 @@ import { HostService } from '../services/host.service';
 })
 export class BuycustomtokensComponent implements OnInit {
   cb: any;
+  connectedUser: any;
 
   regexNom = new RegExp('[a-zA-Z]+');
   regexCarte = new RegExp('[0-9]{16}$');
@@ -40,7 +41,7 @@ export class BuycustomtokensComponent implements OnInit {
     this.buytokenService.msgOKCBCustom = '';
     this.buytokenService.msgErrPrepayeeCustom = '';
     this.buytokenService.msgOKPrepayeeCustom = '';
-    
+
     console.log(this.cb.nom);
     console.log(this.cb.numcarte);
     console.log(this.cb.moisexp);
@@ -50,9 +51,9 @@ export class BuycustomtokensComponent implements OnInit {
     console.log(this.number.value);
 
     if (this.cb.nom == "" || this.cb.numcarte == "" || this.cb.cvc == "" || this.cb.moisexp == "" || this.cb.anexp == "" || this.cb.prepayee == "") {
-      this.buytokenService.msgErrPrepayeeCustom = this.msgAttributManquant;      
+      this.buytokenService.msgErrPrepayeeCustom = this.msgAttributManquant;
       this.buytokenService.msgErrCBCustom = this.msgAttributManquant;
-      
+
     } else {
       if (!this.regexNom.test(this.cb.nom)) {
         this.buytokenService.msgErrCBCustom = this.msgNomIncorrect;
@@ -76,24 +77,30 @@ export class BuycustomtokensComponent implements OnInit {
       if (this.cb.nom == "" || this.cb.numcarte == "" || this.cb.cvc == "" || this.cb.moisexp == "" || this.cb.anexp == "" && this.cb.prepayee != "" && !this.regexPrepayee.test(this.cb.carteprepayee)) {
         this.buytokenService.msgErrPrepayeeCustom = this.msgPrepayeeIncorrecte;
       }
-      
+
       if ((this.regexNom.test(this.cb.nom) && this.regexCarte.test(this.cb.numcarte)
         && this.regexCVC.test(this.cb.cvc) && this.regexMM.test(this.cb.moisexp)
         && this.regexYYYY.test(this.cb.anexp)) || (this.regexPrepayee.test(this.cb.carteprepayee))) {
-          this.http.patch(this.host.myDevHost +'token/add/' + + this.number.value + '/' + this.authService.getUserSession().id , val).subscribe({
+        this.http.patch(this.host.myDevHost + 'token/add/' + + this.number.value + '/' + this.authService.getUserSession().id, val).subscribe({
           next: (data) => {
             if (this.regexNom.test(this.cb.nom) && this.regexCarte.test(this.cb.numcarte)
-        && this.regexCVC.test(this.cb.cvc) && this.regexMM.test(this.cb.moisexp)
-        && this.regexYYYY.test(this.cb.anexp)) {
-            this.buytokenService.msgErrCBCustom = "";
-            this.buytokenService.msgOKCBCustom = "Merci pour votre achat !"; } 
+              && this.regexCVC.test(this.cb.cvc) && this.regexMM.test(this.cb.moisexp)
+              && this.regexYYYY.test(this.cb.anexp)) {
+              this.buytokenService.msgErrCBCustom = "";
+              this.buytokenService.msgOKCBCustom = "Merci pour votre achat !";
+            }
             if (this.regexPrepayee.test(this.cb.carteprepayee)) {
-            this.buytokenService.msgErrPrepayeeCustom = "";
-            this.buytokenService.msgOKPrepayeeCustom = "Merci pour votre achat !";
-          }
+              this.buytokenService.msgErrPrepayeeCustom = "";
+              this.buytokenService.msgOKPrepayeeCustom = "Merci pour votre achat !";
+            }
+
+            this.connectedUser = this.authService.getUserSession();
+            this.connectedUser.nbPoint = this.connectedUser.nbPoint + 0.2*this.number.value;
+            this.connectedUser.nbToken = this.connectedUser.nbToken + 1*this.number.value;
+            this.authService.setUserInSession(this.connectedUser);
           },
         })
+      }
     }
   }
-}
 }
