@@ -1,41 +1,47 @@
 <div>
-                <nav class="navbar cloudy-knoxville-gradient navbar-expand-lg sticky-top">
-                    <a routerLink="dashboard" style="color: steelblue; font-size: 40px; font-family: 'Secular One', sans-serif;" *ngIf="authService.isConnected()">
-                        TICKETLY.
-                    </a>
-                    <p style="color: steelblue; font-size: 40px; font-family: 'Secular One', sans-serif;" *ngIf="!authService.isConnected()">
-                      TICKETLY.
-                    </p>
-                    <div class="collapse navbar-collapse">
-                      <ul class="navbar-nav">
-                        <li class="nav-item">
-                          <a class="nav-link"  routerLink="evenement" style="color: #002240;">Événements</a>
-                        </li>
-                        <li class="nav-item" *ngIf="authService.isConnected()">
-                          <a class="nav-link" routerLink="mestickets" style="color: #002240;" *ngIf="!authService.getUserSession().organisateur">Mes tickets</a>
-                        </li>
-                        <li class="nav-item" *ngIf="authService.isConnected()">
-                          <a class="nav-link" routerLink="mesevenements" style="color: #002240;" *ngIf="authService.getUserSession().organisateur">Mes événements</a>
-                        </li>
-                        <li class="nav-item" *ngIf="authService.isConnected()">
-                          <a class="nav-link" routerLink="amis/mes-amis" style="color: #002240;"*ngIf="!authService.getUserSession().organisateur">Amis</a>
-                        </li>
-                        <li class="nav-item" *ngIf="authService.isConnected()">
-                            <a class="nav-link" routerLink="boutique" style="color: #002240; " *ngIf="!authService.getUserSession().organisateur">Boutique</a>
-                        </li>
-                        <li class="nav-item" *ngIf="authService.isConnected()">
-                            <a class="nav-link" routerLink="buytokens" style="color: #002240; ">Acheter des Tokens</a>
-                        </li>
-                        <li class="nav-item" *ngIf="authService.isConnected()">
-                            <a class="nav-link" routerLink="profile" style="color: #002240;">Profil</a>
-                        </li>
-                        <li class="nav-item" *ngIf="!authService.isConnected()">
-                          <a class="nav-link" routerLink="login" style="color: #002240;">Connexion</a>
-                      </li>
-                      </ul>
-                    </div>
-                  </nav>
-  </div>
+  <nav class="navbar cloudy-knoxville-gradient navbar-expand-lg sticky-top">
+    <a routerLink="dashboard" style="color: steelblue; font-size: 40px; font-family: 'Secular One', sans-serif;"
+      *ngIf="authService.isConnected()">
+      TICKETLY.
+    </a>
+    <p style="color: steelblue; font-size: 40px; font-family: 'Secular One', sans-serif;"
+      *ngIf="!authService.isConnected()">
+      TICKETLY.
+    </p>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="evenement" style="color: #002240;">Événements</a>
+        </li>
+        <li class="nav-item" *ngIf="authService.isConnected()">
+          <a class="nav-link" routerLink="mestickets" style="color: #002240;"
+            *ngIf="!authService.getUserSession().organisateur">Mes tickets</a>
+        </li>
+        <li class="nav-item" *ngIf="authService.isConnected()">
+          <a class="nav-link" routerLink="mesevenements" style="color: #002240;"
+            *ngIf="authService.getUserSession().organisateur">Mes événements</a>
+        </li>
+        <li class="nav-item" *ngIf="authService.isConnected()">
+          <a class="nav-link" routerLink="amis/mes-amis" style="color: #002240;"
+            *ngIf="!authService.getUserSession().organisateur">Amis</a>
+        </li>
+        <li class="nav-item" *ngIf="authService.isConnected()">
+          <a class="nav-link" routerLink="boutique" style="color: #002240; "
+            *ngIf="!authService.getUserSession().organisateur">Boutique</a>
+        </li>
+        <li class="nav-item" *ngIf="authService.isConnected()">
+          <a class="nav-link" routerLink="buytokens" style="color: #002240; ">Acheter des Tokens</a>
+        </li>
+        <li class="nav-item" *ngIf="authService.isConnected()">
+          <a class="nav-link" routerLink="profile" style="color: #002240;">Profil</a>
+        </li>
+        <li class="nav-item" *ngIf="!authService.isConnected()">
+          <a class="nav-link" routerLink="login" style="color: #002240;">Connexion</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
 
 
 
@@ -46,7 +52,7 @@
 
 <br><br>
 <footer class="bg-light text-center text-lg-start fixed-bottom">
-    <div class="text-center p-3" style="background-color: #dfe8eb;">
-        © 2022 Copyright : Team Dev 6
-    </div>
+  <div class="text-center p-3" style="background-color: #dfe8eb;">
+    © 2022 Copyright : Team Dev 6
+  </div>
 </footer>
