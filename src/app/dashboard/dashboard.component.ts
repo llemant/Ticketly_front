@@ -19,6 +19,10 @@ nbPoint : any = this.AuthService.getUserSession().nbPoint;
 
 
   ngOnInit(): void {
+    if(!this.AuthService.isConnected()){
+      this.route.navigateByUrl('login');
+      this.AuthService.msgErr = "Veuillez vous connecter";
+    }
     this.recupEventInscriptionAujd();
 
   }
