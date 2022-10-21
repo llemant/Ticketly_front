@@ -34,7 +34,8 @@ import { MesevenementspassesComponent } from './mesevenementspasses/mesevenement
 import { MesAmisComponent } from './amis/mes-amis/mes-amis.component';
 import { MesDemandeAmisComponent } from './amis/mes-demande-amis/mes-demande-amis.component';
 import { AjoutAmiComponent } from './amis/ajout-ami/ajout-ami.component';
-
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { MsgInfoComponent } from './amis/msg-info/msg-info.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { AjoutAmiComponent } from './amis/ajout-ami/ajout-ami.component';
     EvenementComponent,
     MesAmisComponent,
     MesDemandeAmisComponent,
-    AjoutAmiComponent
+    AjoutAmiComponent,
+    MsgInfoComponent
   ],
   imports: [
     BrowserModule,
@@ -74,7 +76,8 @@ import { AjoutAmiComponent } from './amis/ajout-ami/ajout-ami.component';
     BrowserAnimationsModule,
     MatButtonModule,
     MatIconModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

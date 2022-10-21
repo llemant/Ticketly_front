@@ -45,12 +45,7 @@ export class Buy100tokensComponent implements OnInit {
     this.buytokenService.msgErrPrepayee100 = '';
     this.buytokenService.msgOKPrepayee100 = '';
 
-    console.log(this.cb.nom);
-    console.log(this.cb.numcarte);
-    console.log(this.cb.moisexp);
-    console.log(this.cb.anexp);
-    console.log(this.cb.cvc);
-    console.log(this.cb.carteprepayee);
+
 
     if (this.cb.nom == "" || this.cb.numcarte == "" || this.cb.cvc == "" || this.cb.moisexp == "" || this.cb.anexp == "" || this.cb.prepayee == "") {
       this.buytokenService.msgErrPrepayee100 = this.msgAttributManquant;

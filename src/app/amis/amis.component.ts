@@ -25,7 +25,7 @@ export class AmisComponent implements OnInit {
   recupMesAmis() {
     this.http.get(this.host.myDevHost + 'amis/' + this.authService.getUserSession().id).subscribe({
       next: (data) => { this.amis = data; },
-      error: (err) => { console.log(err); }
+
     });
   }
 

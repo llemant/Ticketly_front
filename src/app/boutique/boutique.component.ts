@@ -38,14 +38,14 @@ export class BoutiqueComponent implements OnInit {
   // Fonction déclenchée au clic
   achat(avt: any) {
     this.user = this.authService.getUserSession(); // Recuperation user
-    console.log(this.user);
+
     // Recuperation total a payer
     this.total = this.quantity.value * avt.prix;
 
 
     // Récupération points avant achat
     this.oldpoints = this.user.nbPoint;
-    console.log(this.oldpoints);
+
 
     // Paiement 
     if (this.oldpoints < this.total) {
@@ -66,8 +66,7 @@ export class BoutiqueComponent implements OnInit {
           "quantite": this.quantity.value
         }
         this.http.post(this.host.myDevHost + 'achat-bonus', achat).subscribe({
-          next: (data) => { console.log('ok') },
-          error: (err) => { console.log(err) }
+
         });
         this.boutiqueService.MsgBoutiqueErr = ''
         this.boutiqueService.MsgBoutiqueOK = 'Votre avantage a été pris en compte ! Vous avez maintenant ' + this.authService.getUserSession().nbPoint + ' points de fidélité.';
@@ -79,7 +78,7 @@ export class BoutiqueComponent implements OnInit {
   recupAvantages() {
     this.http.get(this.host.myDevHost + 'avantages').subscribe({
       next: (data) => { this.avantages = data },
-      error: (err) => { console.log(err) }
+
     });
   }
 

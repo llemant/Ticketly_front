@@ -32,7 +32,7 @@ connexion(val: any) {
           this.authService.msgErr = 'Identifiant ou mot de passe invalide';
         }
       },
-      error: (err) => { console.log(err) }
+
     });
   }
 

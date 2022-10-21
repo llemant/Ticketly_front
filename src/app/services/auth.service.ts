@@ -10,6 +10,8 @@ export class AuthService {
   msgErr: any;
   msgOK: any;
 
+  demande: any;
+
   constructor(private route: Router, private host : HostService, private http : HttpClient) { }
 
   setUserInSession(u: any) {

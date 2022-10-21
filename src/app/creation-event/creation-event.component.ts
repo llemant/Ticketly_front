@@ -66,12 +66,12 @@ export class CreationEventComponent implements OnInit {
         next: (data) => {
           event = data;
           this.authService.setUserInSession(event.organisateur)
-          console.log(event)
+
           this.creationEvent.msgErr = "";
           this.creationEvent.msgOK = "";
           this.route.navigateByUrl('profile');
         },
-        error: (err) => { console.log(err) }
+
       })
     }
 

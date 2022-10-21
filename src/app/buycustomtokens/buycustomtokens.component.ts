@@ -47,13 +47,7 @@ export class BuycustomtokensComponent implements OnInit {
     this.buytokenService.msgErrPrepayeeCustom = '';
     this.buytokenService.msgOKPrepayeeCustom = '';
 
-    console.log(this.cb.nom);
-    console.log(this.cb.numcarte);
-    console.log(this.cb.moisexp);
-    console.log(this.cb.anexp);
-    console.log(this.cb.cvc);
-    console.log(this.cb.carteprepayee);
-    console.log(this.number.value);
+
 
     if (this.cb.nom == "" || this.cb.numcarte == "" || this.cb.cvc == "" || this.cb.moisexp == "" || this.cb.anexp == "" || this.cb.prepayee == "") {
       this.buytokenService.msgErrPrepayeeCustom = this.msgAttributManquant;

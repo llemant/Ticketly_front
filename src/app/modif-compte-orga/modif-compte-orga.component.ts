@@ -57,7 +57,6 @@ export class ModifCompteOrgaComponent implements OnInit {
           this.authService.msgErr = "";
           this.authService.msgOK = "Modification réussie";
         },
-        error: (err) => { console.log(err) }
       })
     }
 
