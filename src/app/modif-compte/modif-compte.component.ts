@@ -30,8 +30,9 @@ export class ModifCompteComponent implements OnInit {
     if(!this.authService.isConnected()){
       this.route.navigateByUrl('login');
       this.authService.msgErr = "Veuillez vous connecter";
-    }
+    } else {
     this.connectedAccount = this.authService.getUserSession();
+    }
   }
 
   modification() {

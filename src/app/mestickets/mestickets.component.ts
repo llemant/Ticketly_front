@@ -17,8 +17,9 @@ eventsInscriptionFutur : any;
     if(!this.AuthService.isConnected()){
       this.route.navigateByUrl('login');
       this.AuthService.msgErr = "Veuillez vous connecter";
-    }
+    } else {
     this.recupEventInscriptionFutur();
+    }
   }
   recupEventInscriptionFutur() {
     this.http.get(this.host.myDevHost + 'inscriptions/futur/'+ this.AuthService.getUserSession().id).subscribe({

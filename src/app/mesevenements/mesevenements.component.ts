@@ -17,9 +17,10 @@ export class MesevenementsComponent implements OnInit {
     if(!this.AuthService.isConnected()){
       this.route.navigateByUrl('login');
       this.AuthService.msgErr = "Veuillez vous connecter";
-    }
+    } else {
     this.recupEventOrganisateurs();
     this.recupEventOrganisateursPast();
+    }
   }
   eventsOrganisateurs : any;
   eventsOrganisateursPast : any;

@@ -22,9 +22,9 @@ nbPoint : any = this.AuthService.getUserSession().nbPoint;
     if(!this.AuthService.isConnected()){
       this.route.navigateByUrl('login');
       this.AuthService.msgErr = "Veuillez vous connecter";
-    }
+    } else {
     this.recupEventInscriptionAujd();
-
+    }
   }
 
   recupEventInscriptionAujd() {

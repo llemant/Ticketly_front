@@ -17,8 +17,9 @@ eventsInscriptionPast : any;
     if(!this.AuthService.isConnected()){
       this.route.navigateByUrl('login');
       this.AuthService.msgErr = "Veuillez vous connecter";
-    }
+    } else {
     this.recupEventInscriptionPast();
+    }
   }
 
   recupEventInscriptionPast() {
