@@ -1,1 +1,20 @@
-<p>mes-demande-amis works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3" *ngFor="let d of demandes">
+            <div class="">
+                <figure class="snip1157">
+                    <img [src]="returnImageMascOrFemi(d.demandeur)" alt="sq-sample3" />
+                    <div class="author">
+                        <h5> {{ d.demandeur.prenom }} <span> {{ d.demandeur.nom }} </span></h5>
+                    </div>
+                </figure>
+                <div class="text-center">
+                    <button mat-mini-fab color="primary"  (click)="accepterDemande(d)" aria-label="Example icon button with a delete icon">
+                        <mat-icon>check</mat-icon>
+                    </button>
+                </div>
+            </div>
+            <br>
+        </div>
+    </div>
+</div>

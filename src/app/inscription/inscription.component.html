@@ -1,65 +1,75 @@
 <section class="h-100 gradient-form">
-    <div class="container py-5 h-100">
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col-xl-10">
-          <div class="card rounded-3 text-black">
-            <div class="row g-0">
-              <div class="col-lg-6">
-                <div class="card-body p-md-5 mx-md-4">
-  
-                  <div class="text-center">
-                    <div class="h1" style="color: steelblue; font-family: 'Secular One', sans-serif; " >TICKETLY.</div>
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-xl-10">
+        <div class="card rounded-3 text-black">
+          <div class="row g-0">
+            <div class="col-lg-6">
+              <div class="card-body p-md-5 mx-md-4">
+
+                <div class="text-center">
+                  <div class="h1" style="color: steelblue; font-family: 'Secular One', sans-serif; ">TICKETLY.</div>
+                </div>
+
+                <form #fLogin="ngForm" (ngSubmit)="inscription(fLogin.value)">
+                  <p>Rejoins-nous !</p>
+
+                  <div class="form-outline mb-4">
+                    <input name="nom" ngModel="" type="text" class="form-control" placeholder="Nom">
                   </div>
-  
-                  <form #fLogin="ngForm" (ngSubmit)="inscription(fLogin.value)">
-                    <p>Rejoins-nous !</p>
-  
-                    <div class="form-outline mb-4">
-                        <input name="nom" ngModel="" type="text" class="form-control" placeholder="Nom">
-                    </div>
-  
-                    <div class="form-outline mb-4">
-                        <input name="prenom" ngModel="" type="text" class="form-control" placeholder="Prénom">
-                    </div>
 
-                    <div class="form-outline mb-4">
-                        <input name="login" ngModel="" type="text" class="form-control" placeholder="Login">
-                    </div>
+                  <div class="form-outline mb-4">
+                    <input name="prenom" ngModel="" type="text" class="form-control" placeholder="Prénom">
+                  </div>
 
-                    <div class="form-outline mb-4">
-                        <input name="password" ngModel="" type="password" class="form-control" placeholder="Password">
-                    </div>
+                  <div class="form-outline mb-4">
+                    <input name="login" ngModel="" type="text" class="form-control" placeholder="Login">
+                  </div>
 
-                    <div class="form-outline mb-4">
-                        <input name="tel" ngModel="" type="text" class="form-control" placeholder="Numéro de téléphone">
-                    </div>
+                  <div class="form-outline mb-4">
+                    <input name="password" ngModel="" type="password" class="form-control" placeholder="Password">
+                  </div>
 
-                    <div class="form-outline mb-4">
-                        <input name="email" ngModel="" type="text" class="form-control" placeholder="Adresse email">
-                    </div>
-                    <p class="text-danger">{{ authService.msgErr }}</p>
-  
-                    <div class="text-center">
-                        <button type="submit" class="btn winter-neva-gradient">Inscription</button>
-                        <button type="button" class="btn btn-link btn-sm btn-block" routerLink = '/inscriptionOrganisateur'>Inscription organisateur</button>
-                        <button type="button" class="btn btn-link btn-sm btn-block" routerLink = '/login'>Page de connexion</button>
-                    </div>
-  
-                  </form>
-  
-                </div>
+                  <div class="form-outline mb-4">
+                    <input name="tel" ngModel="" type="text" class="form-control" placeholder="Numéro de téléphone">
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <input name="email" ngModel="" type="text" class="form-control" placeholder="Adresse email">
+                  </div>
+                  <div class="form-outline mb-4">
+                    <select name="sexe" ngModel="" class="form-control">
+                      <option value="M">Masculin</option>
+                      <option value="F">Feminin</option>
+                    </select>
+                  </div>
+                  <p class="text-danger">{{ authService.msgErr }}</p>
+
+                  <div class="text-center">
+                    <button type="submit" class="btn winter-neva-gradient">Inscription</button>
+                    <button type="button" class="btn btn-link btn-sm btn-block"
+                      routerLink='/inscriptionOrganisateur'>Inscription organisateur</button>
+                    <button type="button" class="btn btn-link btn-sm btn-block" routerLink='/login'>Page de
+                      connexion</button>
+                  </div>
+
+                </form>
+
               </div>
-              <div class="col-lg-6 d-flex align-items-center winter-neva-gradient">
-                <div class="text-dark px-3 py-4 p-md-5 mx-md-4">
-                  <h4 class="mb-4">Bienvenue sur le projet des Solutec-Dev6-2022 !</h4>
-                  <p class="small mb-0"> Amateur de bonne musique ? Fan de tennis ? Envie de faire la fête ? Sur Ticketly, nous vous garantissons que vous trouverez quelque chose qui vous plaira.<br>
-                    Si vous êtes un organisateur, vous pouvez inscrire vos événements sur Ticketly pour qu'ils obtiennent la visibilité qu'ils méritent. 
-            </p>
-                </div>
+            </div>
+            <div class="col-lg-6 d-flex align-items-center winter-neva-gradient">
+              <div class="text-dark px-3 py-4 p-md-5 mx-md-4">
+                <h4 class="mb-4">Bienvenue sur le projet des Solutec-Dev6-2022 !</h4>
+                <p class="small mb-0"> Amateur de bonne musique ? Fan de tennis ? Envie de faire la fête ? Sur Ticketly,
+                  nous vous garantissons que vous trouverez quelque chose qui vous plaira.<br>
+                  Si vous êtes un organisateur, vous pouvez inscrire vos événements sur Ticketly pour qu'ils obtiennent
+                  la visibilité qu'ils méritent.
+                </p>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>

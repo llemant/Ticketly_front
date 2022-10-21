@@ -12,7 +12,7 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./ajout-ami.component.css']
 })
 export class AjoutAmiComponent implements OnInit {
-  durationInSeconds = 4;
+  durationInSeconds = 3;
   demande: any;
   constructor(private http: HttpClient, private host: HostService, public authService: AuthService, private _snackBar: MatSnackBar, private route: Router) { }
 
@@ -35,6 +35,8 @@ export class AjoutAmiComponent implements OnInit {
   openSnackBar() {
     this._snackBar.openFromComponent(MsgInfoComponent, {
       duration: this.durationInSeconds * 1000,
+      horizontalPosition: 'center',
+      verticalPosition: 'top'
     });
   }
 
