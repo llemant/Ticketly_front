@@ -33,6 +33,7 @@ import { MesevenementsComponent } from './mesevenements/mesevenements.component'
 import { MesevenementspassesComponent } from './mesevenementspasses/mesevenementspasses.component';
 import { MesAmisComponent } from './amis/mes-amis/mes-amis.component';
 import { MesDemandeAmisComponent } from './amis/mes-demande-amis/mes-demande-amis.component';
+import { AjoutAmiComponent } from './amis/ajout-ami/ajout-ami.component';
 
 
 @NgModule({
@@ -61,7 +62,8 @@ import { MesDemandeAmisComponent } from './amis/mes-demande-amis/mes-demande-ami
     MesevenementspassesComponent,
     EvenementComponent,
     MesAmisComponent,
-    MesDemandeAmisComponent
+    MesDemandeAmisComponent,
+    AjoutAmiComponent
   ],
   imports: [
     BrowserModule,
