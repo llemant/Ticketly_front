@@ -21,6 +21,7 @@
                               <h5 class="card-title"> {{ e.event.titre }} </h5>
                               <p class="card-text"> Organisé par {{ e.event.organisateur.prenom }} {{ e.event.organisateur.nom }} </p>
                               <p class="card-text" style="color:DodgerBlue"> {{ e.event.date }} | {{ e.event.lieu }} | {{ e.event.prix }} Token</p>
+                              <p class="card-text">Tickets achetés : {{ e.ticketQuantity }}</p>
                           </div>
                           <div class="card-footer text-center">
                               <a class="btn btn-info">Détails du ticket</a>
