@@ -48,6 +48,7 @@ export class ModifCompteOrgaComponent implements OnInit {
       this.regexPw.test(this.connectedAccount.password)) {
       this.http.put(this.host.myDevHost + 'modif/orga/' + this.authService.getUserSession().login, this.connectedAccount).subscribe({
         next: (data) => {
+          this.authService.setUserInSession(this.connectedAccount);
           this.authService.msgErr = "";
           this.authService.msgOK = "Modification réussie";
         },

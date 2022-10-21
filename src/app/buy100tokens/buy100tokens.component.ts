@@ -1,4 +1,4 @@
-  import { HttpClient } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { BuyTokenService } from '../services/buytoken.service';
@@ -11,6 +11,7 @@ import { HostService } from '../services/host.service';
 })
 export class Buy100tokensComponent implements OnInit {
   cb: any;
+  connectedUser : any;
 
   regexNom = new RegExp('[a-zA-Z]+');
   regexCarte = new RegExp('[0-9]{16}$');
@@ -38,7 +39,7 @@ export class Buy100tokensComponent implements OnInit {
     this.buytokenService.msgOKCB100 = '';
     this.buytokenService.msgErrPrepayee100 = '';
     this.buytokenService.msgOKPrepayee100 = '';
-    
+
     console.log(this.cb.nom);
     console.log(this.cb.numcarte);
     console.log(this.cb.moisexp);
@@ -47,9 +48,9 @@ export class Buy100tokensComponent implements OnInit {
     console.log(this.cb.carteprepayee);
 
     if (this.cb.nom == "" || this.cb.numcarte == "" || this.cb.cvc == "" || this.cb.moisexp == "" || this.cb.anexp == "" || this.cb.prepayee == "") {
-      this.buytokenService.msgErrPrepayee100 = this.msgAttributManquant;      
+      this.buytokenService.msgErrPrepayee100 = this.msgAttributManquant;
       this.buytokenService.msgErrCB100 = this.msgAttributManquant;
-      
+
     } else {
       if (!this.regexNom.test(this.cb.nom)) {
         this.buytokenService.msgErrCB100 = this.msgNomIncorrect;
@@ -73,24 +74,30 @@ export class Buy100tokensComponent implements OnInit {
       if (this.cb.nom == "" || this.cb.numcarte == "" || this.cb.cvc == "" || this.cb.moisexp == "" || this.cb.anexp == "" && this.cb.prepayee != "" && !this.regexPrepayee.test(this.cb.carteprepayee)) {
         this.buytokenService.msgErrPrepayee100 = this.msgPrepayeeIncorrecte;
       }
-      
+
       if ((this.regexNom.test(this.cb.nom) && this.regexCarte.test(this.cb.numcarte)
         && this.regexCVC.test(this.cb.cvc) && this.regexMM.test(this.cb.moisexp)
         && this.regexYYYY.test(this.cb.anexp)) || (this.regexPrepayee.test(this.cb.carteprepayee))) {
-          this.http.patch(this.host.myDevHost +'token/add/100/' + this.authService.getUserSession().id, val).subscribe({
+        this.http.patch(this.host.myDevHost + 'token/add/100/' + this.authService.getUserSession().id, val).subscribe({
           next: (data) => {
             if (this.regexNom.test(this.cb.nom) && this.regexCarte.test(this.cb.numcarte)
-        && this.regexCVC.test(this.cb.cvc) && this.regexMM.test(this.cb.moisexp)
-        && this.regexYYYY.test(this.cb.anexp)) {
-            this.buytokenService.msgErrCB100 = "";
-            this.buytokenService.msgOKCB100 = "Merci pour votre achat !"; } 
+              && this.regexCVC.test(this.cb.cvc) && this.regexMM.test(this.cb.moisexp)
+              && this.regexYYYY.test(this.cb.anexp)) {
+              this.buytokenService.msgErrCB100 = "";
+              this.buytokenService.msgOKCB100 = "Merci pour votre achat !";
+            }
             if (this.regexPrepayee.test(this.cb.carteprepayee)) {
-            this.buytokenService.msgErrPrepayee100 = "";
-            this.buytokenService.msgOKPrepayee100 = "Merci pour votre achat !";
-          }
+              this.buytokenService.msgErrPrepayee100 = "";
+              this.buytokenService.msgOKPrepayee100 = "Merci pour votre achat !";
+            }
+
+           this.connectedUser = this.authService.getUserSession();
+           this.connectedUser.nbPoint = this.connectedUser.nbPoint + 20;
+           this.connectedUser.nbToken = this.connectedUser.nbToken + 100;
+           this.authService.setUserInSession(this.connectedUser);
           },
         })
+      }
     }
   }
-}
 }

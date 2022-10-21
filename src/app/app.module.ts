@@ -24,7 +24,6 @@ import { MesticketsComponent } from './mestickets/mestickets.component';
 import { MarketplaceComponent } from './marketplace/marketplace.component';
 import { BoutiqueComponent } from './boutique/boutique.component';
 import { MessagerieComponent } from './messagerie/messagerie.component';
-import { LieuComponent } from './lieu/lieu.component';
 import { EvenementComponent } from './evenement/evenement.component';
 import { ModifCompteComponent } from './modif-compte/modif-compte.component';
 import { ModifCompteOrgaComponent } from './modif-compte-orga/modif-compte-orga.component';
@@ -54,7 +53,6 @@ import { MesDemandeAmisComponent } from './amis/mes-demande-amis/mes-demande-ami
     MarketplaceComponent,
     BoutiqueComponent,
     MessagerieComponent,
-    LieuComponent,
     ModifCompteComponent,
     ModifCompteOrgaComponent,
     MesticketspassesComponent,

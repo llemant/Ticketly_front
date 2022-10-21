@@ -1,5 +1,7 @@
-import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Host, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { HostService } from './host.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +10,7 @@ export class AuthService {
   msgErr: any;
   msgOK: any;
 
-  constructor(private route: Router) { }
+  constructor(private route: Router, private host : HostService, private http : HttpClient) { }
 
   setUserInSession(u: any) {
     localStorage.setItem('connectedUser', JSON.stringify(u));
@@ -36,6 +38,4 @@ export class AuthService {
     localStorage.removeItem('connectedUser');
     this.route.navigateByUrl('login');
   }
-
-
 }

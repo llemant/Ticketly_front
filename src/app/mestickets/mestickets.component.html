@@ -5,7 +5,7 @@
     <div class="" style="background-color: #FFFFFF ">
       <div class="container" style="padding-top: 25px">
         <nav class="pill-nav text-center">
-          <a class="active" routerLink="/mestickets">A venir</a>
+          <a class="active rounded-pill winter-neva-gradient p-2 text-dark font-weight-bold" routerLink="/mestickets">A venir</a>
           <a routerLink="/mesticketspasses">Passés</a>
         </nav>
         <br>
@@ -21,9 +21,10 @@
                               <h5 class="card-title"> {{ e.event.titre }} </h5>
                               <p class="card-text"> Organisé par {{ e.event.organisateur.prenom }} {{ e.event.organisateur.nom }} </p>
                               <p class="card-text" style="color:DodgerBlue"> {{ e.event.date }} | {{ e.event.lieu }} | {{ e.event.prix }} Token</p>
+                              <p class="card-text">Tickets achetés : {{ e.ticketQuantity }}</p>
                           </div>
                           <div class="card-footer text-center">
-                              <a class="btn btn-info">Détails du ticket</a>
+                              <a class="btn btn-info" >Détails du ticket</a>
                           </div>
                       </div>
                       <br>

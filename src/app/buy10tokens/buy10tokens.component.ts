@@ -13,6 +13,7 @@ import { HostService } from '../services/host.service';
 export class Buy10tokensComponent implements OnInit {
 
   cb: any;
+  connectedUser: any;
 
   // Definition des expressions regulieres pour la validation de l'input
   regexNom = new RegExp('[a-zA-Z]+');
@@ -101,6 +102,12 @@ export class Buy10tokensComponent implements OnInit {
               this.buytokenService.msgErrPrepayee10 = "";
               this.buytokenService.msgOKPrepayee10 = "Merci pour votre achat !";
             }
+
+           this.connectedUser = this.authService.getUserSession();
+           this.connectedUser.nbPoint = this.connectedUser.nbPoint + 2;
+           this.connectedUser.nbToken = this.connectedUser.nbToken + 10;
+           this.authService.setUserInSession(this.connectedUser);
+
           },
         })
       }
