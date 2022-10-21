@@ -17,8 +17,9 @@ eventsInscriptionFutur : any;
   }
   recupEventInscriptionFutur() {
     this.http.get(this.host.myDevHost + 'inscriptions/futur/'+ this.AuthService.getUserSession().id).subscribe({
-      next : (data) => { this.eventsInscriptionFutur = data },
+      next : (data) => { this.eventsInscriptionFutur = data},
       error : (err) => { console.log(err) }
+
     });
   }
 }

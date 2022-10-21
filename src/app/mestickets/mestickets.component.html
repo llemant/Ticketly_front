@@ -1,42 +1,66 @@
-<link rel="stylesheet" routerLink="mestickets.component.css" />
+  <link rel="stylesheet" routerLink="mestickets.component.css" />
 
-<div class="container-fluid">
-  <div class="">
-    <div class="" style="background-color: #FFFFFF ">
-      <div class="container" style="padding-top: 25px">
-        <nav class="pill-nav text-center">
-          <a class="active rounded-pill winter-neva-gradient p-2 text-dark font-weight-bold" routerLink="/mestickets">A venir</a>
-          <a routerLink="/mesticketspasses">Passés</a>
-        </nav>
-        <br>
-        <div class="container" *ngIf="eventsInscriptionFutur != 0"> 
-          <div class="">
-              <div class="row">
-                  <div class="col-sm-4" style="padding-top:35px" *ngFor="let e of eventsInscriptionFutur">
-                      <div class="card h-100">
-                      <img class="card-img-top" height="220px" wight="40px"
-                              src={{e.event.image}}>
-  
-                          <div class="card-body">
-                              <h5 class="card-title"> {{ e.event.titre }} </h5>
-                              <p class="card-text"> Organisé par {{ e.event.organisateur.prenom }} {{ e.event.organisateur.nom }} </p>
-                              <p class="card-text" style="color:DodgerBlue"> {{ e.event.date }} | {{ e.event.lieu }} | {{ e.event.prix }} Token</p>
-                              <p class="card-text">Tickets achetés : {{ e.ticketQuantity }}</p>
+  <div class="container-fluid">
+    <div class="">
+      <div class="" style="background-color: #FFFFFF ">
+        <div class="container" style="padding-top: 25px">
+          <nav class="pill-nav text-center">
+            <a class="active rounded-pill winter-neva-gradient p-2 text-dark font-weight-bold" routerLink="/mestickets">A venir</a>
+            <a routerLink="/mesticketspasses">Passés</a>
+          </nav>
+
+          <div class="container" *ngIf="eventsInscriptionFutur != 0"> 
+            <div class="">
+                <div class="row justify-content-center">
+                      <div class="col-sm-4" style="padding-top:35px" *ngFor="let e of eventsInscriptionFutur">
+                        <div class="card h-100">
+                        <img class="card-img-top" height="220px" wight="40px"
+                                src={{e.event.image}}>
+    
+                            <div class="card-body text-center">
+                                <h5 class="card-title"> {{ e.event.titre }} </h5>
+                                <p class="card-text"> Organisé par {{ e.event.organisateur.prenom }} {{ e.event.organisateur.nom }} </p>
+                                <p class="card-text" style="color:DodgerBlue"> {{ e.event.date }} | {{ e.event.lieu }} | {{ e.event.prix }} Token</p>
+                                <p class="card-text">Tickets achetés : {{ e.ticketQuantity }}</p>
+                            </div>
+                            <div class="card-footer text-center">
+                                <a class="btn btn-info" type="button" class="btn rounded-pill winter-neva-gradient text-dark font-weight-bold" data-toggle="modal" data-target="#exampleModal" >Détails de l'événement</a>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Détails de l'événement</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body text-center">
+                                <p class="card-text">Organisateur : {{e.event.organisateur.prenom }} {{ e.event.organisateur.nom }}</p>
+                                <p class="card-text">Date : {{ e.event.date }}</p>
+                                <p class="card-text">Lieu: {{ e.event.lieu }}</p>
+                                <p class="card-text">Prix du billet : {{ e.event.prix }} Tokens</p>
+                                <p class="card-text">Nombe de tickets : {{ e.ticketQuantity }}</p>
+                                <p class="card-text">Prix total : {{ e.ticketQuantity*e.event.prix}} Tokens</p>
+                              </div>
+                              <div class="modal-footer justify-content-center">
+                                <button type="button" class="btn rounded-pill winter-neva-gradient text-dark font-weight-bold" data-dismiss="modal">Close</button>
+                              </div>
+                            </div>
                           </div>
-                          <div class="card-footer text-center">
-                              <a class="btn btn-info" >Détails du ticket</a>
-                          </div>
-                      </div>
-                      <br>
-                  </div>
-              </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center" style="padding-top:35px;" *ngIf="eventsInscriptionFutur == 0">
+          <h3 class="container shadow shadow-primary rounded text-black text-center" style="padding-block:30px ;"> Tu n'as pas d'événement à venir, n'hésite pas à aller dans événements pour t'inscrire aux événements disponibles sur notre site ! </h3>
+        </div>
+          
           </div>
-      </div>
-      <div class="text-center" style="padding-top:35px;" *ngIf="eventsInscriptionFutur == 0">
-          <h3 class="container" style="background-color:black ; color: white;"> Tu n'as pas d'événement en ce moment, n'hésite pas à aller dans événement pour t'inscrire à de nouveaux 😘 </h3>
-      </div>
-        
         </div>
       </div>
+      
     </div>
-  </div>

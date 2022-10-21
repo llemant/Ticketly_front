@@ -8,15 +8,13 @@
           <a routerLink="/mestickets">A venir</a>
           <a class="active rounded-pill winter-neva-gradient p-2 text-dark font-weight-bold" routerLink="/mesticketspasses">Passés</a>
         </nav>
-        <br>
         <div class="container" *ngIf="eventsInscriptionPast != 0"> 
           <div class="">
               <div class="row">
                   <div class="col-sm-4" style="padding-top:35px" *ngFor="let e of eventsInscriptionPast">
                       <div class="hachure">
                         <div class="card h-100 hachure">
-                          <img class="card-img-top" height="220px" wight="40px"
-                              src={{e.event.image}}>
+                          <img class="card-img-top" height="220px" wight="40px" src={{e.event.image}}>
   
                           <div class="card-body">
                               <h5 class="card-title"> {{ e.event.titre }} </h5>
@@ -36,7 +34,7 @@
           </div>
 </div>
           <div class="text-center" style="padding-top:35px;" *ngIf="eventsInscriptionPast == 0">
-            <h3 class="container" style="background-color:black ; color: white;"> Tu n'as pas d'événement en ce moment, n'hésite pas à aller dans événement pour t'inscrire à de nouveaux 😘 </h3>
+            <h3 class="container shadow shadow-primary rounded text-black text-center" style="padding-block:30px ;"> Tu n'as pas encore participé à un événement proposé sur Ticketly, n'hésite pas à aller dans événements pour t'inscrire aux événements disponibles sur notre site ! </h3>
         </div>
 
       </div>
