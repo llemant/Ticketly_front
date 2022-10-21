@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { AuthService } from 'src/app/services/auth.service';
 import { HostService } from 'src/app/services/host.service';
 import { MsgInfoComponent } from '../msg-info/msg-info.component';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-ajout-ami',
@@ -13,9 +14,14 @@ import { MsgInfoComponent } from '../msg-info/msg-info.component';
 export class AjoutAmiComponent implements OnInit {
   durationInSeconds = 4;
   demande: any;
-  constructor(private http: HttpClient, private host: HostService, public authService: AuthService, private _snackBar: MatSnackBar) { }
+  constructor(private http: HttpClient, private host: HostService, public authService: AuthService, private _snackBar: MatSnackBar, private route: Router) { }
+
 
   ngOnInit(): void {
+    if(!this.authService.isConnected()){
+      this.route.navigateByUrl('login');
+      this.authService.msgErr = "Veuillez vous connecter";
+    }
   }
 
   ajoutAmi(log: any) {

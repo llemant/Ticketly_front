@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { BuyTokenService } from '../services/buytoken.service';
 import { HostService } from '../services/host.service';
@@ -28,9 +29,13 @@ export class Buy100tokensComponent implements OnInit {
   msgPrepayeeIncorrecte = "Le numéro de carte prépayée est incorrect";
 
 
-  constructor(private http: HttpClient, public authService: AuthService, public buytokenService: BuyTokenService, private host: HostService) { }
+  constructor(private http: HttpClient, public authService: AuthService, public buytokenService: BuyTokenService, private host: HostService, private route : Router) { }
 
   ngOnInit(): void {
+    if(!this.authService.isConnected()){
+      this.route.navigateByUrl('login');
+      this.authService.msgErr = "Veuillez vous connecter";
+    }
   }
 
   pay100(val: any) {
@@ -40,12 +45,7 @@ export class Buy100tokensComponent implements OnInit {
     this.buytokenService.msgErrPrepayee100 = '';
     this.buytokenService.msgOKPrepayee100 = '';
 
-    console.log(this.cb.nom);
-    console.log(this.cb.numcarte);
-    console.log(this.cb.moisexp);
-    console.log(this.cb.anexp);
-    console.log(this.cb.cvc);
-    console.log(this.cb.carteprepayee);
+
 
     if (this.cb.nom == "" || this.cb.numcarte == "" || this.cb.cvc == "" || this.cb.moisexp == "" || this.cb.anexp == "" || this.cb.prepayee == "") {
       this.buytokenService.msgErrPrepayee100 = this.msgAttributManquant;

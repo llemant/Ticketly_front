@@ -26,8 +26,33 @@
                                                 <p class="card-text"> {{e.ticketQuantity}} place(s) achetée(s) le {{ e.dateInscription }}</p>
                                             </div>
                                             <div class="card-footer text-center">
-                                                <a href="#" class="btn btn-info">Détail de l'événement</a>
+                                                <a class="btn btn-info" type="button" class="btn rounded-pill winter-neva-gradient text-dark font-weight-bold" data-toggle="modal" data-target="#exampleModal" >Détails de l'événement</a>
                                             </div>
+                                        </div>
+                                        <br>
+                                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                          <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                              <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Détails de l'événement</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                  <span aria-hidden="true">&times;</span>
+                                                </button>
+                                              </div>
+                                              <div class="modal-body text-center">
+                                                <p class="card-text">Organisateur : {{e.event.organisateur.prenom }} {{ e.event.organisateur.nom }}</p>
+                                                <p class="card-text">Date : {{ e.event.date }}</p>
+                                                <p class="card-text">Lieu: {{ e.event.lieu }}</p>
+                                                <p class="card-text">Prix du billet : {{ e.event.prix }} Tokens</p>
+                                                <p class="card-text">Nombe de tickets : {{ e.ticketQuantity }}</p>
+                                                <p class="card-text">Prix total : {{ e.ticketQuantity*e.event.prix}} Tokens</p>
+                                              </div>
+                                              <div class="modal-footer justify-content-center">
+                                                <button type="button" class="btn rounded-pill winter-neva-gradient text-dark font-weight-bold" data-dismiss="modal">Close</button>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
                                         </div>
                                         <br>
                                     </div>
@@ -35,7 +60,7 @@
                             </div>
                         </div>
                         <div class="text-center" style="padding-top:35px;" *ngIf="eventsInscriptionAujd == 0">
-                            <h3 class="container" style="background-color:black ; color: white;"> Tu n'as pas d'événement en ce moment, n'hésite pas à aller dans événement pour t'inscrire à de nouveaux 😘 </h3>
+                            <h3 class="container shadow shadow-primary rounded text-black text-center" style="padding-block:30px ;"> Tu n'as pas d'événement aujourd'hui, n'hésite pas à aller dans événements pour t'inscrire aux événements disponibles sur notre site ! </h3>
                         </div>
                     <br>
                     <div class="row" style="padding-top: 10px;">
@@ -45,7 +70,7 @@
                                     Mes tokens
                                 </div>
                             </div>
-                            <br>
+                            <br>   
                             <br>
                         
     <div class="row" style="padding-top:15px;">

@@ -28,7 +28,6 @@ export class ProfileComponent implements OnInit {
             this.authService.msgOK = "Compte supprimé avec succès";
             this.route.navigateByUrl('login');
           },
-          error: (err) => { console.log(err) }
         })
   }
 

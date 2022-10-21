@@ -45,28 +45,28 @@ export class EvenementComponent implements OnInit {
   recupEvent() {
     this.http.get(this.host.myDevHost + 'events').subscribe({
       next: (data) => { this.events = data },
-      error: (err) => { console.log(err) }
+
     });
   }
 
   recupEventAujd() {
     this.http.get(this.host.myDevHost + 'event/today').subscribe({
-      next: (data) => { this.eventsAujd = data; console.log(this.eventsAujd) },
-      error: (err) => { console.log(err) }
+      next: (data) => { this.eventsAujd = data; },
+
     });
   }
 
   recupEventAvant() {
     this.http.get(this.host.myDevHost + 'event/before').subscribe({
       next: (data) => { this.eventsAvant = data },
-      error: (err) => { console.log(err) }
+
     });
   }
 
   recupEventApres() {
     this.http.get(this.host.myDevHost + 'event/after').subscribe({
       next: (data) => { this.eventsApres = data },
-      error: (err) => { console.log(err) }
+ 
     });
   }
 
@@ -96,7 +96,7 @@ export class EvenementComponent implements OnInit {
             this.authService.msgOK = "Merci pour votre achat";
             this.authService.setUserInSession(this.lInscription.acheteur);
           },
-          error: (err) => { console.log(err) }
+
         })
       }
     }

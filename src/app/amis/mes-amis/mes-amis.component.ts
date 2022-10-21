@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { HostService } from 'src/app/services/host.service';
 
@@ -10,16 +11,21 @@ import { HostService } from 'src/app/services/host.service';
 })
 export class MesAmisComponent implements OnInit {
   amis: any;
-  constructor(private http: HttpClient, private host: HostService, public authService: AuthService) { }
+  constructor(private http: HttpClient, private host: HostService, public authService: AuthService, private route: Router) { }
 
   ngOnInit(): void {
+    if(!this.authService.isConnected()){
+      this.route.navigateByUrl('login');
+      this.authService.msgErr = "Veuillez vous connecter";
+    } else {
     this.recupMesAmis();
+    }
   }
 
   recupMesAmis() {
     this.http.get(this.host.myDevHost + 'amis/' + this.authService.getUserSession().id).subscribe({
       next: (data) => { this.amis = data; },
-      error: (err) => { console.log(err); }
+
     });
   }
 

@@ -21,7 +21,7 @@
                         <div class="card h-100">
                             <img class="card-img-top" height="220px" wight="40px" src={{e.image}}>
 
-                            <div class="card-body">
+                            <div class="card-body text-center">
                                 <h5 class="card-title"> {{ e.titre }} </h5>
                                 <p class="card-text"> Organisé par {{ e.organisateur.prenom }} {{ e.organisateur.nom }}
                                 </p>
@@ -41,8 +41,7 @@
         </div>
     </div>
     <div class="text-center" style="padding-top:35px;" *ngIf="eventsAujd == 0">
-        <h3 class="container" style="background-color:black ; color: white;">Pas d'events ??? Mais on dort en ce moment
-            ou quoi ?</h3>
+        <h3 class="container shadow shadow-primary rounded text-black text-center" style="padding-block:30px ;"> Aucun événement de  prévu sur Ticketly aujourd'hui, n'hésite pas à revenir sur notre site une autre fois ! </h3>
     </div>
 
     <div class="container" style="padding-top:35px ;">
@@ -68,7 +67,7 @@
                         <div class="card h-100">
                             <img class="card-img-top" height="220px" wight="40px" src={{e.image}}>
 
-                            <div class="card-body">
+                            <div class="card-body text-center">
                                 <h5 class="card-title"> {{ e.titre }} </h5>
                                 <p class="card-text"> Organisé par {{ e.organisateur.prenom }} {{ e.organisateur.nom }}
                                 </p>
@@ -89,8 +88,7 @@
         </div>
     </div>
     <div class="text-center" style="padding-top:35px;" *ngIf="eventsApres == 0">
-        <h3 class="container" style="background-color:black ; color: white;">Désolés, nous n'avons plus d'événements pour
-            les semaines à venir...</h3>
+        <h3 class="container shadow shadow-primary rounded text-black text-center" style="padding-block:30px ;"> Aucun événement de  prévu sur Ticketly dans les semaines à venir, n'hésite pas à revenir sur notre site pour vous tenir à jour ! </h3>
     </div>
 
     <div class="container" style="padding-top:35px ;">

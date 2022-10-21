@@ -19,14 +19,18 @@ nbPoint : any = this.AuthService.getUserSession().nbPoint;
 
 
   ngOnInit(): void {
+    if(!this.AuthService.isConnected()){
+      this.route.navigateByUrl('login');
+      this.AuthService.msgErr = "Veuillez vous connecter";
+    } else {
     this.recupEventInscriptionAujd();
-
+    }
   }
 
   recupEventInscriptionAujd() {
     this.http.get(this.host.myDevHost + 'inscriptions/today/'+ this.AuthService.getUserSession().id).subscribe({
       next : (data) => { this.eventsInscriptionAujd = data },
-      error : (err) => { console.log(err) }
+
     });
   }
 
