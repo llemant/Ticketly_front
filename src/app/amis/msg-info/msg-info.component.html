@@ -1,0 +1,7 @@
+<p *ngIf="authService.demande" class="text-info text-center">
+    Demande envoyée !!
+</p>
+
+<p *ngIf="!authService.demande" class="text-danger text-center">
+    Ce login n'existe pas !!
+</p>
