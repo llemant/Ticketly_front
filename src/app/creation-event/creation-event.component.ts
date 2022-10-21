@@ -28,7 +28,12 @@ export class CreationEventComponent implements OnInit {
 
   constructor(public creationEvent: CreateeventService, public authService: AuthService, private http: HttpClient, private route: Router, private host: HostService) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void { 
+    if(!this.authService.isConnected()){
+      this.route.navigateByUrl('login');
+      this.authService.msgErr = "Veuillez vous connecter";
+    }
+  }
 
 
 
@@ -61,12 +66,12 @@ export class CreationEventComponent implements OnInit {
         next: (data) => {
           event = data;
           this.authService.setUserInSession(event.organisateur)
-          console.log(event)
+
           this.creationEvent.msgErr = "";
           this.creationEvent.msgOK = "";
           this.route.navigateByUrl('profile');
         },
-        error: (err) => { console.log(err) }
+
       })
     }
 

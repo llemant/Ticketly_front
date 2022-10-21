@@ -31,7 +31,7 @@
                             <div class="card-footer text-center">
                                 <input class='form-control' type='number' [formControl]="quantity"
                                     placeholder="Quantité souhaitée">
-                                <button type="submit" class="btn rounded-pill winter-neva-gradient text-dark font-weight-bold">Je veux ! </button>
+                                <button type="submit" [disabled]="!authService.isConnected()" class="btn rounded-pill winter-neva-gradient text-dark font-weight-bold">Je veux ! </button>
                             </div>
                         </div>
                     </form>
@@ -78,7 +78,7 @@
                             <div class="card-footer text-center">
                                 <input class='form-control' type='number' [formControl]="quantity"
                                     placeholder="Quantité souhaitée">
-                                <button type="submit" class="btn rounded-pill winter-neva-gradient text-dark font-weight-bold">Je veux ! </button>
+                                <button type="submit" [disabled]="!authService.isConnected()" class="btn rounded-pill winter-neva-gradient text-dark font-weight-bold">Je veux ! </button>
                             </div>
                         </div>
                     </form>

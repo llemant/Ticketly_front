@@ -12,7 +12,6 @@ import { MarketplaceComponent } from './marketplace/marketplace.component';
 import { BoutiqueComponent } from './boutique/boutique.component';
 import { MessagerieComponent } from './messagerie/messagerie.component';
 import { ProfileComponent } from './profile/profile.component';
-import { LieuComponent } from './lieu/lieu.component';
 import { ModifCompteComponent } from './modif-compte/modif-compte.component';
 import { ModifCompteOrgaComponent } from './modif-compte-orga/modif-compte-orga.component';
 import { MesticketspassesComponent } from './mesticketspasses/mesticketspasses.component';
@@ -21,6 +20,7 @@ import { MesevenementsComponent } from './mesevenements/mesevenements.component'
 import { MesevenementspassesComponent } from './mesevenementspasses/mesevenementspasses.component';
 import { MesDemandeAmisComponent } from './amis/mes-demande-amis/mes-demande-amis.component';
 import { MesAmisComponent } from './amis/mes-amis/mes-amis.component';
+import { AjoutAmiComponent } from './amis/ajout-ami/ajout-ami.component';
 
 const routes: Routes = [
   { path: 'buytokens', component: AchatTokensComponent },
@@ -32,14 +32,15 @@ const routes: Routes = [
   {
     path: 'amis', component: AmisComponent, children: [
       { path: 'mes-demande-amis', component: MesDemandeAmisComponent },
-      { path: 'mes-amis', component: MesAmisComponent }]
+      { path: 'mes-amis', component: MesAmisComponent },
+      { path: 'ajout-ami', component: AjoutAmiComponent },
+    ]
   },
   { path: 'marketplace', component: MarketplaceComponent },
   { path: 'boutique', component: BoutiqueComponent },
   { path: 'messagerie', component: MessagerieComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'inscriptionOrganisateur', component: InscriptionOrganisateurComponent },
-  { path: 'lieu', component: LieuComponent },
   { path: 'modifCompte', component: ModifCompteComponent },
   { path: 'modifCompteOrga', component: ModifCompteOrgaComponent },
   { path: 'mesticketspasses', component: MesticketspassesComponent },

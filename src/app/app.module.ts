@@ -24,7 +24,6 @@ import { MesticketsComponent } from './mestickets/mestickets.component';
 import { MarketplaceComponent } from './marketplace/marketplace.component';
 import { BoutiqueComponent } from './boutique/boutique.component';
 import { MessagerieComponent } from './messagerie/messagerie.component';
-import { LieuComponent } from './lieu/lieu.component';
 import { EvenementComponent } from './evenement/evenement.component';
 import { ModifCompteComponent } from './modif-compte/modif-compte.component';
 import { ModifCompteOrgaComponent } from './modif-compte-orga/modif-compte-orga.component';
@@ -34,6 +33,7 @@ import { MesevenementsComponent } from './mesevenements/mesevenements.component'
 import { MesevenementspassesComponent } from './mesevenementspasses/mesevenementspasses.component';
 import { MesAmisComponent } from './amis/mes-amis/mes-amis.component';
 import { MesDemandeAmisComponent } from './amis/mes-demande-amis/mes-demande-amis.component';
+import { AjoutAmiComponent } from './amis/ajout-ami/ajout-ami.component';
 
 
 @NgModule({
@@ -54,7 +54,6 @@ import { MesDemandeAmisComponent } from './amis/mes-demande-amis/mes-demande-ami
     MarketplaceComponent,
     BoutiqueComponent,
     MessagerieComponent,
-    LieuComponent,
     ModifCompteComponent,
     ModifCompteOrgaComponent,
     MesticketspassesComponent,
@@ -63,7 +62,8 @@ import { MesDemandeAmisComponent } from './amis/mes-demande-amis/mes-demande-ami
     MesevenementspassesComponent,
     EvenementComponent,
     MesAmisComponent,
-    MesDemandeAmisComponent
+    MesDemandeAmisComponent,
+    AjoutAmiComponent
   ],
   imports: [
     BrowserModule,

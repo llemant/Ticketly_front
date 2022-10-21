@@ -18,7 +18,7 @@
                           <a class="nav-link" routerLink="mesevenements" style="color: #002240;" *ngIf="authService.getUserSession().organisateur">Mes événements</a>
                         </li>
                         <li class="nav-item" *ngIf="authService.isConnected()">
-                          <a class="nav-link" routerLink="amis" style="color: #002240;"*ngIf="!authService.getUserSession().organisateur">Amis</a>
+                          <a class="nav-link" routerLink="amis/mes-amis" style="color: #002240;"*ngIf="!authService.getUserSession().organisateur">Amis</a>
                         </li>
                         <li class="nav-item" *ngIf="authService.isConnected()">
                             <a class="nav-link" routerLink="boutique" style="color: #002240; " *ngIf="!authService.getUserSession().organisateur">Boutique</a>

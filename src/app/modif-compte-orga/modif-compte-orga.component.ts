@@ -26,7 +26,12 @@ export class ModifCompteOrgaComponent implements OnInit {
   constructor(private http: HttpClient, private route: Router, public authService: AuthService, private host: HostService) { }
 
   ngOnInit(): void {
+    if(!this.authService.isConnected()){
+      this.route.navigateByUrl('login');
+      this.authService.msgErr = "Veuillez vous connecter";
+    } else {
     this.connectedAccount = this.authService.getUserSession();
+    }
   }
 
   modificationOrganisateur() {
@@ -48,10 +53,10 @@ export class ModifCompteOrgaComponent implements OnInit {
       this.regexPw.test(this.connectedAccount.password)) {
       this.http.put(this.host.myDevHost + 'modif/orga/' + this.authService.getUserSession().login, this.connectedAccount).subscribe({
         next: (data) => {
+          this.authService.setUserInSession(this.connectedAccount);
           this.authService.msgErr = "";
           this.authService.msgOK = "Modification réussie";
         },
-        error: (err) => { console.log(err) }
       })
     }
 

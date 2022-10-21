@@ -27,11 +27,16 @@ export class ModifCompteComponent implements OnInit {
   constructor(private http: HttpClient, private route: Router, public authService: AuthService, private host: HostService) { }
 
   ngOnInit(): void {
+    if(!this.authService.isConnected()){
+      this.route.navigateByUrl('login');
+      this.authService.msgErr = "Veuillez vous connecter";
+    } else {
     this.connectedAccount = this.authService.getUserSession();
+    }
   }
 
   modification() {
-    console.log('user en cours de modif ' , this.connectedAccount);
+
 
     if (!this.regexTel.test(this.connectedAccount.tel)) {
       this.authService.msgErr = this.msgTelIncorrect;
@@ -48,10 +53,11 @@ export class ModifCompteComponent implements OnInit {
       this.regexPw.test(this.connectedAccount.password)) {
       this.http.put(this.host.myDevHost + 'modif/user/' + this.authService.getUserSession().login, this.connectedAccount).subscribe({
         next: (data) => {
+          this.authService.setUserInSession(this.connectedAccount);
           this.authService.msgErr = "";
           this.authService.msgOK = "Modification réussie";
         },
-        error: (err) => { console.log(err) }
+
       })
     }
 

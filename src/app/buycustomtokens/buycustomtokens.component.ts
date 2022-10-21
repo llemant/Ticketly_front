@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { BuyTokenService } from '../services/buytoken.service';
 import { HostService } from '../services/host.service';
@@ -30,9 +31,13 @@ export class BuycustomtokensComponent implements OnInit {
 
   number = new FormControl();
 
-  constructor(private http: HttpClient, public authService: AuthService, public buytokenService: BuyTokenService, public host: HostService) { }
+  constructor(private http: HttpClient, public authService: AuthService, public buytokenService: BuyTokenService, public host: HostService, private route : Router) { }
 
   ngOnInit(): void {
+    if(!this.authService.isConnected()){
+      this.route.navigateByUrl('login');
+      this.authService.msgErr = "Veuillez vous connecter";
+    }
   }
 
   payCustom(val: any) {
@@ -42,13 +47,7 @@ export class BuycustomtokensComponent implements OnInit {
     this.buytokenService.msgErrPrepayeeCustom = '';
     this.buytokenService.msgOKPrepayeeCustom = '';
 
-    console.log(this.cb.nom);
-    console.log(this.cb.numcarte);
-    console.log(this.cb.moisexp);
-    console.log(this.cb.anexp);
-    console.log(this.cb.cvc);
-    console.log(this.cb.carteprepayee);
-    console.log(this.number.value);
+
 
     if (this.cb.nom == "" || this.cb.numcarte == "" || this.cb.cvc == "" || this.cb.moisexp == "" || this.cb.anexp == "" || this.cb.prepayee == "") {
       this.buytokenService.msgErrPrepayeeCustom = this.msgAttributManquant;

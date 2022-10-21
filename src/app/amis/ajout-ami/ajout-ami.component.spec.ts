@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LieuComponent } from './lieu.component';
+import { AjoutAmiComponent } from './ajout-ami.component';
 
-describe('LieuComponent', () => {
-  let component: LieuComponent;
-  let fixture: ComponentFixture<LieuComponent>;
+describe('AjoutAmiComponent', () => {
+  let component: AjoutAmiComponent;
+  let fixture: ComponentFixture<AjoutAmiComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LieuComponent ]
+      declarations: [ AjoutAmiComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(LieuComponent);
+    fixture = TestBed.createComponent(AjoutAmiComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
