@@ -10,7 +10,7 @@
         </div>
         <br>
       <nav class="pill-nav text-center">
-        <a class="active" routerLink="/mesevenements">A venir</a>
+        <a class="active rounded-pill winter-neva-gradient p-2 text-dark font-weight-bold" routerLink="/mesevenements">A venir</a>
         <a routerLink="/mesevenementspasses">Passés</a>
       </nav>
       <div class="" *ngIf="eventsOrganisateurs != 0"> 
@@ -25,12 +25,36 @@
                             <h5 class="card-title"> {{ e.titre }} </h5>
                             <p class="card-text"> Organisé par {{ e.organisateur.prenom }} {{ e.organisateur.nom }} </p>
                             <p class="card-text" style="color:DodgerBlue"> {{ e.date }} | {{ e.lieu }} | {{ e.prix }} Token</p>
+                            <p class="card-text"> Artiste : {{ e.artiste}}
+
                         </div>
                         <div class="card-footer text-center">
-                            <a href="#" class="btn btn-info">Détail de l'événement</a>
+                            <a class="btn btn-info" type="button" class="btn rounded-pill winter-neva-gradient text-dark font-weight-bold" data-toggle="modal" data-target="#exampleModal" >Détails de l'événement</a>
                         </div>
                     </div>
                     <br>
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">Détails de l'événement</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body text-center">
+                              <p class="card-text">Organisateur : {{e.organisateur.prenom }} {{ e.organisateur.nom }}</p>
+                              <p class="card-text"> Artiste : {{ e.artiste}}
+                              <p class="card-text">Date : {{ e.date }}</p>
+                              <p class="card-text">Lieu: {{ e.lieu }}</p>
+                              <p class="card-text">Prix du billet : {{ e.prix }} Tokens</p>
+                            </div>
+                            <div class="modal-footer justify-content-center">
+                              <button type="button" class="btn rounded-pill winter-neva-gradient text-dark font-weight-bold" data-dismiss="modal">Close</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                 </div>
             </div>
         </div>
