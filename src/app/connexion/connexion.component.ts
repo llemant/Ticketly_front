@@ -25,6 +25,7 @@ connexion(val: any) {
       next: (data) => {
         this.user = data;
         if (this.user != null) {
+          this.authService.msgErr = "";
           this.authService.setUserInSession(this.user);
           this.route.navigateByUrl('dashboard');
         } else {
