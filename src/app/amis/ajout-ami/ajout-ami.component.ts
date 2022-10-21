@@ -3,19 +3,23 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
-  selector: 'app-mes-demande-amis',
-  templateUrl: './mes-demande-amis.component.html',
-  styleUrls: ['./mes-demande-amis.component.css']
+  selector: 'app-ajout-ami',
+  templateUrl: './ajout-ami.component.html',
+  styleUrls: ['./ajout-ami.component.css']
 })
-export class MesDemandeAmisComponent implements OnInit {
+export class AjoutAmiComponent implements OnInit {
 
-  constructor(private authService: AuthService, private route: Router) { }
+  constructor(public authService: AuthService, private route: Router) { }
 
   ngOnInit(): void {
     if(!this.authService.isConnected()){
       this.route.navigateByUrl('login');
       this.authService.msgErr = "Veuillez vous connecter";
     }
+  }
+
+  ajoutAmi(login: any){
+    
   }
 
 }

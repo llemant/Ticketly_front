@@ -26,7 +26,12 @@ export class ModifCompteOrgaComponent implements OnInit {
   constructor(private http: HttpClient, private route: Router, public authService: AuthService, private host: HostService) { }
 
   ngOnInit(): void {
+    if(!this.authService.isConnected()){
+      this.route.navigateByUrl('login');
+      this.authService.msgErr = "Veuillez vous connecter";
+    } else {
     this.connectedAccount = this.authService.getUserSession();
+    }
   }
 
   modificationOrganisateur() {

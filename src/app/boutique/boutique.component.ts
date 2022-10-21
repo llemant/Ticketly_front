@@ -3,6 +3,7 @@ import { NgIf } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, Host, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { BoutiqueService } from '../services/boutique.service';
 import { HostService } from '../services/host.service';
@@ -22,11 +23,16 @@ export class BoutiqueComponent implements OnInit {
   quantity = new FormControl();
   regexQuantity = new RegExp('[0-9]+');
 
-  constructor(private http: HttpClient, public authService: AuthService, public host: HostService, public boutiqueService: BoutiqueService) {
+  constructor(private http: HttpClient, public authService: AuthService, public host: HostService, public boutiqueService: BoutiqueService, private route: Router) {
   }
 
   ngOnInit(): void {
+    if(!this.authService.isConnected()){
+      this.route.navigateByUrl('login');
+      this.authService.msgErr = "Veuillez vous connecter";
+    } else {
     this.recupAvantages();
+    }
   }
 
   // Fonction déclenchée au clic
@@ -46,7 +52,7 @@ export class BoutiqueComponent implements OnInit {
       this.boutiqueService.MsgBoutiqueErr = 'Vous n\'avez pas assez de points de fidélité pour acheter cela !'
       this.boutiqueService.MsgBoutiqueOK = ''
     } else {
-      if (!this.regexQuantity.test(this.quantity.value) || this.quantity.value < 0) {
+      if (!this.regexQuantity.test(this.quantity.value) || this.quantity.value <= 0) {
         this.boutiqueService.MsgBoutiqueErr = 'Veuillez entrer une quantité valide.'
         this.boutiqueService.MsgBoutiqueOK = ''
       } else {

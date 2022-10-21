@@ -20,6 +20,7 @@ import { MesevenementsComponent } from './mesevenements/mesevenements.component'
 import { MesevenementspassesComponent } from './mesevenementspasses/mesevenementspasses.component';
 import { MesDemandeAmisComponent } from './amis/mes-demande-amis/mes-demande-amis.component';
 import { MesAmisComponent } from './amis/mes-amis/mes-amis.component';
+import { AjoutAmiComponent } from './amis/ajout-ami/ajout-ami.component';
 
 const routes: Routes = [
   { path: 'buytokens', component: AchatTokensComponent },
@@ -31,7 +32,9 @@ const routes: Routes = [
   {
     path: 'amis', component: AmisComponent, children: [
       { path: 'mes-demande-amis', component: MesDemandeAmisComponent },
-      { path: 'mes-amis', component: MesAmisComponent }]
+      { path: 'mes-amis', component: MesAmisComponent },
+      { path: 'ajout-ami', component: AjoutAmiComponent },
+    ]
   },
   { path: 'marketplace', component: MarketplaceComponent },
   { path: 'boutique', component: BoutiqueComponent },

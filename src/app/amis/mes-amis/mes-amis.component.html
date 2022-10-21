@@ -1,21 +1,23 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-3" *ngFor="let a of amis">
-            <figure class="snip1157">
+            <div class="">
+                <figure class="snip1157">
 
-                <img src="https://img.freepik.com/psd-gratuit/personnage-feminin-3d-ayant-idee_23-2148938893.jpg?w=826&t=st=1666279539~exp=1666280139~hmac=41d51468588bdf4da8a522f3db6788a85e6f4bed924535ca0fbf0374e4a243a6"
-                    alt="sq-sample3" />
-                <div class="author">
-                    <h5> {{ a.demandeur.prenom }} <span> {{ a.demandeur.nom }} </span></h5>
+                    <img [src]="returnImageMascOrFemi(a)" alt="sq-sample3" />
+                    <div class="author">
+                        <h5> {{ a.prenom }} <span> {{ a.nom }} </span></h5>
+                    </div>
+                </figure>
+                <div class="text-center">
+                    <button mat-mini-fab color="warn" (click)="deleteAmis(a)" aria-label="Example icon button with a delete icon">
+                        <mat-icon>delete</mat-icon>
+                    </button>
                 </div>
-            </figure>
-            <div class="text-center">
-                <button mat-mini-fab color="warn" aria-label="Example icon button with a delete icon">
-                    <mat-icon>delete</mat-icon>
-                </button>
             </div>
+            <br>
         </div>
     </div>
 </div>
 
-<hr>
+<!-- *ngIf="a.receveur != authService.getUserSession()" -->
