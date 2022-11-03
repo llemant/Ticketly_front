@@ -11,34 +11,34 @@
                   <div class="h1" style="color: steelblue; font-family: 'Secular One', sans-serif; ">TICKETLY.</div>
                 </div>
 
-                <form #fLogin="ngForm" (ngSubmit)="inscription(fLogin.value)">
+                <form #fSignin="ngForm" (ngSubmit)="inscription(fSignin.value)">
                   <p>Rejoins-nous !</p>
 
                   <div class="form-outline mb-4">
-                    <input name="nom" ngModel="" type="text" class="form-control" placeholder="Nom">
+                    <input name="nom" ngModel="" required type="text" class="form-control" placeholder="Nom">
                   </div>
 
                   <div class="form-outline mb-4">
-                    <input name="prenom" ngModel="" type="text" class="form-control" placeholder="Prénom">
+                    <input name="prenom" ngModel="" required type="text" class="form-control" placeholder="Prénom">
                   </div>
 
                   <div class="form-outline mb-4">
-                    <input name="login" ngModel="" type="text" class="form-control" placeholder="Login">
+                    <input name="login" ngModel="" required type="text" class="form-control" placeholder="Login">
                   </div>
 
                   <div class="form-outline mb-4">
-                    <input name="password" ngModel="" type="password" class="form-control" placeholder="Password">
+                    <input name="password" ngModel="" required type="password" class="form-control" placeholder="Password">
                   </div>
 
                   <div class="form-outline mb-4">
-                    <input name="tel" ngModel="" type="text" class="form-control" placeholder="Numéro de téléphone">
+                    <input name="tel" ngModel="" required type="tel" class="form-control" placeholder="Numéro de téléphone">
                   </div>
 
                   <div class="form-outline mb-4">
-                    <input name="email" ngModel="" type="text" class="form-control" placeholder="Adresse email">
+                    <input name="email" ngModel="" required type="email" class="form-control" placeholder="Adresse email">
                   </div>
                   <div class="form-outline mb-4">
-                    <select name="sexe" ngModel="" class="form-control">
+                    <select name="sexe" ngModel="" required class="form-control">
                       <option value="M">Masculin</option>
                       <option value="F">Feminin</option>
                     </select>
@@ -46,7 +46,7 @@
                   <p class="text-danger">{{ authService.msgErr }}</p>
 
                   <div class="text-center">
-                    <button type="submit" class="btn winter-neva-gradient">Inscription</button>
+                    <button type="submit" [disabled]="!fSignin.form.valid" class="btn winter-neva-gradient">Inscription</button>
                     <button type="button" class="btn btn-link btn-sm btn-block"
                       routerLink='/inscriptionOrganisateur'>Inscription organisateur</button>
                     <button type="button" class="btn btn-link btn-sm btn-block" routerLink='/login'>Page de

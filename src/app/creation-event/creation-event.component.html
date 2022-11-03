@@ -25,12 +25,12 @@
                     <input name="prix" ngModel="" required type="number" class="form-control" placeholder="Prix de l'Evénement en Tokens">
                 </div>
                 <div class="md-form">
-                    <input name="photo" ngModel="" required type="text" class="form-control" placeholder="Insérer le lien de l'image de votre choix">
+                    <input name="image" ngModel="" required type="text" class="form-control" placeholder="Insérer le lien de l'image de votre choix">
                 </div>
                 <div class="md-form">
                     <input name="lieu" ngModel="" required type="text" class="form-control" placeholder="Lieu">
                 </div>
-                <button type="submit" [disabled]="!fcreationEvent.form.valid" class="btn btn-primary btn-sm btn-block">Créer L'Evénement</button>                
+                <button type="submit" [disabled]="!fcreationEvent.form.valid" class="btn btn-primary btn-sm btn-block">Créer L'Evénement</button>
                 <br>
                 <p class="text-danger">{{ creationEvent.msgErr }}</p>
                 <p class="text-success">{{ creationEvent.msgOK }}</p>
