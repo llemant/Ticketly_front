@@ -6,62 +6,62 @@
             <div class="row g-0">
               <div class="col-lg-6">
                 <div class="card-body p-md-5 mx-md-4">
-  
+
                   <div class="text-center">
                     <div class="h1" style="color: steelblue; font-family: 'Secular One', sans-serif; " >TICKETLY.</div>
                   </div>
-  
-                  <form #fLogin="ngForm" (ngSubmit)="inscriptionOrganisateur(fLogin.value)">
+
+                  <form #fSigninOrg="ngForm" (ngSubmit)="inscriptionOrganisateur(fSigninOrg.value)">
                     <p>Nous ne vous décevrons pas !</p>
-  
+
                     <div class="form-outline mb-4">
-                        <input name="nom" ngModel="" type="text" class="form-control" placeholder="Nom">
-                    </div>
-  
-                    <div class="form-outline mb-4">
-                        <input name="prenom" ngModel="" type="text" class="form-control" placeholder="Prénom">
+                        <input name="nom" ngModel="" required type="text" class="form-control" placeholder="Nom">
                     </div>
 
                     <div class="form-outline mb-4">
-                        <input name="login" ngModel="" type="text" class="form-control" placeholder="Login">
+                        <input name="prenom" ngModel="" required type="text" class="form-control" placeholder="Prénom">
                     </div>
 
                     <div class="form-outline mb-4">
-                        <input name="password" ngModel="" type="password" class="form-control" placeholder="Password">
+                        <input name="login" ngModel="" required type="text" class="form-control" placeholder="Login">
                     </div>
 
                     <div class="form-outline mb-4">
-                        <input name="tel" ngModel="" type="text" class="form-control" placeholder="Numéro de téléphone">
+                        <input name="password" ngModel="" required type="password" class="form-control" placeholder="Password">
                     </div>
 
                     <div class="form-outline mb-4">
-                        <input name="email" ngModel="" type="text" class="form-control" placeholder="Adresse email">
+                        <input name="tel" ngModel="" required type="tel" class="form-control" placeholder="Numéro de téléphone">
                     </div>
 
                     <div class="form-outline mb-4">
-                        <input name="nomEntreprise" ngModel="" type="text" class="form-control" placeholder="Nom de l'entreprise">
+                        <input name="email" ngModel="" required type="email" class="form-control" placeholder="Adresse email">
                     </div>
 
                     <div class="form-outline mb-4">
-                        <input name="siret" ngModel="" type="text" class="form-control" placeholder="Numéro SIRET de l'entreprise">
+                        <input name="nomEntreprise" ngModel="" required type="text" class="form-control" placeholder="Nom de l'entreprise">
+                    </div>
+
+                    <div class="form-outline mb-4">
+                        <input name="siret" ngModel="" required type="text" class="form-control" placeholder="Numéro SIRET de l'entreprise">
                     </div>
                     <p class="text-danger">{{ authService.msgErr }}</p>
-  
+
                     <div class="text-center">
-                        <button type="submit" class="btn winter-neva-gradient">Inscription</button>
+                        <button type="submit" [disabled]="!fSigninOrg.form.valid" class="btn winter-neva-gradient">Inscription</button>
                         <button type="button" class="btn btn-link btn-sm btn-block" routerLink = '/inscription'>Inscription utilisateur</button>
                         <button type="button" class="btn btn-link btn-sm btn-block" routerLink = '/login'>Page de connexion</button>
                     </div>
-  
+
                   </form>
-  
+
                 </div>
               </div>
               <div class="col-lg-6 d-flex align-items-center winter-neva-gradient">
                 <div class="text-dark px-3 py-4 p-md-5 mx-md-4">
                   <h4 class="mb-4">Bienvenue sur le projet des Solutec-Dev6-2022 !</h4>
                   <p class="small mb-0"> Amateur de bonne musique ? Fan de tennis ? Envie de faire la fête ? Sur Ticketly, nous vous garantissons que vous trouverez quelque chose qui vous plaira.<br>
-                    Si vous êtes un organisateur, vous pouvez inscrire vos événements sur Ticketly pour qu'ils obtiennent la visibilité qu'ils méritent. 
+                    Si vous êtes un organisateur, vous pouvez inscrire vos événements sur Ticketly pour qu'ils obtiennent la visibilité qu'ils méritent.
             </p>
                 </div>
               </div>
