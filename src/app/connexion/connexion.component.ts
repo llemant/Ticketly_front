@@ -18,6 +18,9 @@ export class ConnexionComponent implements OnInit {
     if(this.authService.isConnected()) {
       this.route.navigateByUrl('dashboard');
     }
+    this.authService.msgErr = '';
+    this.authService.msgOK = '';
+
 }
 
 connexion(val: any) {
@@ -32,8 +35,6 @@ connexion(val: any) {
           this.authService.msgErr = 'Identifiant ou mot de passe invalide';
         }
       },
-
     });
   }
-
 }

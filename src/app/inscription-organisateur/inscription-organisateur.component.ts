@@ -38,7 +38,10 @@ export class InscriptionOrganisateurComponent implements OnInit {
     private host: HostService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.authService.msgErr = '';
+    this.authService.msgOK = '';
+  }
 
   inscriptionOrganisateur(val: any) {
     this.user = val;
